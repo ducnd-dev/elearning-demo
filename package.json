@@ -27,6 +27,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.1",
     "@clerk/localizations": "^2.8.1",
     "@clerk/nextjs": "^5.4.1",
     "@electric-sql/pglite": "^0.2.5",
@@ -35,6 +36,7 @@
     "@sentry/nextjs": "^8.29.0",
     "@spotlightjs/spotlight": "^2.3.2",
     "@t3-oss/env-nextjs": "^0.11.1",
+    "antd": "^5.20.6",
     "drizzle-orm": "^0.33.0",
     "next": "^14.2.9",
     "next-intl": "^3.19.1",
