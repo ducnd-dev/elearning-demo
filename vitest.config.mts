@@ -5,6 +5,19 @@ import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
+  server: {
+    port: 3000,
+    watch: {
+      usePolling: true,
+      interval: 100,
+    },
+    hmr: {
+      overlay: false,
+    },
+  },
+  optimizeDeps: {
+    include: ['@testing-library/react', '@testing-library/jest-dom'],
+  },
   // test: {
   //   globals: true, // This is needed by @testing-library to be cleaned up after each test
   //   include: ['src/**/*.test.{js,jsx,ts,tsx}'],
