@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export const TopSession = () => {
@@ -156,10 +157,12 @@ export const TopSession = () => {
               </div>
             </div>
             <div className="my-4">
-              <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-100 p-2 text-center font-semibold">
-                <img src="https://khanhhung.academy//template/assets/images/home/icon-gg.png" alt="" className="size-5" />
-                Đăng nhập với Google
-              </button>
+              <Link href="/sign-in" className="block">
+                <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-100 p-2 text-center font-semibold">
+                  <img src="https://khanhhung.academy//template/assets/images/home/icon-gg.png" alt="" className="size-5" />
+                  Đăng nhập với Google
+                </button>
+              </Link>
             </div>
             <div className="rounded-md bg-[#f41e92] p-1">
               <div className="flex">
