@@ -20,7 +20,7 @@ export const Header = () => {
         <img src="https://khanhhung.academy/learn/assets/images/logo-png.png" alt="Khanh Hung" className="h-12" />
         <ul className="hidden lg:flex">
           {menus.map(menu => (
-            <li key={menu.href} className="flex items-center gap-1 px-[10px] py-2 font-semibold">
+            <li key={menu.href} className="mx-2 flex items-center gap-1 px-[10px] py-2 font-semibold">
               <img src={menu.icon} alt={menu.label} className="size-5" />
               <Link
                 href={menu.href}
