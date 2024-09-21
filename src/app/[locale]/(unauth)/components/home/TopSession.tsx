@@ -166,7 +166,8 @@ export const TopSession = () => {
                   </div>
                 </div>
                 <div className="web-video web-video-js">
-                  <iframe className="iframe" width="100%" height="100%" src="https://video.monamedia.net/streamer/embed.php?v=MTI3MTU=&amp;autoplay=false&amp;thumbnail=https://khanhhung.academy/template/assets/images/home/web-video-poster-1-1.jpg" frameBorder="0" sandbox="allow-same-origin allow-scripts" title="Educational Video"> </iframe>
+                  {/* <iframe className="iframe" width="100%" height="100%" src="https://video.monamedia.net/streamer/embed.php?v=MTI3MTU=&amp;autoplay=false&amp;thumbnail=https://khanhhung.academy/template/assets/images/home/web-video-poster-1-1.jpg" frameBorder="0" sandbox="allow-same-origin allow-scripts" title="Educational Video"> </iframe> */}
+                  <img src="https://khanhhung.academy/template/assets/images/home/web-video-poster-1-1.jpg" alt="" />
                 </div>
               </div>
             </div>
