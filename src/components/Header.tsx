@@ -2,9 +2,9 @@ import { DemoBanner } from './DemoBanner';
 
 export const Header = () => {
   const menus = [
-    { label: 'Quyền lợi', href: '/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
-    { label: 'Chương trình học', href: '/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
-    { label: 'Khánh Hùng là ai ?', href: '/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
+    { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
+    { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
+    { label: 'Khánh Hùng là ai ?', href: '/#about-kh', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
     { label: 'Hùng\'s Colleague Club', href: 'https://www.facebook.com/groups/337354765813432', icon: 'https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg' },
     { label: 'Blog', href: 'https://khanhhung.academy/blog/', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
     { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
@@ -75,7 +75,7 @@ export const Header = () => {
                   <div className="header-bot-inner">
                     <div className="header-bot-item" data-attribute="login">
                       {' '}
-                      <a className="btn-header btn-header-js" href="https://khanhhung.academy/#sec-form">
+                      <a className="btn-header btn-header-js" href="/#sec-form">
                         <span className="txt fw-600">
                           Đăng nhập
                         </span>
@@ -83,7 +83,7 @@ export const Header = () => {
                     </div>
                     <div className="header-bot-item" data-attribute="register">
                       {' '}
-                      <a className="btn-header btn-header-js bg-lms" href="https://khanhhung.academy/#sec-form">
+                      <a className="btn-header btn-header-js bg-lms" href="/#sec-form">
                         <span className="txt fw-600">
                           Đăng ký và học thử ngay
                         </span>
@@ -91,7 +91,7 @@ export const Header = () => {
                     </div>
                   </div>
                   <div className="header-bot-item-pri header-bot-item" data-attribute="register">
-                    <a className="btn-header btn-header-js style-pri" href="https://khanhhung.academy/#sec-form">
+                    <a className="btn-header btn-header-js style-pri" href="/#sec-form">
                       {' '}
                       <span className="txt fw-600">
                         Học ngay

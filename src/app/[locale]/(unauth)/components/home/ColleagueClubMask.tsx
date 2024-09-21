@@ -7,6 +7,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed-customized.php?v=MTI0MDU=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-1.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 992w,',
     },
     {
       id: 2,
@@ -15,6 +16,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed.php?v=MTI1NDA=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-a-thanh-mkt.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 992w,',
     },
     {
       id: 3,
@@ -23,6 +25,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed-customized.php?v=MTI0MjM=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-4.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 992w,',
     },
     {
       id: 4,
@@ -31,6 +34,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed.php?v=MTI1Mzc=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-a-huan.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-066.jpg 992w,',
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed.php?v=MTI1Mzg=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-a-thao-ielts.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 992w,',
     },
     {
       id: 6,
@@ -47,6 +52,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed-customized.php?v=MTI0MjE=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-5-up.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 992w,',
     },
     {
       id: 7,
@@ -55,6 +61,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed.php?v=MTI1Mzk=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-a-phuong-dj.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 992w,',
     },
     {
       id: 8,
@@ -63,6 +70,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed-customized.php?v=MTI0MDY=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-3.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-bao-up.jpg 992w,',
     },
     {
       id: 9,
@@ -71,6 +79,7 @@ export const ColleagueClubMask = () => {
       tag: 'ĐỒNG NGHIỆP PRO',
       video: 'https://video.monamedia.net/streamer/embed.php?v=MTI5NzM=&amp;autoplay=false',
       avatar: 'https://khanhhung.academy/template/assets/images/home/avt-colleague-a-khoa.jpg',
+      srcSet: 'https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 576w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 991w, https://khanhhung.academy/template/assets/hq-images/home/colleague-club-a-tue.jpg 992w,',
     },
   ];
 
@@ -131,7 +140,8 @@ export const ColleagueClubMask = () => {
                   </div>
                 </div>
                 <div className="content">
-                  <iframe className="inner" width="100%" height="100%" src={item.video} style={{ border: 0 }} sandbox="allow-scripts allow-same-origin allow-popups" title={`Colleague Club Video ${index}`}> </iframe>
+                  {/* <iframe className="inner" width="100%" height="100%" src={item.video} style={{ border: 0 }} sandbox="allow-scripts allow-same-origin allow-popups" title={`Colleague Club Video ${index}`}> </iframe> */}
+                  <img className="inner opti-image" srcSet={item.srcSet} src={item.avatar} alt="" />
                 </div>
               </div>
             </div>
