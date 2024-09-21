@@ -7,7 +7,7 @@ import { Benefit } from './components/home/Benefit';
 import { ColleagueClubMask } from './components/home/ColleagueClubMask';
 import { ColleagueCourses } from './components/home/ColleagueCourses';
 import { ComingSoon } from './components/home/ComingSoon';
-import { CoursesPersonalizedData } from './components/home/coursesPersonalizedData';
+import { CoursesPersonalizedData } from './components/home/CoursesPersonalizedData';
 import { Faqs } from './components/home/Faqs';
 import { Intro } from './components/home/Intro';
 import { Staff } from './components/home/Staff';
