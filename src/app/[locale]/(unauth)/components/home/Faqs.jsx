@@ -8,7 +8,7 @@ export const Faqs = () => {
       <div className="gdcor">
         <img src="https://khanhhung.academy/template/assets/images/home/lmsfaq-gdcor.png" alt="" />
       </div>
-      <div className="panda-dcor"><img className="opti-image" srcSet="https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-sp.png 576w, https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-tl.png 991w, https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-pc.png 992w," src="https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-pc.png" size="(max-width: 576px) 576px, (max-width: 991px) 991px, 1000px " alt="" /></div>
+      <div className="panda-dcor"><img className="opti-image" srcSet="https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-sp.png 576w, https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-tl.png 991w, https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-pc.png 992w," src="https://khanhhung.academy/template/assets/hq-images/home/panda-dcor-pc.png" sizes="(max-width: 576px) 576px, (max-width: 991px) 991px, 1000px " alt="" /></div>
       <div className="container">
         <div className="seofaq-top">
           <div className="title text-ani bg-blue">FAQ</div>
