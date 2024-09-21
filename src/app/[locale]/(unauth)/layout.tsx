@@ -13,8 +13,8 @@ export default function Layout(props: {
   return (
     <>
       <Header />
-      <div className="min-h-screen w-full bg-gradient-to-b from-[#580b94] to-[#a75ee0] px-1">
-        <div className="container mx-auto pt-24">
+      <div className="min-h-screen w-full px-1">
+        <div>
           {props.children}
         </div>
       </div>

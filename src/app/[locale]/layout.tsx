@@ -1,4 +1,6 @@
 import '@/styles/global.css';
+import '@/styles/inter.css';
+import 'swiper/css';
 
 import { AntdRegistry } from '@ant-design/nextjs-registry'; // Import AntdRegistry
 import type { Metadata } from 'next';
