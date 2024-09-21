@@ -56,6 +56,10 @@ export const Sidebar = () => {
           </ul>
         </div>
       </div>
+      <div className="mb-dx active:scale-101">
+        <img src="https://khanhhung.academy/learn/assets/images/hd-logged-5.svg" alt="" />
+        <span className="txt">Đăng Xuất</span>
+      </div>
     </div>
   );
 };
