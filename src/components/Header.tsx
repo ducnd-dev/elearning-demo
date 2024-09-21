@@ -19,7 +19,7 @@ export const Header = () => {
               <div className="header-bot-wrap">
                 <div className="header-bot-left append-burger-js">
                   <div className="logo">
-                    <a className="logo-link" href="https://khanhhung.academy">
+                    <a className="logo-link" href="/">
                       {' '}
                       <img src="https://khanhhung.academy/template/assets/images/header/logo-kha.png" alt="" />
                     </a>

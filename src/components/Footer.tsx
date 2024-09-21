@@ -145,7 +145,7 @@ export const Footer = () => (
             <a href="https://www.dmca.com/Protection/Status.aspx?ID=75cdf341-9b39-4dd1-8203-879110316ee9&amp;refurl=https://khanhhung.academy/" title="DMCA.com Protection Status" className="dmca-badge">
               <img src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=75cdf341-9b39-4dd1-8203-879110316ee9" alt="DMCA.com Protection Status" />
             </a>
-            <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+            {/* <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script> */}
           </div>
         </div>
       </div>
