@@ -13,7 +13,7 @@ export const TopSession = () => {
               <h1 className="mona-content-hidden">Khoá học bán khoá học Khánh Hùng Academy</h1>
               <div className="banner-inner">
                 <div className="banner-inner-text ele-hidden-mb">
-                  <div className="add-active-js txt-ani-bg edutech txt-center txt-border">
+                  <div className="add-active-js txt-ani-bg edutech txt-center txt-border bg-[#f41e92]">
                     <span className="txt txt-upper fw-600 fz-32">
                       <span className="total-products-count loading-dot-ani loading-dot-ani-js floor-total-products-js">220</span>
                       +
@@ -178,7 +178,7 @@ export const TopSession = () => {
 
             <div className="banner-inner ele-hidden-desk">
               <div className="banner-inner-text">
-                <div className="add-active-js txt-ani-bg edutech txt-center txt-border">
+                <div className="add-active-js txt-ani-bg edutech txt-center txt-border bg-[#f41e92]">
                   <span className="txt txt-upper fw-600 fz-32">
                     <span className="total-products-count loading-dot-ani loading-dot-ani-js floor-total-products-js">220</span>
                     +

@@ -115,6 +115,41 @@ export const CoursesPersonalizedData = () => {
         },
       ],
     },
+    {
+      title: 'Tiềm năng cực kì lớn của mô hình dạy bằng bộ Video',
+      totalPosts: '5 bài',
+      totalTime: '52:55',
+      lists: [
+        {
+          title: 'Elearning là một cơ hội chà bá của chuyên gia',
+          tag: 'Nổi bật',
+          time: '18:43',
+          img: 'https://api.khanhhung.academy/media/catalog/product/E/l/Elearning_la_mo_t_co_ho_i_cha_ba_cu_a_chuye_n_gia.png',
+        },
+        {
+          title: 'Học viên vẫn sẽ mua khóa học bằng bộ video!!',
+          tag: 'Quan trọng',
+          time: '12:06',
+          img: 'https://api.khanhhung.academy/media/catalog/product/h/o/hoc-vien-van-mua.png',
+        },
+        {
+          title: 'Giải pháp cho khóa học KHÔNG THÀNH CÔNG của bạn',
+          tag: 'Quan trọng',
+          time: '08:25',
+          img: 'https://api.khanhhung.academy/media/catalog/product/c/h/chuyen-doi-khoa-cu.png',
+        },
+        {
+          title: 'Hùng là ai và bạn sẽ nhận được gì từ Khóa học Khánh Hùng Academy',
+          time: '09:44',
+          img: 'https://api.khanhhung.academy/media/catalog/product/h/u/hung-la-ai.png',
+        },
+        {
+          title: 'Một khóa học kinh doanh elearning chỉnh chu và bài bản thật sự',
+          time: '03:57',
+          img: 'https://api.khanhhung.academy/media/catalog/product/M/o/Mo_t_kho_a_ho_c_kinh_doanh_elearning_chi_nh_chu_va__ba_i_ba_n_tha_t_su_.png',
+        },
+      ],
+    },
   ];
   return (
     <div className="courses-personalized-data titleJS text-white" id="chuong_trinh_hoc">
@@ -147,7 +182,7 @@ export const CoursesPersonalizedData = () => {
                         <div className="lesson-box brd-16">
                           <div className="inner">
                             <div className="hd d-flex">
-                              <div className="num">01</div>
+                              <div className="num">{index}</div>
                               <p className="tt txt-upper">{data.title}</p>
                             </div>
                             <div className="info d-flex">
