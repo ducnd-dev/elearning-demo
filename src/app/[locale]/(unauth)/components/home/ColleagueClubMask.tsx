@@ -114,7 +114,7 @@ export const ColleagueClubMask = () => {
       <div className="colleague-club-mask"> </div>
       <div className="container">
         <div className="title">Đồng Nghiệp nói gì về khoá học của Hùng</div>
-        <div className="list d-flex f-ctn">
+        <div className="list d-flex f-ctn flex-wrap">
           {datas.map((item, index) => (
             <div className="item col col-4" key={index}>
               <div className="wrap">

@@ -41,7 +41,7 @@ export const Benefit = () => {
           <div className="desc txt-center">Hùng luôn có ưu đãi cho những anh em đồng nghiệp đến sớm</div>
         </div>
         <div className="benefit-a-wrapper">
-          <div className="list d-flex f-ctn">
+          <div className="list d-flex f-ctn flex-wrap">
             {benefits.map((benefit: any) => (
               <div className="item col col-4" key={`benefit-${benefit.id}`}>
                 <div className="wrap txt-center">
