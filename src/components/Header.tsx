@@ -35,7 +35,7 @@ export const Header = () => {
                     <Drawer className="lg:hidden" open={open} onClose={() => setOpen(false)} placement="left">
                       <Sidebar />
                     </Drawer>
-                    {showMenuOutlined && <MenuOutlined className="cursor-pointer px-5 lg:hidden" onClick={() => setOpen(true)} />}
+                    {showMenuOutlined && <MenuOutlined className="!lg:hidden cursor-pointer px-5" onClick={() => setOpen(true)} />}
                     <a className="logo-link" href="/">
                       {' '}
                       <img src="https://khanhhung.academy/template/assets/images/header/logo-kha.png" alt="" />

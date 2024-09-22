@@ -358,10 +358,6 @@
   content: '\e070' !important;
 }
 
-.hidden {
-  display: none;
-}
-
 .layer-digital {
   background: linear-gradient(180deg, #580b94 58.7%, #a75ee0 100%);
 }
