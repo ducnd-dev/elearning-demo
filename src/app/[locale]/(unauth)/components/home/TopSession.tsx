@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export const TopSession = () => {
@@ -262,10 +263,10 @@ export const TopSession = () => {
                         </div>
                       </div>
                       <div className="regi-gg regi-gg-js">
-                        <a style={{ display: 'inline-flex' }} href="https://api.khanhhung.academy/sociallogin/social/login/type/google/res_type/api/" className="btn-gg">
+                        <Link style={{ display: 'inline-flex' }} href="/sign-in" className="btn-gg">
                           <img className="btn-gg-icon" src="https://khanhhung.academy//template/assets/images/home/icon-gg.png" alt="" />
                           <span className="txt">Đăng nhập với Google</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="banner-form-wrap-noti banner-form-wrap-noti-js">
                         <div className="noti-login-overlay noti-login-overlay-js"></div>

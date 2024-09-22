@@ -1,6 +1,18 @@
+'use client';
+import { MenuOutlined } from '@ant-design/icons';
+import { Drawer } from 'antd';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+
+import { Sidebar } from '@/app/[locale]/(auth)/dashboard/components/Sidebar';
+
 import { DemoBanner } from './DemoBanner';
 
 export const Header = () => {
+  const [open, setOpen] = useState(false);
+  // show MenuOutlined when route includes /dashboard by react
+  const showMenuOutlined = usePathname().includes('/dashboard');
+
   const menus = [
     { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
     { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
@@ -9,6 +21,7 @@ export const Header = () => {
     { label: 'Blog', href: 'https://khanhhung.academy/blog/', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
     { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
   ];
+
   return (
     <div className="header">
       <div className="header-desk">
@@ -18,7 +31,11 @@ export const Header = () => {
             <div className="container-second">
               <div className="header-bot-wrap">
                 <div className="header-bot-left append-burger-js">
-                  <div className="logo">
+                  <div className="logo  flex items-center gap-2">
+                    <Drawer className="lg:hidden" open={open} onClose={() => setOpen(false)} placement="left">
+                      <Sidebar />
+                    </Drawer>
+                    {showMenuOutlined && <MenuOutlined className="cursor-pointer px-5 lg:hidden" onClick={() => setOpen(true)} />}
                     <a className="logo-link" href="/">
                       {' '}
                       <img src="https://khanhhung.academy/template/assets/images/header/logo-kha.png" alt="" />

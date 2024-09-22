@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export const Sidebar = () => {
@@ -43,14 +44,14 @@ export const Sidebar = () => {
           <ul className="menu-list">
             {menus.map((menu, index) => (
               <li key={index} className={`menu-item ${path === menu.link ? 'active' : ''}`}>
-                <a className="menu-link" href={menu.link}>
+                <Link className="menu-link" href={menu.link}>
                   <span className="icon relative">
                     <img src={menu.icon} alt="" />
                   </span>
                   <span className="txt">
                     <span className="txt-inner">{menu.title}</span>
                   </span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
