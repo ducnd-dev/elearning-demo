@@ -1,8 +1,12 @@
+'use server';
 import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 
+import { unstable_cache } from 'next/cache';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+
+import request from '@/libs/request';
 
 import { FormLogin } from '../../components/login/FormLogin';
 
@@ -18,58 +22,34 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   };
 }
 
-export default function LearnAuthPage(props: { params: { locale: string } }) {
+// list khóa học
+const fetchData = unstable_cache(async () => {
+  try {
+    const data = await request<API.GetCoursesResponse>('http://khanhhung-api.cuongdesign.net/api/v1/course-materials');
+    return data;
+  } catch (error: any) {
+    console.error('Error fetching data:', error.message);
+    return null; // Ensure a value is always returned
+  }
+});
+export default async function LearnAuthPage(props: { params: { locale: string } }) {
   unstable_setRequestLocale(props.params.locale);
   // const t = useTranslations('About');
-  const datas = [
-    {
-      title: 'Tiềm năng cực kì lớn của mô hình dạy bằng bộ Video',
-      video: [
-        {
-          title: 'Elearning là một cơ hội chà bá của chuyên gia',
-          time: '18:43',
-          img: 'https://api.khanhhung.academy/media/catalog/product/E/l/Elearning_la_mo_t_co_ho_i_cha_ba_cu_a_chuye_n_gia.png',
-          isFeatured: true,
-          isFree: false,
-          isImportant: false,
-        },
-        {
-          title: 'Học viên vẫn sẽ mua khóa học bằng bộ video!!',
-          time: '12:06',
-          img: 'https://api.khanhhung.academy/media/catalog/product/h/o/hoc-vien-van-mua.png',
-          isFeatured: false,
-          isFree: true,
-          isImportant: true,
-        },
-      ],
-      count_video: 5,
-      time_video: '52:55',
-    },
-    {
-      title: 'Tiềm năng cực kì lớn của mô hình dạy bằng bộ Video',
-      video: [
-        {
-          title: 'Elearning là một cơ hội chà bá của chuyên gia',
-          time: '18:43',
-          img: 'https://api.khanhhung.academy/media/catalog/product/E/l/Elearning_la_mo_t_co_ho_i_cha_ba_cu_a_chuye_n_gia.png',
-          isFeatured: true,
-          isFree: false,
-          isImportant: false,
-        },
-        {
-          title: 'Học viên vẫn sẽ mua khóa học bằng bộ video!!',
-          time: '12:06',
-          img: 'https://api.khanhhung.academy/media/catalog/product/h/o/hoc-vien-van-mua.png',
-          isFeatured: false,
-          isFree: true,
-          isImportant: true,
-        },
-      ],
-      count_video: 5,
-      time_video: '52:55',
-    },
-  ];
+  const datas = await fetchData();
+  const getTotalTime = (course: Model.Course) => {
+    let total = 0;
+    course.course_materials.forEach((material) => {
+      const [hours, minutes, seconds] = material.time.split(':').map(Number);
+      total += (hours ?? 0) * 3600 + (minutes ?? 0) * 60 + (seconds ?? 0);
+    });
 
+    // Convert total seconds back to h:M:s format
+    const hours = Math.floor(total / 3600);
+    const minutes = Math.floor((total % 3600) / 60);
+    const seconds = total % 60;
+
+    return `${hours}:${minutes}:${seconds}`;
+  };
   return (
     <section className="sec-regi">
       <div className="regi">
@@ -83,8 +63,8 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                 </div>
                 <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
                 <ul className="pro-box-list">
-                  {datas.map((data, index) => (
-                    <li className="pro-box-item" key={index}>
+                  {datas?.data?.map((data: Model.Course) => (
+                    <li className="pro-box-item" key={data.id}>
                       <div className="pro-box-head proBoxParrent">
                         <div className="content">
                           <h2 className="pro-box-title">{data.title}</h2>
@@ -94,7 +74,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                               <div className="content">
                                 <span className="title">Số lượng: </span>
                                 <span className="des">
-                                  {data.count_video}
+                                  {data?.course_materials?.length}
                                   {' '}
                                   video
                                 </span>
@@ -104,7 +84,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                               <img src="https://khanhhung.academy/learn/assets/images/pro-box-note-2.svg" alt="" />
                               <div className="content">
                                 <span className="title">Thời lượng: </span>
-                                <span className="des">{data.time_video}</span>
+                                <span className="des">{getTotalTime(data)}</span>
                               </div>
                             </div>
                           </div>
@@ -114,7 +94,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                       <div className="pro-box-body">
                         <div className="pro-box-body-inner">
                           <div className="pro-list row">
-                            {data.video.map((video, index) => (
+                            {data?.course_materials?.map((video, index) => (
                               <div className="pro-item w-full" key={index}>
                                 <div className="pro-wr flex rounded-md p-4">
                                   <div className="pro-img mr-4">
@@ -132,7 +112,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                                     </h5>
                                     <div className="pro-fl">
                                       <div className="pro-tag">
-                                        {video.isFeatured
+                                        {video.is_featured
                                         && (
                                           <div className="pro-tag-item --featured w-max">
                                             <span className="mirrors"></span>
@@ -142,7 +122,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                                             <div className="txt w-max"> Nổi bật</div>
                                           </div>
                                         )}
-                                        {video.isImportant && (
+                                        {video.is_important && (
                                           <div className="pro-tag-item --featured w-max">
                                             <span className="mirrors"></span>
                                             <div>
@@ -151,7 +131,7 @@ export default function LearnAuthPage(props: { params: { locale: string } }) {
                                             <div className="txt w-max"> Quan trọng</div>
                                           </div>
                                         )}
-                                        {video.isFree
+                                        {video.is_free
                                           ? (
                                               <div className="pro-tag-item --free w-max">
                                                 <span className="mirrors"></span>
