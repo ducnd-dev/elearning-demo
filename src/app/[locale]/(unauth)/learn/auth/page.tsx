@@ -25,7 +25,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 // list khóa học
 const fetchData = unstable_cache(async () => {
   try {
-    const data = await request<API.GetCoursesResponse>('http://khanhhung-api.cuongdesign.net/api/v1/course-materials');
+    const data = await request<API.GetCoursesResponse>('/v1/course-materials');
     return data;
   } catch (error: any) {
     console.error('Error fetching data:', error.message);
@@ -50,6 +50,7 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
 
     return `${hours}:${minutes}:${seconds}`;
   };
+
   return (
     <section className="sec-regi">
       <div className="regi">
@@ -99,11 +100,10 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
                                 <div className="pro-wr flex rounded-md p-4">
                                   <div className="pro-img mr-4">
                                     <div className="pro-stt">
-                                      0
                                       {index + 1}
                                     </div>
                                     <div className="inner w-64">
-                                      <img src={video.img} loading="lazy" alt={video.title} />
+                                      <img src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${video.img}`} loading="lazy" alt={video.title} />
                                     </div>
                                   </div>
                                   <div className="pro-content">

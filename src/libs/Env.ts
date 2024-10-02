@@ -7,6 +7,8 @@ export const Env = createEnv({
     CLERK_SECRET_KEY: z.string().min(1),
     DATABASE_URL: z.string().optional(),
     LOGTAIL_SOURCE_TOKEN: z.string().optional(),
+    API_URL: z.string().min(1), // Added API_URL here
+    MEDIA_URL: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().optional(),
@@ -26,5 +28,7 @@ export const Env = createEnv({
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
     NODE_ENV: process.env.NODE_ENV,
+    API_URL: process.env.NEXT_PUBLIC_API_URL,
+    MEDIA_URL: process.env.NEXT_PUBLIC_MEDIA_URL,
   },
 });
