@@ -6,6 +6,7 @@ import '@/styles/root.css';
 import { unstable_cache } from 'next/cache';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
+import getUrlImage from '@/libs/common';
 import request from '@/libs/request';
 
 import { FormLogin } from '../../components/login/FormLogin';
@@ -103,7 +104,7 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
                                       {index + 1}
                                     </div>
                                     <div className="inner w-64">
-                                      <img src={`${process.env.NEXT_PUBLIC_MEDIA_URL}${video.img}`} loading="lazy" alt={video.title} />
+                                      <img src={getUrlImage(video.img)} loading="lazy" alt={video.title} />
                                     </div>
                                   </div>
                                   <div className="pro-content">
@@ -113,24 +114,27 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
                                     <div className="pro-fl">
                                       <div className="pro-tag">
                                         {video.is_featured
-                                        && (
-                                          <div className="pro-tag-item --featured w-max">
-                                            <span className="mirrors"></span>
-                                            <div>
-                                              <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                            </div>
-                                            <div className="txt w-max"> Nổi bật</div>
-                                          </div>
-                                        )}
-                                        {video.is_important && (
-                                          <div className="pro-tag-item --featured w-max">
-                                            <span className="mirrors"></span>
-                                            <div>
-                                              <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                            </div>
-                                            <div className="txt w-max"> Quan trọng</div>
-                                          </div>
-                                        )}
+                                          ? (
+                                              <div className="pro-tag-item --featured w-max">
+                                                <span className="mirrors"></span>
+                                                <div>
+                                                  <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
+                                                </div>
+                                                <div className="txt w-max"> Nổi bật</div>
+                                              </div>
+                                            )
+                                          : ''}
+                                        {video.is_important
+                                          ? (
+                                              <div className="pro-tag-item --featured w-max">
+                                                <span className="mirrors"></span>
+                                                <div>
+                                                  <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
+                                                </div>
+                                                <div className="txt w-max"> Quan trọng</div>
+                                              </div>
+                                            )
+                                          : ''}
                                         {video.is_free
                                           ? (
                                               <div className="pro-tag-item --free w-max">

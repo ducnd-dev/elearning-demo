@@ -2,7 +2,7 @@ const defaultHeader = {
   'Content-Type': 'application/json',
   'Accept': 'application/json',
 };
-const baseUrl = 'http://localhost:8000/api';
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export default async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
   try {
     const headers = options.headers ? { ...defaultHeader, ...options.headers } : defaultHeader;

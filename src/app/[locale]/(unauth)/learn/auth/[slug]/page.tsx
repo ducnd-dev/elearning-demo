@@ -3,16 +3,33 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 
+import { unstable_cache } from 'next/cache';
+
+import request from '@/libs/request';
+
 import CourePlayer from './components/CourePlayer';
 
 const getData = async (slug: string) => {
-  const res = await fetch(`/course/${slug}`);
-  const data = await res.json();
+  const data = await request<API.Course>(`/v1/course-materials/${slug}`);
   return data;
 };
-export default function Page(props: { params: { slug: string } }) {
-  const data = getData(props.params.slug);
+
+const fetchData = unstable_cache(async () => {
+  try {
+    const data = await request<API.GetCoursesResponse>('/v1/course-materials');
+    return data as API.GetCoursesResponse;
+  } catch (error: any) {
+    console.error('Error fetching data:', error.message);
+    return null; // Ensure a value is always returned
+  }
+});
+
+export default async function Page(props: { params: { slug: string } }) {
+  const data = await getData(props.params.slug);
+  const listData = await fetchData();
   return (
-    <CourePlayer data={data} />
+    <div className="border-t border-dashed border-gray-200">
+      <CourePlayer data={data} listData={listData} />
+    </div>
   );
 }

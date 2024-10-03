@@ -9,6 +9,7 @@ export const Env = createEnv({
     LOGTAIL_SOURCE_TOKEN: z.string().optional(),
     API_URL: z.string().min(1), // Added API_URL here
     MEDIA_URL: z.string().optional(),
+    IMAGE_DEFAULT: z.string().optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().optional(),
@@ -30,5 +31,6 @@ export const Env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     API_URL: process.env.NEXT_PUBLIC_API_URL,
     MEDIA_URL: process.env.NEXT_PUBLIC_MEDIA_URL,
+    IMAGE_DEFAULT: process.env.NEXT_PUBLIC_IMAGE_DEFAULT,
   },
 });
