@@ -4,13 +4,18 @@ import React from 'react';
 import getUrlImage from '@/libs/common';
 
 type Props = {
-  data: API.Course;
-  listData: API.GetCoursesResponse | null;
+  data: API.CourseMaterial;
+  listData: {
+    data: {
+      courses: Model.Course[];
+    };
+  };
 };
 
 const CourePlayer = (props: Props) => {
   const datas = props.listData;
   const detail = props.data;
+  console.log('CourePlayer', props);
 
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
@@ -46,7 +51,7 @@ const CourePlayer = (props: Props) => {
       <div className="mr-8 aspect-video h-[60vh] w-3/5">
         <video controls className="aspect-video w-full" controlsList="nodownload">
           <source
-            src={getUrlImage(detail?.course_materials[0]?.file_path)}
+            src={getUrlImage(detail?.file_path)}
             type="video/mp4"
           />
           <track
@@ -59,14 +64,14 @@ const CourePlayer = (props: Props) => {
           Your browser does not support the video tag.
         </video>
         <div>
-          <div className="t-title-second c-second mt-8 !text-black">{detail?.course_materials[0]?.title}</div>
+          <div className="t-title-second c-second mt-8 !text-black">{detail?.title}</div>
           <div className="flex">
             <div className="pro-time">
               <img src="https://khanhhung.academy/learn/assets/images/ic-clock.svg" alt="" />
-              <span className="txt">{detail?.course_materials[0]?.time}</span>
+              <span className="txt">{detail?.time}</span>
             </div>
             <div className="pro-tag ml-8">
-              {detail?.course_materials[0]?.is_featured
+              {detail?.is_featured
                 ? (
                     <div className="pro-tag-item --featured w-max">
                       <span className="mirrors"></span>
@@ -77,7 +82,7 @@ const CourePlayer = (props: Props) => {
                     </div>
                   )
                 : ''}
-              {detail?.course_materials[0]?.is_important
+              {detail?.is_important
                 ? (
                     <div className="pro-tag-item --featured w-max">
                       <span className="mirrors"></span>
@@ -88,7 +93,7 @@ const CourePlayer = (props: Props) => {
                     </div>
                   )
                 : ''}
-              {detail?.course_materials[0]?.is_free
+              {detail?.is_free
                 ? (
                     <div className="pro-tag-item --free w-max">
                       <span className="mirrors"></span>
@@ -116,7 +121,7 @@ const CourePlayer = (props: Props) => {
       <div className="w-2/5">
         <div className="regi-left-inner pro-toggle">
           <ul className="pro-box-list max-h-[70vh] overflow-y-auto">
-            {datas?.data?.map((data: Model.Course) => (
+            {datas?.data?.courses?.map((data: Model.Course) => (
               <li className="pro-box-item" key={data.id}>
                 <div className="pro-box-head proBoxParrent">
                   <div className="content">

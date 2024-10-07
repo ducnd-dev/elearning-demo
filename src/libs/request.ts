@@ -4,6 +4,7 @@ const defaultHeader = {
 };
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export default async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
+  console.log('request', url);
   try {
     const headers = options.headers ? { ...defaultHeader, ...options.headers } : defaultHeader;
     const res = await fetch(`${baseUrl}${url}`, {
