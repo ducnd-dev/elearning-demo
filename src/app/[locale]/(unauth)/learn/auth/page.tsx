@@ -26,7 +26,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 // list khóa học
 const fetchData = unstable_cache(async () => {
   try {
-    const data = await request<API.GetCoursesResponse>('/v1/course-materials');
+    const data = await request<API.GetCoursesResponse>('/v1/categories');
     return data;
   } catch (error: any) {
     console.error('Error fetching data:', error.message);
@@ -64,114 +64,126 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
                   <label className="txt text-3xl font-semibold" htmlFor="toggle-xtb">Toàn bộ 212 videos của khóa học - Hơn 31 giờ</label>
                 </div>
                 <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
-                <ul className="pro-box-list">
-                  {datas?.data?.map((data: Model.Course) => (
-                    <li className="pro-box-item" key={data.id}>
-                      <div className="pro-box-head proBoxParrent">
-                        <div className="content">
-                          <h2 className="pro-box-title">{data.title}</h2>
-                          <div className="pro-box-note">
-                            <div className="pro-box-note-item">
-                              <img src="https://khanhhung.academy/learn/assets/images/pro-box-note-1.svg" alt="" />
-                              <div className="content">
-                                <span className="title">Số lượng: </span>
-                                <span className="des">
-                                  {data?.course_materials?.length}
-                                  {' '}
-                                  video
-                                </span>
+                {datas?.data?.map((cate: any) => (
+                  <ul className="pro-box-list" key={cate.id}>
+                    <h1 className="pro-box-title">{cate.name}</h1>
+                    {cate?.courses?.map((data: Model.Course, index: number) => (
+                      <li className="pro-box-item" key={data.id}>
+                        <div className="pro-box-head proBoxParrent">
+                          <div className="content">
+                            <h2 className="font-bold">
+                              Phần
+                              {' '}
+                              {' '}
+                              { index + 1 }
+                              :
+                              {' '}
+                              {data.title}
+                            </h2>
+                            <div className="pro-box-note">
+                              <div className="pro-box-note-item">
+                                <img src="https://khanhhung.academy/learn/assets/images/pro-box-note-1.svg" alt="" />
+                                <div className="content">
+                                  <span className="title">Số lượng: </span>
+                                  <span className="des">
+                                    {data?.course_materials?.length}
+                                    {' '}
+                                    video
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                            <div className="pro-box-note-item">
-                              <img src="https://khanhhung.academy/learn/assets/images/pro-box-note-2.svg" alt="" />
-                              <div className="content">
-                                <span className="title">Thời lượng: </span>
-                                <span className="des">{getTotalTime(data)}</span>
+                              <div className="pro-box-note-item">
+                                <img src="https://khanhhung.academy/learn/assets/images/pro-box-note-2.svg" alt="" />
+                                <div className="content">
+                                  <span className="title">Thời lượng: </span>
+                                  <span className="des">{getTotalTime(data)}</span>
+                                </div>
                               </div>
                             </div>
                           </div>
+                          <div className="line"></div>
                         </div>
-                        <div className="line"></div>
-                      </div>
-                      <div className="pro-box-body">
-                        <div className="pro-box-body-inner">
-                          <div className="pro-list row">
-                            {data?.course_materials?.map((video, index) => (
-                              <div className="pro-item w-full" key={index}>
-                                <div className="pro-wr flex rounded-md p-4">
-                                  <div className="pro-img mr-4">
-                                    <div className="pro-stt">
-                                      {index + 1}
+                        <div className="pro-box-body">
+                          <div className="pro-box-body-inner">
+                            <div className="pro-list row">
+                              {data?.course_materials?.map((video, index) => (
+                                <div className="pro-item w-full" key={index}>
+                                  <div className="pro-wr flex rounded-md p-4">
+                                    <div className="pro-img mr-4">
+                                      <div className="pro-stt">
+                                        {index + 1}
+                                      </div>
+                                      <div className="inner w-64">
+                                        <img src={getUrlImage(video.img)} loading="lazy" alt={video.title} />
+                                      </div>
                                     </div>
-                                    <div className="inner w-64">
-                                      <img src={getUrlImage(video.img)} loading="lazy" alt={video.title} />
-                                    </div>
-                                  </div>
-                                  <div className="pro-content">
-                                    <h5 className="pro-name" title={video.title}>
-                                      {video.title}
-                                    </h5>
-                                    <div className="pro-fl">
-                                      <div className="pro-tag">
-                                        {video.is_featured
-                                          ? (
-                                              <div className="pro-tag-item --featured w-max">
-                                                <span className="mirrors"></span>
-                                                <div>
-                                                  <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                                </div>
-                                                <div className="txt w-max"> Nổi bật</div>
-                                              </div>
-                                            )
-                                          : ''}
-                                        {video.is_important
-                                          ? (
-                                              <div className="pro-tag-item --featured w-max">
-                                                <span className="mirrors"></span>
-                                                <div>
-                                                  <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                                </div>
-                                                <div className="txt w-max"> Quan trọng</div>
-                                              </div>
-                                            )
-                                          : ''}
-                                        {video.is_free
-                                          ? (
-                                              <div className="pro-tag-item --free w-max">
-                                                <span className="mirrors"></span>
-                                                <div>
-                                                  <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
-                                                </div>
-                                                <span className="txt w-max">FREE</span>
-                                              </div>
-                                            )
-                                          : (
-                                              <div className="pro-tag">
-                                                <div className="pro-tag-item --pro">
+                                    <div className="pro-content">
+                                      <h5 className="pro-name" title={video.title}>
+                                        {video.title}
+                                      </h5>
+                                      <div className="pro-fl">
+                                        <div className="pro-tag">
+                                          {video.is_featured
+                                            ? (
+                                                <div className="pro-tag-item --featured w-max">
                                                   <span className="mirrors"></span>
                                                   <div>
-                                                    <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
+                                                    <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
                                                   </div>
-                                                  <span className="txt">PRO</span>
+                                                  <div className="txt w-max"> Nổi bật</div>
                                                 </div>
-                                              </div>
-                                            )}
-                                      </div>
-                                      <div className="pro-time">
-                                        <img src="https://khanhhung.academy/learn/assets/images/ic-clock.svg" alt="" />
-                                        <span className="txt">{video.time}</span>
+                                              )
+                                            : ''}
+                                          {video.is_important
+                                            ? (
+                                                <div className="pro-tag-item --featured w-max">
+                                                  <span className="mirrors"></span>
+                                                  <div>
+                                                    <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
+                                                  </div>
+                                                  <div className="txt w-max"> Quan trọng</div>
+                                                </div>
+                                              )
+                                            : ''}
+                                          {video.is_free
+                                            ? (
+                                                <div className="pro-tag-item --free w-max">
+                                                  <span className="mirrors"></span>
+                                                  <div>
+                                                    <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                                                  </div>
+                                                  <span className="txt w-max">FREE</span>
+                                                </div>
+                                              )
+                                            : (
+                                                <div className="pro-tag">
+                                                  <div className="pro-tag-item --pro">
+                                                    <span className="mirrors"></span>
+                                                    <div>
+                                                      <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
+                                                    </div>
+                                                    <span className="txt">PRO</span>
+                                                  </div>
+                                                </div>
+                                              )}
+                                        </div>
+                                        <div className="pro-time">
+                                          <img src="https://khanhhung.academy/learn/assets/images/ic-clock.svg" alt="" />
+                                          <span className="txt">{video.time}</span>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+
               </div>
             </div>
             <div className="w-1/2">
