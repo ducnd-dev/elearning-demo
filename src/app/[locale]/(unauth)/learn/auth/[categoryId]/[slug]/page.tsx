@@ -20,7 +20,7 @@ const fetchData = unstable_cache(async (categoryId) => {
     return data as API.GetCoursesResponse;
   } catch (error: any) {
     console.error('Error fetching data:', error.message);
-    return null; // Ensure a value is always returned
+    return null;
   }
 });
 
