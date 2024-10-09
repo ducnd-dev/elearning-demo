@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Sidebar } from '@/app/[locale]/(auth)/dashboard/components/Sidebar';
 
 import { DemoBanner } from './DemoBanner';
+import Link from 'next/link';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -142,7 +143,7 @@ export const Header = () => {
           </div>
           <div className="header-mb-btn">
             {' '}
-            <a className="btn-second style-pri" href="https://khanhhung.academy/learn/auth">
+            <Link className="btn-second style-pri" href="https://khanhhung.academy/learn/auth">
               {' '}
               <span className="txt-wrap">
                 {' '}
@@ -152,7 +153,7 @@ export const Header = () => {
                 </span>
                 <span className="txt fw-600">Học ngay </span>
               </span>
-            </a>
+            </Link>
           </div>
           <div className="header-mb-wrap">
             <div className="menu-mb-list">
