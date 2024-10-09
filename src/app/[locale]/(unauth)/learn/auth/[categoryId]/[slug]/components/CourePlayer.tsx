@@ -17,6 +17,8 @@ const CourePlayer = (props: Props) => {
   const detail = props.data;
   console.log('CourePlayer', props);
 
+  // state detail
+  // const [detail, setDetail] = React.useState<API.CourseMaterial | null>(null);
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
     course.course_materials.forEach((material) => {
@@ -31,38 +33,21 @@ const CourePlayer = (props: Props) => {
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  // React.useEffect(() => {
-  //   const fetchVideoSrc = async () => {
-  //     const videoSrc = await request('/stream-file/11');
-  //     const videoElement = document.getElementById('videoSource') as HTMLSourceElement;
-  //     <source src="" type="video/mp4" id="videoSource" />;
-  //     videoElement.src = videoSrc as string;
-  //     const videoTag = videoElement.parentElement as HTMLVideoElement;
-  //     if (videoTag) {
-  //       videoTag.load();
-  //     }
-  //   };
-
-  //   fetchVideoSrc();
-  // }, []);
-
   return (
     <div className="mx-auto flex max-w-[1600px] py-8">
       <div className="mr-8 aspect-video h-[60vh] w-3/5">
-        <video controls className="aspect-video w-full" controlsList="nodownload">
-          <source
-            src={getUrlImage(detail?.file_path)}
-            type="video/mp4"
-          />
-          <track
-            kind="captions"
-            srcLang="en"
-            src="/path/to/captions.vtt"
-            label="English"
-            default
-          />
-          Your browser does not support the video tag.
-        </video>
+        {/* <PlyrPlayer url="http://localhost:8000/api/v1/file/11/stream" /> */}
+        <iframe
+          src="http://localhost:8000/api/v1/file/11/stream"
+          title={detail?.title}
+          className="size-full"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          sandbox="allow-scripts allow-same-origin allow-popups"
+          onContextMenu={(e: any) => e.preventDefault()}
+        >
+        </iframe>
         <div>
           <div className="t-title-second c-second mt-8 !text-black">{detail?.title}</div>
           <div className="flex">
