@@ -16,8 +16,8 @@ const getData = async (slug: string) => {
 
 const fetchData = unstable_cache(async (categoryId) => {
   try {
-    const data = await request<API.GetCoursesResponse>(`/v1/categories/${categoryId}`);
-    return data as API.GetCoursesResponse;
+    const data = await request<any>(`/v1/categories/${categoryId}`);
+    return { data: { courses: data } } as { data: { courses: Model.Course[] } };
   } catch (error: any) {
     console.error('Error fetching data:', error.message);
     return null;
@@ -30,7 +30,7 @@ export default async function Page(props: { params: { slug: string; categoryId: 
   const listData = await fetchData(props.params.categoryId);
   return (
     <div className="border-t border-dashed border-gray-200">
-      <CourePlayer data={data} listData={listData} />
+      {listData && <CourePlayer data={data} listData={listData} />}
     </div>
   );
 }
