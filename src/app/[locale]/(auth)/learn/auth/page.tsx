@@ -27,7 +27,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 // list khóa học
 const fetchData = unstable_cache(async () => {
   try {
-    const data = await request<API.GetCoursesResponse>('/v1/categories');
+    const data = await request<API.GetCategory>('/v1/categories');
     return data;
   } catch (error: any) {
     console.error('Error fetching data:', error.message);

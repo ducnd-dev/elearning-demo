@@ -54,6 +54,10 @@ declare namespace API {
       courses: Course[];
     };
   };
+  declare type GetCategory = {
+    data: Course[];
+  };
+
   declare type GetCourseMaterialResponse = {
     data: CourseMaterial;
   };
