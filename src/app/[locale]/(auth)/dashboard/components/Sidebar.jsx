@@ -24,7 +24,7 @@ export const Sidebar = () => {
   return (
     <div className="fixed mr-8 w-[300px] px-8">
       <div className="mb-main-top">
-        <a className="mb-btn-pri" href="/learn/study/1/">
+        <a className="mb-btn-pri" href="/learn/auth">
           <div className="inner">
             <div className="ic ic-thunder">
               <img src="https://khanhhung.academy/learn/assets/images/ic-thunder.svg" alt="" />
