@@ -1,7 +1,5 @@
 # Boilerplate and Starter for Next.js 14+, Tailwind CSS 3.4, and TypeScript.
 
-🚀 Boilerplate and Starter for Next.js with App Router, Tailwind CSS, and TypeScript ⚡️ Prioritizing developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, Vitest (replacing Jest), Testing Library, Playwright, Commitlint, VSCode, Tailwind CSS, Authentication with [Clerk](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate), Database with DrizzleORM (PostgreSQL, SQLite, and MySQL), Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo), Logging with Pino.js and Log Management, Monitoring as Code, Storybook, Multi-language (i18n), and more. Ready for Next.js 15.
-
 Clone this project and use it to create your own Next.js project. You can check out the live demo at [Next.js Boilerplate](https://demo.nextjs-boilerplate.com), which includes a working authentication system.
 
 ### Demo
@@ -22,7 +20,6 @@ Developer experience first, extremely flexible code structure and only keep what
 - ✅ Strict Mode for TypeScript and React 18
 - 🔒 Authentication with [Clerk](https://clerk.com?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate): Sign up, Sign in, Sign out, Forgot password, Reset password, and more.
 - 👤 Passwordless Authentication with Magic Links, Multi-Factor Auth (MFA), Social Auth (Google, Facebook, Twitter, GitHub, Apple, and more), Passwordless login with Passkeys, User Impersonation
-- 📦 Type-safe ORM with DrizzleORM, compatible with PostgreSQL, SQLite, and MySQL
 - 💽 Offline and local development database with PGlite
 - 🌐 Multi-language (i18n) with [next-intl](https://next-intl-docs.vercel.app/) and [Crowdin](https://l.crowdin.com/next-js)
 - ♻️ Type-safe environment variables with T3 Env
@@ -48,7 +45,6 @@ Developer experience first, extremely flexible code structure and only keep what
 - 🗂 VSCode configuration: Debug, Settings, Tasks and Extensions
 - 🤖 SEO metadata, JSON-LD and Open Graph tags
 - 🗺️ Sitemap.xml and robots.txt
-- ⌘ Database exploration with Drizzle Studio and CLI migration tool with Drizzle Kit
 - ⚙️ [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
 - 🌈 Include a FREE minimalist theme
 - 💯 Maximize lighthouse score
@@ -104,11 +100,6 @@ CLERK_SECRET_KEY=your_clerk_secret_key
 ```
 
 Now you have a fully functional authentication system with Next.js, including features such as sign up, sign in, sign out, forgot password, reset password, update profile, update password, update email, delete account, and more.
-
-### Set up remote database
-
-The project uses DrizzleORM, a type-safe ORM that is compatible with PostgreSQL, SQLite, and MySQL databases. By default, the project is configured to seamlessly work with PostgreSQL, and you have the flexibility to choose any PostgreSQL database provider of your choice.
-
 ### Translation (i18n) setup
 
 For translation, the project uses `next-intl` combined with [Crowdin](https://l.crowdin.com/next-js). As a developer, you only need to take care of the English (or another default language) version. Translations for other languages are automatically generated and handled by Crowdin. You can use Crowdin to collaborate with your translation team or translate the messages yourself with the help of machine translation.
@@ -158,18 +149,6 @@ You can easily configure Next js Boilerplate by searching the entire project for
 - `.env`: default environment variables
 
 You have full access to the source code for further customization. The provided code is just an example to help you start your project. The sky's the limit 🚀.
-
-### Change database schema
-
-To modify the database schema in the project, you can update the schema file located at `./src/models/Schema.ts`. This file defines the structure of your database tables using the Drizzle ORM library.
-
-After making changes to the schema, generate a migration by running the following command:
-
-```shell
-npm run db:generate
-```
-
-This will create a migration file that reflects your schema changes. The migration is automatically applied during the next database interaction, so there is no need to run it manually.
 
 ### Commit Message Format
 
@@ -281,13 +260,3 @@ npm run build-stats
 ```
 
 By running the command, it'll automatically open a new browser window with the results.
-
-#### Database Studio
-
-The project is already configured with Drizzle Studio to explore the database. You can run the following command to open the database studio:
-
-```shell
-npm run db:studio
-```
-
-Then, you can open https://local.drizzle.studio with your favorite browser to explore your database.
