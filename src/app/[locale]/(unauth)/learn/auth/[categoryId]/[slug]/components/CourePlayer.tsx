@@ -20,6 +20,8 @@ const CourePlayer = (props: Props) => {
 
   // state detail
   // const [detail, setDetail] = React.useState<API.CourseMaterial | null>(null);
+  // state detail
+  // const [detail, setDetail] = React.useState<API.CourseMaterial | null>(null);
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
     course.course_materials.forEach((material) => {
