@@ -10,7 +10,7 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import getUrlImage from '@/libs/common';
 import request from '@/libs/request';
 
-import { FormLogin } from '../../components/login/FormLogin';
+import { FormLogin } from '../../../(unauth)/components/login/FormLogin';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({
