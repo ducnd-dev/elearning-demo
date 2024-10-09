@@ -6,8 +6,7 @@ import '@/styles/root.css';
 import Link from 'next/link';
 import React from 'react';
 
-import getUrlImage, { getVideoUrl } from '@/libs/common';
-import { Button } from 'antd';
+import getUrlImage from '@/libs/common';
 
 type Props = {
   data: API.CourseMaterial;
@@ -43,16 +42,16 @@ const CourePlayer = (props: Props) => {
 
         {!detail?.is_free
           ? (
-            <div  className="flex items-center justify-center w-full h-full rounded-xl bg-slate-400  bg-opacity-10 ">
-                <Link href="/learn/payment" className='text-white'>
+              <div className="flex size-full items-center justify-center rounded-xl bg-slate-400 bg-opacity-10 ">
+                <Link href="/learn/payment" className="text-white">
                   <div className="header-bot-item" data-attribute="register">
-                      {' '}
-                      <div className="btn-header btn-header-js bg-lms">
-                        <span className="txt fw-600">
-                          Nâng cấp ngay
-                        </span>
-                      </div>
+                    {' '}
+                    <div className="btn-header btn-header-js bg-lms">
+                      <span className="txt fw-600">
+                        Nâng cấp ngay
+                      </span>
                     </div>
+                  </div>
                 </Link>
               </div>
             )
