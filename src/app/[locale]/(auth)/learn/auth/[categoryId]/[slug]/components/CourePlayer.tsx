@@ -10,15 +10,13 @@ import getUrlImage from '@/libs/common';
 
 type Props = {
   data: API.CourseMaterial;
-  listData: {
-    data: {
-      courses: Model.Course[];
-    };
-  };
+  listData: API.GetCoursesResponse;
 };
 
 const CourePlayer = (props: Props) => {
   const datas = props.listData;
+  console.log('CourePlayer', props);
+
   // const detail = props.data;
 
   const [detail, setDetail] = React.useState<API.CourseMaterial | null>(props.listData.data.courses[0]?.course_materials[0] || null);

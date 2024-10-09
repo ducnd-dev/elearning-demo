@@ -39,7 +39,7 @@ declare namespace Model {
     link_facebook: string;
     link_fanpage: string;
     link_youtube: string;
-  }
+  };
 
 }
 
@@ -50,7 +50,9 @@ declare namespace API {
     data: CourseMaterial[];
   };
   declare type GetCoursesResponse = {
-    data: Course[];
+    data: {
+      courses: Course[];
+    };
   };
   declare type GetCourseMaterialResponse = {
     data: CourseMaterial;

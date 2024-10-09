@@ -56,9 +56,6 @@
     ]
   },
   "exclude": ["./out/**/*", "./node_modules/**/*", "**/*.spec.ts", "**/*.e2e.ts"],
-  "exclude": [
-    "./node_modules/**/*"
-  ],
   "include": [
     "./src",
     "./dist/types/**/*.ts",

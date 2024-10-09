@@ -16,8 +16,8 @@ const getData = async (slug: string) => {
 
 const fetchData = unstable_cache(async (categoryId) => {
   try {
-    const data = await request<any>(`/v1/categories/${categoryId}`);
-    return { data: { courses: data } } as { data: { courses: Model.Course[] } };
+    const data = await request<API.GetCoursesResponse>(`/v1/categories/${categoryId}`);
+    return data;
   } catch (error: any) {
     console.error('Error fetching data:', error.message);
     return null;
