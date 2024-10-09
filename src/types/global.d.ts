@@ -26,6 +26,21 @@ declare namespace Model {
     course_materials: CourseMaterial[];
   };
 
+  declare type Setting = {
+    bank_name: string;
+    bank_account: string;
+    bank_account_name: string;
+    logo_header: string;
+    logo_footer: string;
+    email: string;
+    phone: string;
+    address: string;
+    link_group_facebook: string;
+    link_facebook: string;
+    link_fanpage: string;
+    link_youtube: string;
+  }
+
 }
 
 declare namespace API {
@@ -39,5 +54,8 @@ declare namespace API {
   };
   declare type GetCourseMaterialResponse = {
     data: CourseMaterial;
+  };
+  declare type GetSettingResponse = {
+    data: Model.Setting;
   };
 }
