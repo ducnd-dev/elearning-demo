@@ -1,6 +1,68 @@
+'use client';
+import { setCookie } from 'cookies-next';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
+import request from '@/libs/request';
 
 export const FormLogin = () => {
+  const router = useRouter();
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const changeTab = (tab: string) => {
+    const tabActive = document.querySelector('.mega-item-js.active');
+    const width = (tabActive?.clientWidth ?? 0) + 10;
+    document.querySelector(tab === 'register' ? '#tab-form-register' : '#tab-form-login')?.classList.add('active');
+    document.querySelector(tab === 'login' ? '#tab-form-register' : '#tab-form-login')?.classList.remove('active');
+    document.querySelector(tab === 'register' ? '#register' : '#login')?.classList.add('open');
+    document.querySelector(tab === 'login' ? '#register' : '#login')?.classList.remove('open');
+    if (tab === 'login') {
+      document.querySelector('.tab-content-js')?.classList.add('tab-border-1');
+      document.querySelector('.mega-bg-js')?.setAttribute('style', `--widthMegaMenuTab: ${width}px; --transformMegaMenuTab: ${width}px`);
+    } else {
+      document.querySelector('.tab-content-js')?.classList.remove('tab-border-1');
+      document.querySelector('.mega-bg-js')?.setAttribute('style', `--widthMegaMenuTab: ${width}px; --transformMegaMenuTab: 0px`);
+    }
+  };
+  const login = async () => {
+    try {
+      const res = await request<API.Login>('/v1/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(form),
+      });
+      setCookie('token', res.data.access_token);
+      // redirect to dashboard
+      router.push('/dashboard');
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error fetching data:', error.message);
+      } else {
+        console.error('Error fetching data:', error);
+      }
+    }
+  };
+  const register = async () => {
+    try {
+      const res = await request('/v1/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+      console.log(res);
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error fetching data:', error.message);
+      } else {
+        console.error('Error fetching data:', error);
+      }
+    }
+  };
   return (
     <div className="banner-right-wrap append-form-js">
       <div className="banner-form-layout block-form-js">
@@ -83,17 +145,29 @@ export const FormLogin = () => {
                       </div>
                     </div>
                     <div className="tab-form">
-                      <div className="tab-form-item tabBtn mega-item-js active" data-attribute="register-form">
+                      <div
+                        className="tab-form-item tabBtn mega-item-js active"
+                        data-attribute="register-form"
+                        id="tab-form-regiter"
+                        onClick={() => changeTab('register')}
+                      >
                         <span className="txt fw-600">
                           Đăng ký ngay
                         </span>
                       </div>
-                      <div className="tab-form-item tabBtn mega-item-js" data-attribute="login-form"><span className="txt fw-600"> Đăng nhập</span></div>
+                      <div
+                        className="tab-form-item tabBtn mega-item-js"
+                        data-attribute="login-form"
+                        id="tab-form-login"
+                        onClick={() => changeTab('login')}
+                      >
+                        <span className="txt fw-600"> Đăng nhập</span>
+                      </div>
                     </div>
                   </div>
                   <div className="tab-content tab-content-js">
                     <div className="tab-body">
-                      <div className="tabPanel open">
+                      <div className="tabPanel open" id="register">
                         <div className="tab-content-des fw-600">
                           <div className="txt">
                             Chào mừng bạn đã quay lại với Hùng.
@@ -104,14 +178,36 @@ export const FormLogin = () => {
                         <form className="group-form login-form-js">
                           <div className="group-validate">
                             <div className="group">
-                              <input type="text" id="email" name="email" value="" placeholder="Email của bạn" autoComplete="email" className="ipt-focus-js" />
+                              <input
+                                type="text"
+                                id="email"
+                                name="email"
+                                value={form.email}
+                                placeholder="Email của bạn"
+                                autoComplete="email"
+                                className="ipt-focus-js"
+                                onChange={
+                                  (e: any) => setForm({ ...form, email: e.target.value })
+                                }
+                              />
                               <label className="place" htmlFor="email">Email</label>
                             </div>
                             <p className="invalid invalid-email" style={{ display: 'none' }}></p>
                           </div>
                           <div className="group-validate style-pri show-pass-parent-js verify-email-js">
                             <div className="group">
-                              <input className="ipt-password-js" type="password" value="" name="password" placeholder="Mật khẩu" autoComplete="current-password" />
+                              <input
+                                className="ipt-password-js"
+                                type="password"
+                                value={form.password}
+                                name="password"
+                                placeholder="Mật khẩu"
+                                autoComplete="current-password"
+
+                                onChange={
+                                  (e: any) => setForm({ ...form, password: e.target.value })
+                                }
+                              />
                               <label className="place" htmlFor="password">Mật khẩu</label>
                               <i className="icon-eye fas fa-eye-slash show-pass-js"> </i>
                             </div>
@@ -130,7 +226,11 @@ export const FormLogin = () => {
                             </div>
                           </div>
                           <div className="is-loading-group submit-btn-js">
-                            <button className="btn btn-second brd-8 style-three">
+                            <button
+                              type="button"
+                              className="btn btn-second brd-8 style-three"
+                              onClick={login}
+                            >
                               <div className="icon">
                                 {' '}
                                 <img src="https://khanhhung.academy//template/assets/images/home/icon-btn.png" alt="" />
@@ -143,7 +243,7 @@ export const FormLogin = () => {
                           </div>
                         </form>
                       </div>
-                      <div className="tabPanel">
+                      <div className="tabPanel" id="login">
                         <div className="tab-content-des fw-600">
                           <div className="txt">Không có thêm bước nào cả </div>
                           <span className="txt-media txt-under fw-600"> Đăng ký là xem được ngay!</span>
@@ -151,7 +251,17 @@ export const FormLogin = () => {
                         <form className="group-form register-form-js">
                           <div className="group-validate">
                             <div className="group">
-                              <input type="text" id="register-email" name="email" value="" placeholder="Email của bạn" className="ipt-focus-js" />
+                              <input
+                                type="text"
+                                id="register-email"
+                                name="email"
+                                placeholder="Email của bạn"
+                                className="ipt-focus-js"
+                                value={form.email}
+                                onChange={
+                                  (e: any) => setForm({ ...form, email: e.target.value })
+                                }
+                              />
                               <label className="place" htmlFor="register-email">Email</label>
                             </div>
                             <p className="invalid invalid-email" style={{ display: 'none' }}></p>
@@ -159,7 +269,16 @@ export const FormLogin = () => {
                           <div className="group-validate-wrap show-pass-parent-js verify-email-js">
                             <div className="group-validate">
                               <div className="group">
-                                <input className="ipt-password-js" value="" type="password" name="password" placeholder="Mật khẩu" />
+                                <input
+                                  className="ipt-password-js"
+                                  value={form.password}
+                                  type="password"
+                                  name="password"
+                                  placeholder="Mật khẩu"
+                                  onChange={
+                                    (e: any) => setForm({ ...form, password: e.target.value })
+                                  }
+                                />
                                 <label className="place" htmlFor="password">Mật khẩu</label>
                                 <i className="icon-eye fas fa-eye-slash show-pass-js"> </i>
                               </div>
@@ -167,7 +286,17 @@ export const FormLogin = () => {
                             </div>
                             <div className="group-validate">
                               <div className="group">
-                                <input className="ipt-password-js" value="" type="password" name="password_confirm" id="password_confirm" placeholder="Xác nhận mật khẩu" />
+                                <input
+                                  className="ipt-password-js"
+                                  value={form.confirmPassword}
+                                  type="password"
+                                  name="password_confirm"
+                                  id="password_confirm"
+                                  placeholder="Xác nhận mật khẩu"
+                                  onChange={
+                                    (e: any) => setForm({ ...form, confirmPassword: e.target.value })
+                                  }
+                                />
                                 <label className="place" htmlFor="password_confirm">Xác nhận mật khẩu</label>
                                 <i className="icon-eye fas fa-eye-slash show-pass-js"> </i>
                               </div>
@@ -175,7 +304,7 @@ export const FormLogin = () => {
                             </div>
                           </div>
                           <div className="is-loading-group submit-btn-js">
-                            <button className="btn btn-second brd-8 style-three">
+                            <button className="btn btn-second brd-8 style-three" onClick={register}>
                               <div className="icon">
                                 {' '}
                                 <img src="https://khanhhung.academy//template/assets/images/home/icon-btn.png" alt="" />

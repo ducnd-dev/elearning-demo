@@ -1,9 +1,10 @@
 'use client';
 
-import request from '@/libs/request';
 import { Spin } from 'antd';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React from 'react';
+
+import request from '@/libs/request';
 
 const BtnCreateOrder = () => {
   const [loading, setLoading] = React.useState(false);
@@ -14,7 +15,6 @@ const BtnCreateOrder = () => {
       const data = await request<API.CreateOrderResponse>('/v1/orders', {
         method: 'POST',
         body: JSON.stringify({
-          user_id: 1,
           order_code: `KH${Math.floor(Math.random() * 1000000)}`,
         }),
       });
@@ -26,7 +26,7 @@ const BtnCreateOrder = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <div className="upp-fn" onClick={createOrder}>
       <div className="init_checkout btn-up">
@@ -52,7 +52,7 @@ const BtnCreateOrder = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BtnCreateOrder
+export default BtnCreateOrder;

@@ -4,6 +4,22 @@ import createMiddleware from 'next-intl/middleware';
 
 import { AppConfig } from './utils/AppConfig';
 
+const getTokenFromCookies = (request: NextRequest): string | null => {
+  const cookieHeader = request.headers.get('cookie');
+  if (!cookieHeader) {
+    return null;
+  }
+
+  const cookies = cookieHeader.split(';').reduce((acc, cookie) => {
+    const [name, ...rest] = cookie.trim().split('=');
+    if (name) {
+      acc[name] = rest.join('=');
+    }
+    return acc;
+  }, {} as Record<string, string>);
+
+  return cookies.token || null;
+};
 const intlMiddleware = createMiddleware({
   locales: AppConfig.locales,
   localePrefix: AppConfig.localePrefix,
@@ -19,7 +35,11 @@ export default function middleware(
   request: NextRequest,
   event: NextFetchEvent,
 ) {
-  // Run Clerk middleware only when it's necessary
+  const token = getTokenFromCookies(request);
+
+  if (token) {
+    return intlMiddleware(request);
+  }
   if (
     request.nextUrl.pathname.includes('/sign-in')
     || request.nextUrl.pathname.includes('/sign-up')
