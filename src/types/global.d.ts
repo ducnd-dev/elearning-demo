@@ -46,6 +46,15 @@ declare namespace Model {
 declare namespace API {
   declare type CourseMaterial = Model.CourseMaterial;
   declare type Course = Model.Course;
+  declare type User = {
+    id: number;
+    email: string;
+    first_name: string;
+    last_name: string;
+    is_admin: number;
+    plan_id: number;
+    date_of_birth: string;
+  };
   declare type GetCourseMaterialsResponse = {
     data: CourseMaterial[];
   };
@@ -63,5 +72,11 @@ declare namespace API {
   };
   declare type GetSettingResponse = {
     data: Model.Setting;
+  };
+  declare type Login = {
+    data: {
+      access_token: string;
+      user: User;
+    };
   };
 }
