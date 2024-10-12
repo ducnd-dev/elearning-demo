@@ -7,6 +7,7 @@ import '@/styles/payment.css';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { unstable_cache } from 'next/cache';
 import request from '@/libs/request';
+import BtnCheckOrder from './components/BtnCheckOrder';
 
 const fetchData = unstable_cache(async () => {
   try {
@@ -18,9 +19,10 @@ const fetchData = unstable_cache(async () => {
   }
 });
 
-export default async function LearnPaymentPage(props: { params: { locale: string } }) {
+export default async function LearnPaymentPage(props: { params: { locale: string }, searchParams: { order_code: string } }) {
   unstable_setRequestLocale(props.params.locale);
   const data = await fetchData();
+  const order_code = props.searchParams.order_code;
   return (
     <section className='sec-prmk mt-0'>
       <div className='prmk'>
@@ -120,11 +122,11 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                       </tr>
                       <tr>
                         <td>Số tiền:</td>
-                        <td><div className="tooltip-ctn undefined">21.000.000đ <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
+                        <td><div className="tooltip-ctn undefined">{data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : ''} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
                       </tr>
                       <tr>
                         <td>Nội dung giao dịch:</td>
-                        <td><div className="tooltip-ctn undefined">KHA0910242660 <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
+                        <td><div className="tooltip-ctn undefined">{order_code} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
                       </tr>
                     </tbody>
                   </table>
@@ -137,12 +139,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                   và <span className="hl mx-1">ĐÚNG NỘI DUNG CHUYỂN KHOẢN</span><br />
                   <span className="hl mx-1">Sau khi chuyển tiền xong hệ thống sẽ tự động chuyển hướng</span>
                 </div>
-                <div className="pay-system-ctr">
-                  <div className="btn --pri">
-                    <span className="txt">Kiểm tra giao dịch</span>
-                  </div>
-                  <p className="des fsi">(nếu hệ thống không tự động chuyển hướng)</p>
-                </div>
+                <BtnCheckOrder order_code={order_code} />
               </div>
               <div className="pay-system-right col col-6">
                 <div className="pay-system-qr">
@@ -163,14 +160,9 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                     </div>
                   </div>
                   <div className="pay-system-qr-code">
-                    <div className="pay-system-qr-img">
-                      <img src="https://khanhhung.academy/learn/assets/images/logo-mon.png" alt="" />
-                      <img src="/assets/images/qr/qr_test.png" className='size-40' alt="" />
-                    </div>
-                    <button className="pay-system-qr-dl flex justify-center">
-                      <img src="https://khanhhung.academy/learn/assets/images/dl-pri.svg" alt="download-btn" />
-                      <p className=" font-semibold text-center ">Tải xuống mã QR</p>
-                    </button>
+                    <img
+                      src={`https://qr.sepay.vn/img?bank=${data?.bank_name}&acc=${data?.bank_account}&template=compact&amount=${data?.price}&note=${order_code}`}
+                      className="img-fluid" />
                   </div>
                 </div>
               </div>

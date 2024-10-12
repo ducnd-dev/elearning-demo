@@ -8,6 +8,7 @@ import { unstable_cache } from 'next/cache';
 import request from '@/libs/request';
 
 import CourePlayer from './components/CourePlayer';
+import Header from '@/components/Header';
 
 const getData = async (slug: string) => {
   const data = await request<API.CourseMaterial>(`/v1/course_materials/${slug}`);
@@ -29,8 +30,11 @@ export default async function Page(props: { params: { slug: string; categoryId: 
   const data = await getData(props.params.slug);
   const listData = await fetchData(props.params.categoryId);
   return (
-    <div className="border-t border-dashed border-gray-200">
-      {listData && <CourePlayer data={data} listData={listData} />}
-    </div>
+    <>
+      <Header />
+      <div className="border-t border-dashed border-gray-200">
+        {listData && <CourePlayer data={data} listData={listData} />}
+      </div>
+    </>
   );
 }

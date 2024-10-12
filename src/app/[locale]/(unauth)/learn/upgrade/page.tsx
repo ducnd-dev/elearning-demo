@@ -4,24 +4,12 @@ import '@/styles/home.css';
 import '@/styles/root.css';
 import '@/styles/payment.css';
 
-import { unstable_cache } from 'next/cache';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
-import request from '@/libs/request';
-
-const fetchData = unstable_cache(async () => {
-  try {
-    const data = await request<API.GetSettingResponse>('/v1/setting/1');
-    return data.data;
-  } catch (error: any) {
-    console.error('Error fetching data:', error.message);
-    return null; // Ensure a value is always returned
-  }
-});
+import BtnCreateOrder from './components/BtnCreateOrder';
 
 export default async function LearnPaymentPage(props: { params: { locale: string } }) {
   unstable_setRequestLocale(props.params.locale);
-  // const data = await fetchData();
   return (
     <section className="sec-upp">
       <div className="upp-confetti-top is-inview">
@@ -123,7 +111,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                   Đồng nghiệp đã hiểu được
                   <span className="mx-2 font-semibold underline underline-offset-4">“ĐỘ NGON”</span>
                   <br />
-&nbsp;của E-Learning
+                  &nbsp;của E-Learning
                 </p>
               </div>
               <div className="upp-ud upp-ud-top">
@@ -366,28 +354,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                   <br />
                   <span className="font-semibold">cần nhiều KIẾN THỨC, QUYẾT TÂM và “NGƯỜI PHỤ”</span>
                 </div>
-                <div className="upp-fn">
-                  <div className="init_checkout btn-up">
-                    <div className="btn-up-br">
-                      <span className="br"></span>
-                      <span className="br"></span>
-                    </div>
-                    <div className="btn-up-inner">
-                      <span className="ic ic-thunder">
-                        <span className="ic-lock">
-                          <img src="https://khanhhung.academy/learn/assets/images/lock-1.png" alt="" />
-                          <img src="https://khanhhung.academy/learn/assets/images/lock-2.png" alt="" />
-                        </span>
-                        <img src="https://khanhhung.academy/learn/assets/images/thunder.gif" alt="" className="gif" />
-                        <img src="https://khanhhung.academy/learn/assets/images/thunder.gif" alt="" className="gif --second" />
-                      </span>
-                      <div className="content">
-                        <p className="txt">KHÓA GIAO DỊCH NGAY BÂY GIỜ!</p>
-                        <p className="des">Giá có thể được nâng bất cứ lúc nào</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <BtnCreateOrder />
               </div>
               <div className="personalized-arrow">
                 <div className="arrow-wrap add-active-js active">

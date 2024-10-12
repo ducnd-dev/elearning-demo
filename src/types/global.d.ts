@@ -39,6 +39,7 @@ declare namespace Model {
     link_facebook: string;
     link_fanpage: string;
     link_youtube: string;
+    price: number;
   };
 
 }
@@ -63,5 +64,17 @@ declare namespace API {
   };
   declare type GetSettingResponse = {
     data: Model.Setting;
+  };
+  declare type CreateOrderResponse = {
+    data: {
+      id: number;
+      user_id: number;
+      order_code: string;
+    };
+  };
+  declare type CheckOrderStatusResponse = {
+    data: {
+      isPaid: boolean;
+    };
   };
 }
