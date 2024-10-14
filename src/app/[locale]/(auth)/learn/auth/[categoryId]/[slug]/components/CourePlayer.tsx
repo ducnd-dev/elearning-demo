@@ -41,7 +41,7 @@ const CourePlayer = (props: Props) => {
         {!detail?.is_free
           ? (
               <div className="flex size-full items-center justify-center rounded-xl bg-slate-400 bg-opacity-10 ">
-                <Link href="/learn/payment" className="text-white">
+                <Link href="/learn/upgrade" className="text-white">
                   <div className="header-bot-item" data-attribute="register">
                     {' '}
                     <div className="btn-header btn-header-js bg-lms">

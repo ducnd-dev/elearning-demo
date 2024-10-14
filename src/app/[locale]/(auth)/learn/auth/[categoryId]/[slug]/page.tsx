@@ -3,7 +3,7 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 
-import { unstable_cache } from 'next/cache';
+import { revalidatePath, unstable_cache } from 'next/cache';
 
 import request from '@/libs/request';
 
@@ -26,6 +26,7 @@ const fetchData = unstable_cache(async (categoryId) => {
 });
 
 export default async function Page(props: { params: { slug: string; categoryId: string } }) {
+  revalidatePath('/[locale]/(auth)/learn/auth/[categoryId]/[slug]');
   console.log('Page', props);
   const data = await getData(props.params.slug);
   const listData = await fetchData(props.params.categoryId);
