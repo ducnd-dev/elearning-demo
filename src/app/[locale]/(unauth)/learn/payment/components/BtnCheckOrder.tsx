@@ -10,6 +10,18 @@ const BtnCheckOrder = (props: { order_code: string }) => {
   const [openModalPaid, setOpenModalPaid] = React.useState(false);
   const [openModalUnpaid, setOpenModalUnpaid] = React.useState(false);
   const router = useRouter();
+  React.useEffect(() => {
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        checkOrder();
+      }, 1000);
+
+      return () => clearInterval(interval);
+    }, 10000);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   const checkOrder = async () => {
     setLoading(true);
     try {
@@ -19,9 +31,10 @@ const BtnCheckOrder = (props: { order_code: string }) => {
       } else {
         setOpenModalUnpaid(true);
       }
+      return Promise.resolve(data);
     } catch (error: any) {
       console.error('Error fetching data:', error.message);
-      return null; // Ensure a value is always returned
+      return Promise.reject(null); // Ensure a value is always returned
     } finally {
       setLoading(false);
     }

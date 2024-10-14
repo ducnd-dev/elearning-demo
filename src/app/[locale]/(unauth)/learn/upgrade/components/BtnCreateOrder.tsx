@@ -21,7 +21,6 @@ const BtnCreateOrder = () => {
       router.push(`/learn/payment?order_code=${data?.data?.order_code}`);
     } catch (error: any) {
       console.error('Error fetching data:', error.message);
-      return null; // Ensure a value is always returned
     } finally {
       setLoading(false);
     }

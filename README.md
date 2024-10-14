@@ -144,7 +144,6 @@ You can easily configure Next js Boilerplate by searching the entire project for
 
 - `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your website favicon
 - `src/utils/AppConfig.ts`: configuration file
-- `src/templates/BaseTemplate.tsx`: default theme
 - `next.config.mjs`: Next.js configuration
 - `.env`: default environment variables
 
