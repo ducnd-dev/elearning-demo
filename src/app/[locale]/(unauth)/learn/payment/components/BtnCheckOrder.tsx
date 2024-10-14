@@ -28,8 +28,6 @@ const BtnCheckOrder = (props: { order_code: string }) => {
       const data = await request<API.CheckOrderStatusResponse>(`/v1/check-order-by-code/${props.order_code}`);
       if (data.data.isPaid) {
         setOpenModalPaid(data.data.isPaid);
-      } else {
-        setOpenModalUnpaid(true);
       }
       return Promise.resolve(data);
     } catch (error: any) {
