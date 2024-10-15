@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
+import { useUserStore } from '@/providers/user-store-provider';
 
 type Props = {
   data: API.CourseMaterial;
@@ -33,12 +34,14 @@ const CourePlayer = (props: Props) => {
 
     return `${hours}:${minutes}:${seconds}`;
   };
+
+  const { isProUser } = useUserStore();
+  
   return (
     <div className="mx-auto flex max-w-[1600px] py-8">
       <div className="relative mr-8 aspect-video h-[60vh] w-3/5 rounded-xl">
         {/* <PlyrPlayer url="http://localhost:8000/api/v1/file/11/stream" /> */}
-
-        {!detail?.is_free
+        {!detail?.is_free && !isProUser
           ? (
               <div className="flex size-full items-center justify-center rounded-xl bg-slate-400 bg-opacity-10 ">
                 <Link href="/learn/upgrade" className="text-white">
