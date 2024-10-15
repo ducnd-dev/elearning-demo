@@ -1,7 +1,7 @@
 'use client';
 
 import request from "@/libs/request";
-import { useSetUser } from "@/stores/user-store";
+import { useSetUser } from "@/stores/auth-store";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
 interface UserStoreContextType {

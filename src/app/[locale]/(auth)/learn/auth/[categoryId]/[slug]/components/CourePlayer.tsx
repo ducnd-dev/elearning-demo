@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
-import { useAuthStore } from '@/providers/user-store-provider';
+import { useAuthStore } from '@/providers/auth-store-provider';
 
 type Props = {
   data: API.CourseMaterial;

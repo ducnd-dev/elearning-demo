@@ -1,7 +1,7 @@
 import { enUS, frFR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import { getCookie } from 'cookies-next';
-import { AuthStoreProvider } from '@/providers/user-store-provider';
+import { AuthStoreProvider } from '@/providers/auth-store-provider';
 
 // import request from '@/libs/request';
 import { AppConfig } from '@/utils/AppConfig';
