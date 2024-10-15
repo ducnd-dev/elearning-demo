@@ -50,7 +50,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                 <p className="t-yls --none-shadown mb-80" data-txt="21.000.000đ">
                   <span className="t-yls-top">
                     <span className="word">
-                      21.000.000đ
+                      {data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : '0'}
                     </span>
                     <span className="white-space">
                     </span>
@@ -122,7 +122,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                       </tr>
                       <tr>
                         <td>Số tiền:</td>
-                        <td><div className="tooltip-ctn undefined">{data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : ''} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
+                        <td><div className="tooltip-ctn undefined">{data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : '0'} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
                       </tr>
                       <tr>
                         <td>Nội dung giao dịch:</td>
@@ -161,7 +161,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                   </div>
                   <div className="pay-system-qr-code">
                     <img
-                      src={`https://qr.sepay.vn/img?bank=${data?.bank_name}&acc=${data?.bank_account}&template=compact&amount=${data?.price}&note=${order_code}`}
+                      src={`https://qr.sepay.vn/img?bank=${data?.bank_name}&acc=${data?.bank_account}&template=compact&amount=${data?.price}&des=${order_code}`}
                       className="img-fluid" />
                   </div>
                 </div>
