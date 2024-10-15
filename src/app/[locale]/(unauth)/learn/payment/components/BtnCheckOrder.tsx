@@ -3,7 +3,7 @@
 import request from '@/libs/request';
 import { Modal, Spin } from 'antd';
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react'
+import React from 'react'
 
 const BtnCheckOrder = (props: { order_code: string }) => {
   const [loading, setLoading] = React.useState(false);
