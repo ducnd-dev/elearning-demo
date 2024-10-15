@@ -13,7 +13,7 @@ const BtnCheckOrder = (props: { order_code: string }) => {
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
-        checkOrder();
+        checkOrder(true);
       }, 1000);
 
       return () => clearInterval(interval);
@@ -22,14 +22,14 @@ const BtnCheckOrder = (props: { order_code: string }) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const checkOrder = async () => {
+  const checkOrder = async (isLoop: boolean = false) => {
     setLoading(true);
     try {
       const data = await request<API.CheckOrderStatusResponse>(`/v1/check-order-by-code/${props.order_code}`);
       if (data.data.isPaid) {
         setOpenModalPaid(data.data.isPaid);
       } else {
-        setOpenModalUnpaid(true);
+        !isLoop && setOpenModalUnpaid(true);
       }
       return Promise.resolve(data);
     } catch (error: any) {
