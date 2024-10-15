@@ -42,11 +42,6 @@ declare namespace Model {
     price: number;
   };
 
-}
-
-declare namespace API {
-  declare type CourseMaterial = Model.CourseMaterial;
-  declare type Course = Model.Course;
   declare type User = {
     id: number;
     email: string;
@@ -55,6 +50,14 @@ declare namespace API {
     is_admin: number;
     plan_id: number;
     date_of_birth: string;
+  };
+}
+
+declare namespace API {
+  declare type CourseMaterial = Model.CourseMaterial;
+  declare type Course = Model.Course;
+  declare type GetUser = {
+    data: Model.User;
   };
   declare type GetCourseMaterialsResponse = {
     data: CourseMaterial[];
