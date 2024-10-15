@@ -10,28 +10,28 @@ const BtnCheckOrder = (props: { order_code: string }) => {
   const [openModalPaid, setOpenModalPaid] = React.useState(false);
   const [openModalUnpaid, setOpenModalUnpaid] = React.useState(false);
   const router = useRouter();
-  useEffect(() => {
-    const checkOrderStatus = async () => {
-      if (openModalPaid) return;
-      try {
-        const data = await checkOrder();
-        if (data.data.isPaid) {
-          setOpenModalPaid(data.data.isPaid);
-        }
-      } catch (error: any) {
-        console.error('Error fetching data:', error.message);
-      }
-    }
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        checkOrderStatus()
-      }, 1000);
+  // useEffect(() => {
+  //   const checkOrderStatus = async () => {
+  //     if (openModalPaid) return;
+  //     try {
+  //       const data = await checkOrder();
+  //       if (data.data.isPaid) {
+  //         setOpenModalPaid(data.data.isPaid);
+  //       }
+  //     } catch (error: any) {
+  //       console.error('Error fetching data:', error.message);
+  //     }
+  //   }
+  //   const timeout = setTimeout(() => {
+  //     const interval = setInterval(() => {
+  //       checkOrderStatus()
+  //     }, 1000);
 
-      return () => clearInterval(interval);
-    }, 10000);
+  //     return () => clearInterval(interval);
+  //   }, 10000);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   const checkOrder = async () => {
     setLoading(true);
