@@ -1,7 +1,7 @@
 import { enUS, frFR } from '@clerk/localizations';
 import { ClerkProvider } from '@clerk/nextjs';
 import { getCookie } from 'cookies-next';
-import { UserStoreProvider } from '@/providers/user-store-provider';
+import { AuthStoreProvider } from '@/providers/user-store-provider';
 
 // import request from '@/libs/request';
 import { AppConfig } from '@/utils/AppConfig';
@@ -44,9 +44,9 @@ export default async function AuthLayout(props: {
       signInFallbackRedirectUrl={dashboardUrl}
       signUpFallbackRedirectUrl={dashboardUrl}
     >
-      <UserStoreProvider>
+      <AuthStoreProvider>
         {props.children}
-      </UserStoreProvider>
+      </AuthStoreProvider>
     </ClerkProvider>
   );
 }

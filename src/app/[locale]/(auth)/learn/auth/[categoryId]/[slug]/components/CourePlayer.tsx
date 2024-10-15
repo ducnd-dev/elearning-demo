@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
-import { useUserStore } from '@/providers/user-store-provider';
+import { useAuthStore } from '@/providers/user-store-provider';
 
 type Props = {
   data: API.CourseMaterial;
@@ -35,7 +35,7 @@ const CourePlayer = (props: Props) => {
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  const { isProUser } = useUserStore();
+  const { isProUser } = useAuthStore();
   
   return (
     <div className="mx-auto flex max-w-[1600px] py-8">

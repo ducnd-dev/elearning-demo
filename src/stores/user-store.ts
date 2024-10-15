@@ -7,9 +7,9 @@ interface UserState {
   logout: () => void;
 }
 
-export const useUserStore = createStore<UserState>
+export const useAuthStore = createStore<UserState>
 
-export const userStore = useUserStore((set) => ({
+export const userStore = useAuthStore((set) => ({
   user: null,
   setUser: (user: any) => {
     set({ user });
@@ -18,7 +18,7 @@ export const userStore = useUserStore((set) => ({
   logout: () => set({ user: null }),
 }))
 
-export const createUserStore = (initialState: any) => useUserStore((set) => ({
+export const createUserStore = (initialState: any) => useAuthStore((set) => ({
   user: initialState,
   setUser: (user: any) => set({ user }),
   logout: () => set({ user: null }),

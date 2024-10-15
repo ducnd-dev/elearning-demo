@@ -12,11 +12,11 @@ interface UserStoreContextType {
 
 export const UserStoreContext = createContext<UserStoreContextType | null>(null);
 
-interface UserStoreProviderProps {
+interface AuthStoreProviderProps {
   children: ReactNode;
 }
 
-export const UserStoreProvider = ({ children }: UserStoreProviderProps) => {
+export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const [user, setUser] = useState<Model.User | null>(null);
   const setUserStore = useSetUser();
   const [isProUser, setIsProUser] = useState<boolean>(false);
@@ -38,10 +38,10 @@ export const UserStoreProvider = ({ children }: UserStoreProviderProps) => {
   return <UserStoreContext.Provider value={{ user, setUser, isProUser }}>{children}</UserStoreContext.Provider>;
 };
 
-export const useUserStore = () => {
+export const useAuthStore = () => {
   const context = React.useContext(UserStoreContext);
   if (context === null) {
-    throw new Error("useUserStore must be used within a UserStoreProvider");
+    throw new Error("useAuthStore must be used within a AuthStoreProvider");
   }
   return context;
 };
