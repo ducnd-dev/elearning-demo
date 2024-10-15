@@ -3,17 +3,28 @@
 import request from '@/libs/request';
 import { Modal, Spin } from 'antd';
 import { useRouter } from 'next/navigation';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const BtnCheckOrder = (props: { order_code: string }) => {
   const [loading, setLoading] = React.useState(false);
   const [openModalPaid, setOpenModalPaid] = React.useState(false);
   const [openModalUnpaid, setOpenModalUnpaid] = React.useState(false);
   const router = useRouter();
-  React.useEffect(() => {
+  useEffect(() => {
+    const checkOrderStatus = async () => {
+      if (openModalPaid) return;
+      try {
+        const data = await checkOrder();
+        if (data.data.isPaid) {
+          setOpenModalPaid(data.data.isPaid);
+        }
+      } catch (error: any) {
+        console.error('Error fetching data:', error.message);
+      }
+    }
     const timeout = setTimeout(() => {
       const interval = setInterval(() => {
-        checkOrder(true);
+        checkOrderStatus()
       }, 1000);
 
       return () => clearInterval(interval);
@@ -22,14 +33,14 @@ const BtnCheckOrder = (props: { order_code: string }) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const checkOrder = async (isLoop: boolean = false) => {
+  const checkOrder = async () => {
     setLoading(true);
     try {
       const data = await request<API.CheckOrderStatusResponse>(`/v1/check-order-by-code/${props.order_code}`);
       if (data.data.isPaid) {
         setOpenModalPaid(data.data.isPaid);
       } else {
-        !isLoop && setOpenModalUnpaid(true);
+        setOpenModalUnpaid(true);
       }
       return Promise.resolve(data);
     } catch (error: any) {
