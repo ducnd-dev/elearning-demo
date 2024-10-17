@@ -2,6 +2,7 @@
 
 import request from "@/libs/request";
 import { useSetUser } from "@/stores/auth-store";
+import { getCookie } from "cookies-next";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
 interface UserStoreContextType {
@@ -23,6 +24,10 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   useEffect(() => {
     const getUser = async () => {
       try {
+        const token = getCookie('token');
+        if (!token) {
+          return;
+        }
         const user = await request<API.GetUser>('/v1/users/profile');
         setUser(user?.data);
       } catch (error) {

@@ -1,6 +1,6 @@
 'use client';
 import { MenuOutlined } from '@ant-design/icons';
-import { Drawer } from 'antd';
+import { Avatar, Drawer } from 'antd';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
@@ -8,11 +8,13 @@ import { Sidebar } from '@/app/[locale]/(auth)/dashboard/components/Sidebar';
 
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
+import { useAuthStore } from '@/providers/auth-store-provider';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
   // show MenuOutlined when route includes /dashboard by react
   const showMenuOutlined = usePathname().includes('/dashboard');
+  const { user } = useAuthStore();
 
   const menus = [
     { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
@@ -91,22 +93,29 @@ export const Header = () => {
                 </div>
                 <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
                   <div className="header-bot-inner">
-                    <div className="header-bot-item" data-attribute="login">
-                      {' '}
-                      <a className="btn-header btn-header-js" href="/#sec-form">
-                        <span className="txt fw-600">
-                          Đăng nhập
+                    {user ? (
+                      <Link href="/dashboard/profile" as={`/dashboard/profile`}>
+                        <span className="txt fw-600" style={{ fontSize: 14 }}>
+                          <Avatar src="https://imgs.search.brave.com/u8TbnSbeBGhCk0eBdOWDB_fEj7jfB_IZfT9s9zY-320/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dzNzY2hvb2xzLmNv/bS93M2ltYWdlcy9h/dmF0YXI1LnBuZw"
+                            style={{ marginRight: 8, width: 32 }}
+                          />
+                          {user?.first_name} {user?.last_name}
                         </span>
-                      </a>
-                    </div>
-                    <div className="header-bot-item" data-attribute="register">
-                      {' '}
-                      <a className="btn-header btn-header-js bg-lms" href="/#sec-form">
-                        <span className="txt fw-600">
-                          Đăng ký và học thử ngay
-                        </span>
-                      </a>
-                    </div>
+                      </Link>
+                    ) : (
+                      <>
+                        <div className="header-bot-item" data-attribute="login">
+                          <a className="btn-header btn-header-js" href="/#sec-form">
+                            <span className="txt fw-600">Đăng nhập</span>
+                          </a>
+                        </div>
+                        <div className="header-bot-item" data-attribute="register">
+                          <a className="btn-header btn-header-js bg-lms" href="/#sec-form">
+                            <span className="txt fw-600">Đăng ký và học thử ngay</span>
+                          </a>
+                        </div>
+                      </>
+                    )}
                   </div>
                   <div className="header-bot-item-pri header-bot-item" data-attribute="register">
                     <a className="btn-header btn-header-js style-pri" href="/#sec-form">

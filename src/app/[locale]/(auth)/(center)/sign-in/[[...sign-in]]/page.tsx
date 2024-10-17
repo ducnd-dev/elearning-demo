@@ -1,22 +1,51 @@
-import { SignIn } from '@clerk/nextjs';
-import { getTranslations } from 'next-intl/server';
+'use client';
 
+import { SignIn, useUser } from '@clerk/nextjs';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { getI18nPath } from '@/utils/Helpers';
+import request from '@/libs/request';
+import { setCookie } from 'cookies-next';
+import { Spin } from 'antd';
 
-export async function generateMetadata(props: { params: { locale: string } }) {
-  const t = await getTranslations({
-    locale: props.params.locale,
-    namespace: 'SignIn',
-  });
+const SignInPage = (props: { params: { locale: string } }) => {
+  const { user } = useUser();
+  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
 
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
-}
+  useEffect(() => {
+    setLoading(true);
+    if (user) {
+      const authenticateOrRegister = async () => {
+        const response = await request<API.Login>('/v1/auth/login-or-register', {
+          method: 'POST',
+          body: JSON.stringify({
+            first_name: user?.firstName,
+            last_name: user?.lastName,
+            email: user?.primaryEmailAddress?.emailAddress
+          }),
+        });
+        setCookie('token', response.data.access_token);
 
-const SignInPage = (props: { params: { locale: string } }) => (
-  <SignIn path={getI18nPath('/sign-in', props.params.locale)} />
-);
+        router.push('/dashboard');
+      };
+
+      try {
+        authenticateOrRegister();
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    setLoading(false);
+  }, [user, router]);
+
+  return (
+    <Spin spinning={loading}>
+      <SignIn path={getI18nPath('/sign-in', props.params.locale)} />
+    </Spin>
+  );
+};
 
 export default SignInPage;
