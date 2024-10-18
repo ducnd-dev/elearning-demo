@@ -148,7 +148,7 @@ export const FormLogin = () => {
                       <div
                         className="tab-form-item tabBtn mega-item-js active"
                         data-attribute="register-form"
-                        id="tab-form-regiter"
+                        id="tab-form-register"
                         onClick={() => changeTab('register')}
                       >
                         <span className="txt fw-600">

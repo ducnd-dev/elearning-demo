@@ -1,9 +1,11 @@
 'use client';
+import { useAuthStore } from '@/providers/auth-store-provider';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export const Sidebar = () => {
   const path = usePathname();
+  const { useLogout } = useAuthStore();
   const menus = [
     {
       title: 'Dashboard',
@@ -57,7 +59,10 @@ export const Sidebar = () => {
           </ul>
         </div>
       </div>
-      <div className="mb-dx active:scale-101">
+      <div className="mb-dx active:scale-101" onClick={() => {
+        useLogout();
+        window.location.href = '/';
+      }}>
         <img src="https://khanhhung.academy/learn/assets/images/hd-logged-5.svg" alt="" />
         <span className="txt">Đăng Xuất</span>
       </div>

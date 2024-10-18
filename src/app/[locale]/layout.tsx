@@ -8,6 +8,7 @@ import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { AppConfig } from '@/utils/AppConfig';
+import { AuthStoreProvider } from '@/providers/auth-store-provider';
 
 export const metadata: Metadata = {
   icons: [
@@ -55,7 +56,9 @@ export default function RootLayout(props: {
             locale={props.params.locale}
             messages={messages}
           >
-            {props.children}
+            <AuthStoreProvider>
+              {props.children}
+            </AuthStoreProvider>
           </NextIntlClientProvider>
         </AntdRegistry>
       </body>

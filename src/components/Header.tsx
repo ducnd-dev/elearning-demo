@@ -8,13 +8,14 @@ import { Sidebar } from '@/app/[locale]/(auth)/dashboard/components/Sidebar';
 
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
-import { useAuthStore } from '@/providers/auth-store-provider';
+import { getCookie } from 'cookies-next';
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
   // show MenuOutlined when route includes /dashboard by react
   const showMenuOutlined = usePathname().includes('/dashboard');
-  const { user } = useAuthStore();
+  const userCookie = getCookie('user');
+  const user = userCookie ? JSON.parse(userCookie as string) : null;
 
   const menus = [
     { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },

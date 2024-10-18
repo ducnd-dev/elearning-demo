@@ -1,7 +1,7 @@
 'use client';
 
 import request from "@/libs/request";
-import { useSetUser } from "@/stores/auth-store";
+import { useLogout, useSetUser } from "@/stores/auth-store";
 import { getCookie } from "cookies-next";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
@@ -9,6 +9,7 @@ interface UserStoreContextType {
   user: any;
   setUser: React.Dispatch<React.SetStateAction<any>>;
   isProUser: boolean;
+  useLogout: () => void;
 }
 
 export const UserStoreContext = createContext<UserStoreContextType | null>(null);
@@ -30,6 +31,7 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
         }
         const user = await request<API.GetUser>('/v1/users/profile');
         setUser(user?.data);
+        localStorage.setItem('user', JSON.stringify(user?.data));
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -40,7 +42,8 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
     setUserStore(user);
     setIsProUser(user?.plan_id === 1);
   }, [user]);
-  return <UserStoreContext.Provider value={{ user, setUser, isProUser }}>{children}</UserStoreContext.Provider>;
+
+  return <UserStoreContext.Provider value={{ user, setUser, isProUser, useLogout }}>{children}</UserStoreContext.Provider>;
 };
 
 export const useAuthStore = () => {
