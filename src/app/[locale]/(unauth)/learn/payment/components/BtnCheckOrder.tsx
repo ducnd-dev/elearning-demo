@@ -15,7 +15,7 @@ const BtnCheckOrder = (props: { order_code: string }) => {
     const checkOrderStatus = async () => {
       if (isPaid) return;
       try {
-        const data = await checkOrder();
+        const data = await request<API.CheckOrderStatusResponse>(`/v1/check-order-by-code/${props.order_code}`);
         if (data.data.isPaid) {
           setOpenModalPaid(data.data.isPaid);
           setIsPaid(true);
