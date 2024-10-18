@@ -35,6 +35,7 @@ export const FormLogin = () => {
         body: JSON.stringify(form),
       });
       setCookie('token', res.data.access_token);
+      setCookie('user', JSON.stringify(res.data.user));
       // redirect to dashboard
       router.push('/dashboard');
     } catch (error) {

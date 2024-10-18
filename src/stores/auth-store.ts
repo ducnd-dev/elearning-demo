@@ -13,7 +13,6 @@ export const userStore = useAuthStore((set) => ({
   user: null,
   setUser: (user: any) => {
     set({ user });
-    setCookie('user', JSON.stringify(user));
     setCookie('plan', user?.plan_id);
   },
   logout: () => {

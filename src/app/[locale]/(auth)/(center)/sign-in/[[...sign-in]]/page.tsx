@@ -26,7 +26,7 @@ const SignInPage = (props: { params: { locale: string } }) => {
           }),
         });
         setCookie('token', response.data.access_token);
-
+        setCookie('user', JSON.stringify(response.data.user));
         router.push('/dashboard');
       };
 
