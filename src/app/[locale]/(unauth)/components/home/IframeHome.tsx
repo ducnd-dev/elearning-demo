@@ -1,7 +1,10 @@
-'use client';
+// 'use client';
 // import { useEffect, useState } from 'react'
 
-const IframeHome = () => {
+type Props = {
+  height: string;
+}
+const IframeHome = (props: Props) => {
   // const [iframeHeight, setIframeHeight] = useState('600vh');
 
   // useEffect(() => {
@@ -21,7 +24,11 @@ const IframeHome = () => {
   //   }
   // }, []);
   return (
-    <iframe id='iframe-home' src="https://builderjs.cuongdesign.net/templates/default/ColleagueCourses" style={{ height: '1500vh', width: '100%', border: 'none', overflow: 'hidden' }}></iframe>
+    <iframe 
+    id='iframe-home' 
+    src="https://builderjs.cuongdesign.net/templates/default/ColleagueCourses" 
+    style={{ height: "2794vh", width: '100%', border: 'none', overflow: 'hidden' }}
+    ></iframe>
   )
 }
 
