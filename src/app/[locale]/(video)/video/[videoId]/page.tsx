@@ -18,7 +18,6 @@ export default function VideoPage(props: { params: { locale: string; videoId: st
         .then(blob => {
           const url = URL.createObjectURL(blob);
           videoRef.current!.src = url;
-          setTimeout(() => URL.revokeObjectURL(url), 600); // Revoke URL after 60 seconds
         })
         .catch(error => console.error('Error fetching video:', error));
     }
