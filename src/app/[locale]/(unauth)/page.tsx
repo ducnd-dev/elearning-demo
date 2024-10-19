@@ -2,16 +2,8 @@ import '@/styles/home.css';
 import '@/styles/root.css';
 
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-
-import { Benefit } from './components/home/Benefit';
-import { ColleagueClubMask } from './components/home/ColleagueClubMask';
-import { ColleagueCourses } from './components/home/ColleagueCourses';
-import { ComingSoon } from './components/home/ComingSoon';
-import { CoursesPersonalizedData } from './components/home/CoursesPersonalizedData';
-import { Faqs } from './components/home/Faqs';
-import { Intro } from './components/home/Intro';
-import { Staff } from './components/home/Staff';
-import { TopSession } from './components/home/TopSession';
+import IframeHome from './components/home/IframeHome';
+import { FormLogin } from './components/login/FormLogin';
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({
@@ -27,11 +19,9 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 
 export default function Index(props: { params: { locale: string } }) {
   unstable_setRequestLocale(props.params.locale);
-  // const t = useTranslations('Index');
-
   return (
     <>
-      <div className="banner-receive txt-white layer-digital">
+      {/* <div className="banner-receive txt-white layer-digital overflow-hidden">
         <TopSession />
         <ColleagueCourses />
         <ComingSoon />
@@ -41,7 +31,15 @@ export default function Index(props: { params: { locale: string } }) {
       <CoursesPersonalizedData />
       <Intro />
       <Staff />
-      <Faqs />
+      <Faqs /> */}
+      <div className='w-full flex justify-end text-white'>
+        <div className='w-1/3 mr-28 relative h-0'>
+          <div className='absolute top-28 px-5'>
+            <FormLogin />
+          </div>
+        </div>
+      </div>
+      <IframeHome />
     </>
   );
 }
