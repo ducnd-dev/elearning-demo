@@ -3,7 +3,7 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 
-import { revalidatePath, unstable_cache } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 
 import request from '@/libs/request';
 
