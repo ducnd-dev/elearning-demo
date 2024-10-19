@@ -9,6 +9,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 
 import { AppConfig } from '@/utils/AppConfig';
 import { AuthStoreProvider } from '@/providers/auth-store-provider';
+import ProgressBar from '@/components/ProgressBarProvider';
 
 export const metadata: Metadata = {
   icons: [
@@ -51,6 +52,7 @@ export default function RootLayout(props: {
   return (
     <html lang={props.params.locale}>
       <body>
+      <ProgressBar />
         <AntdRegistry>
           <NextIntlClientProvider
             locale={props.params.locale}
