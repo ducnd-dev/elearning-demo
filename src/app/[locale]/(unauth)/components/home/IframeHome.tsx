@@ -5,23 +5,30 @@ import { useEffect, useState } from 'react'
 //   height: string;
 // }
 const IframeHome = () => {
-  const [iframeHeight, setIframeHeight] = useState('2794vh');
+  const [iframeHeight, setIframeHeight] = useState('2794px');
 
   useEffect(() => {
     const iframe = document.getElementById('iframe-home') as HTMLIFrameElement;
+    
+    const updateHeight = () => {
+      if (iframe?.contentWindow?.document?.body?.scrollHeight) {
+        const newHeight = iframe.contentWindow.document.body.scrollHeight;
+        setIframeHeight(`${newHeight}px`);
+      }
+      console.log('iframe', iframe?.contentWindow?.document.body.scrollHeight);
+    };
+
     if (iframe) {
-      const updateHeight = () => {
-        setIframeHeight('2794vh');
-      };
-      console.log(iframe?.contentWindow?.document.body.scrollHeight);
       iframe.addEventListener('load', updateHeight);
       window.addEventListener('resize', updateHeight);
-
-      return () => {
-        iframe.removeEventListener('load', updateHeight);
-        window.removeEventListener('resize', updateHeight);
-      };
     }
+
+    return () => {
+      if (iframe) {
+        iframe.removeEventListener('load', updateHeight);
+      }
+      window.removeEventListener('resize', updateHeight);
+    };
   }, []);
   return (
     <iframe 
