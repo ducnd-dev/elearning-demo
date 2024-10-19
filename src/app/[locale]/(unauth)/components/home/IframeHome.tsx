@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 //   height: string;
 // }
 const IframeHome = () => {
-  const [iframeHeight, setIframeHeight] = useState('2794px');
+  const [iframeHeight, setIframeHeight] = useState('2794vh');
 
   useEffect(() => {
     const iframe = document.getElementById('iframe-home') as HTMLIFrameElement;
