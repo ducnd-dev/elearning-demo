@@ -15,7 +15,7 @@ const getData = async (slug: string) => {
   return data;
 };
 
-const fetchData = unstable_cache(async (categoryId) => {
+const fetchData = async (categoryId: string) => {
   try {
     const data = await request<API.GetCoursesResponse>(`/v1/categories/${categoryId}`);
     return data;
@@ -23,11 +23,10 @@ const fetchData = unstable_cache(async (categoryId) => {
     console.error('Error fetching data:', error.message);
     return null;
   }
-});
+};
 
 export default async function Page(props: { params: { slug: string; categoryId: string } }) {
   revalidatePath('/[locale]/(auth)/learn/auth/[categoryId]/[slug]');
-  console.log('Page', props);
   const data = await getData(props.params.slug);
   const listData = await fetchData(props.params.categoryId);
   return (
