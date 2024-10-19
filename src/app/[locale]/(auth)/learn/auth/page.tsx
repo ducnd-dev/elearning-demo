@@ -3,7 +3,6 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 
-import { unstable_cache } from 'next/cache';
 import Link from 'next/link';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
@@ -25,7 +24,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 }
 
 // list khóa học
-const fetchData = unstable_cache(async () => {
+const fetchData = async () => {
   try {
     const data = await request<API.GetCategory>('/v1/categories');
     return data;
@@ -33,7 +32,7 @@ const fetchData = unstable_cache(async () => {
     console.error('Error fetching data:', error.message);
     return null; // Ensure a value is always returned
   }
-});
+};
 export default async function LearnAuthPage(props: { params: { locale: string } }) {
   unstable_setRequestLocale(props.params.locale);
   // const t = useTranslations('About');
