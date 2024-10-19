@@ -1,10 +1,10 @@
 // 'use client';
 // import { useEffect, useState } from 'react'
 
-type Props = {
-  height: string;
-}
-const IframeHome = (props: Props) => {
+// type Props = {
+//   height: string;
+// }
+const IframeHome = () => {
   // const [iframeHeight, setIframeHeight] = useState('600vh');
 
   // useEffect(() => {
