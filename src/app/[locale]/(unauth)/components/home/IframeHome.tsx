@@ -21,7 +21,7 @@ const IframeHome = () => {
   //   }
   // }, []);
   return (
-    <iframe id='iframe-home' src="https://builderjs.cuongdesign.net/templates/default/ColleagueCourses" onLoad={(e) => { e.currentTarget.style.height = e.currentTarget.contentWindow?.document.body.scrollHeight + 'px'; }} style={{ height: '200px', width: '100%', border: 'none', overflow: 'hidden' }}></iframe>
+    <iframe id='iframe-home' src="https://builderjs.cuongdesign.net/templates/default/ColleagueCourses" style={{ height: '1500vh', width: '100%', border: 'none', overflow: 'hidden' }}></iframe>
   )
 }
 
