@@ -26,21 +26,6 @@ declare namespace Model {
     course_materials: CourseMaterial[];
   };
 
-  declare type Setting = {
-    bank_name: string;
-    bank_account: string;
-    bank_account_name: string;
-    logo_header: string;
-    logo_footer: string;
-    email: string;
-    phone: string;
-    address: string;
-    link_group_facebook: string;
-    link_facebook: string;
-    link_fanpage: string;
-    link_youtube: string;
-    price: number;
-  };
 
   declare type User = {
     id: number;
@@ -67,6 +52,25 @@ declare namespace Model {
       updated_at: string;
       user: User;
   };
+
+  declare type Setting = {
+    id: number;
+    bank_name: string;
+    bank_account: string;
+    bank_account_name: string;
+    price: number;
+    logo_header: string;
+    logo_footer: string;
+    email: string;
+    phone: string;
+    address: string;
+    link_group_facebook: string;
+    link_facebook: string;
+    link_fanpage: string;
+    link_youtube: string;
+    created_at: string;
+    updated_at: string;
+  }
 }
 
 declare namespace API {
@@ -122,5 +126,9 @@ declare namespace API {
 
   declare type GetBlogResponse = {
     data: Model.Blog;
+  };
+
+  declare type GetSettingsResponse = {
+    data: Model.Setting;
   };
 }

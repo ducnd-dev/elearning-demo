@@ -1,19 +1,12 @@
-'use client';
-import { MenuOutlined } from '@ant-design/icons';
-import { Avatar, Drawer } from 'antd';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-
-import { Sidebar } from '@/app/[locale]/(auth)/dashboard/components/Sidebar';
+import { Avatar } from 'antd';
 
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
 import { getCookie } from 'cookies-next';
-
+import { useSetting } from '@/stores/common-store';
+import DrawerHeader from './DrawerHeader';
 export const Header = () => {
-  const [open, setOpen] = useState(false);
-  // show MenuOutlined when route includes /dashboard by react
-  const showMenuOutlined = usePathname().includes('/dashboard');
+  const { setting } = useSetting();
   const userCookie = getCookie('user');
   const user = userCookie ? JSON.parse(userCookie as string) : null;
 
@@ -22,10 +15,10 @@ export const Header = () => {
     { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
     { label: 'Khánh Hùng là ai ?', href: '/#about-kh', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
     { label: 'Hùng\'s Colleague Club', href: 'https://www.facebook.com/groups/337354765813432', icon: 'https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg' },
-    { label: 'Blog', href: 'https://khanhhung.academy/blog/', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
+    { label: 'Blog', href: '/blogs', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
     { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
   ];
-
+  
   return (
     <div className="header">
       <div className="header-desk">
@@ -36,13 +29,10 @@ export const Header = () => {
               <div className="header-bot-wrap">
                 <div className="header-bot-left append-burger-js">
                   <div className="logo  flex items-center gap-2">
-                    <Drawer className="lg:hidden" open={open} onClose={() => setOpen(false)} placement="left">
-                      <Sidebar />
-                    </Drawer>
-                    {showMenuOutlined && <MenuOutlined className="!lg:hidden cursor-pointer px-5" onClick={() => setOpen(true)} />}
-                    <a className="logo-link" href="/">
+                    <DrawerHeader />
+                  <a className="logo-link" href="/">
                       {' '}
-                      <img src="https://khanhhung.academy/template/assets/images/header/logo-kha.png" alt="" />
+                      <img src={setting?.logo_header} alt="" />
                     </a>
                   </div>
                 </div>
@@ -50,12 +40,12 @@ export const Header = () => {
                   <ul className="menu-list">
                     {menus.map((menu, index) => (
                       <li key={index} className="menu-item">
-                        <a className="menu-link btn-scroll" href={menu.href}>
+                        <Link className="menu-link btn-scroll" href={menu.href}>
                           <span className="menu-icon">
                             <img src={menu.icon} alt="" />
                           </span>
                           <span className="menu-txt">{menu.label}</span>
-                        </a>
+                        </Link>
                       </li>
                     ))}
                     <li className="menu-item dropdown">
