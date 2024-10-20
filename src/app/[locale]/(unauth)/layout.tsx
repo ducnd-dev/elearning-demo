@@ -1,5 +1,3 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
-
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import request from '@/libs/request';
