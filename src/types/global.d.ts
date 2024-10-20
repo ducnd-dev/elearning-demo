@@ -51,6 +51,22 @@ declare namespace Model {
     plan_id: number;
     date_of_birth: string;
   };
+  declare type Blog = {
+      id: number;
+      title: string;
+      slug: string;
+      content: string;
+      image: string;
+      views: number;
+      likes: number;
+      shares: number;
+      user_id: number;
+      is_published: number;
+      deleted_at: string | null;
+      created_at: string;
+      updated_at: string;
+      user: User;
+  };
 }
 
 declare namespace API {
@@ -94,5 +110,17 @@ declare namespace API {
     data: {
       isPaid: boolean;
     };
+  };
+
+  declare type GetBlogsResponse = {
+    data: {
+      data: Model.Blog[];
+      current_page: number;
+      total: number
+    };
+  };
+
+  declare type GetBlogResponse = {
+    data: Model.Blog;
   };
 }

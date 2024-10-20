@@ -14,7 +14,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 //   return null;
 // }
 export default async function request<T>(url: string, options: RequestInit = {}): Promise<T> {
-  console.log('request', url);
+  console.log('request', `${baseUrl}${url}`);
   try {
     const token = getCookie('token') as string | null;
     console.log('token', token);
