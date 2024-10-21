@@ -32,7 +32,7 @@ export default function Index(props: { params: { locale: string } }) {
       <Intro />
       <Staff />
       <Faqs /> */}
-      <div className='w-full flex justify-end text-white'>
+      <div className='w-full hidden justify-end text-white'>
         <div className='w-1/3 mr-28 relative h-0'>
           <div className='absolute top-28 px-5'>
             <FormLogin />
