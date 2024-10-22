@@ -1,7 +1,7 @@
 import '@/styles/home.css';
 import '@/styles/root.css';
 
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import IframeHome from './components/home/IframeHome';
 import { FormLogin } from './components/login/FormLogin';
 
@@ -18,7 +18,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 }
 
 export default function Index(props: { params: { locale: string } }) {
-  unstable_setRequestLocale(props.params.locale);
+  // unstable_setRequestLocale(props.params.locale);
   return (
     <>
       {/* <div className="banner-receive txt-white layer-digital overflow-hidden">
