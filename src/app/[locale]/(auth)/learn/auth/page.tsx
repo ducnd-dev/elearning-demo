@@ -40,8 +40,10 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
     course.course_materials.forEach((material) => {
-      const [hours, minutes, seconds] = material.time.split(':').map(Number);
-      total += (hours ?? 0) * 3600 + (minutes ?? 0) * 60 + (seconds ?? 0);
+      if (material.time.includes(':')) {
+        const [hours, minutes, seconds] = material.time.split(':').map(Number);
+        total += (hours ?? 0) * 3600 + (minutes ?? 0) * 60 + (seconds ?? 0);
+      }
     });
 
     // Convert total seconds back to h:M:s format
@@ -50,6 +52,22 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
     const seconds = total % 60;
 
     return `${hours}:${minutes}:${seconds}`;
+  };
+
+  const getTotalTimeAll = (data: any[]) => {
+    let total = 0;
+    data.forEach((cate) => {
+      cate?.courses?.forEach((course: Model.Course) => {
+        course?.course_materials?.forEach((material) => {
+          if (material.time.includes(':')) {
+            const [hours, minutes, seconds] = material.time.split(':').map(Number);
+            total += (hours ?? 0) * 3600 + (minutes ?? 0) * 60 + (seconds ?? 0);
+          }
+        });
+      });
+    });
+    const hours = Math.floor(total / 3600);
+    return hours;
   };
 
   return (
@@ -61,7 +79,10 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
               <div className="regi-left-inner pro-toggle">
                 <h1 className="t-title-second c-second">KHÓA HỌC KINH DOANH KHÓA HỌC</h1>
                 <div className="toggle-xtb study-xtb">
-                  <label className="txt text-3xl font-semibold" htmlFor="toggle-xtb">Toàn bộ 212 videos của khóa học - Hơn 31 giờ</label>
+                    <label className="txt text-3xl font-semibold" htmlFor="toggle-xtb">
+                      Toàn bộ {datas?.data?.reduce((total: number, cate: any) => total + cate.courses.reduce((courseTotal: number, course: any) => courseTotal + course.course_materials.length, 0), 0)}
+                      {' '} video của khóa học - Hơn { getTotalTimeAll(datas?.data ?? []) } giờ
+                    </label>
                 </div>
                 <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
                 {datas?.data?.map((cate: any) => (
