@@ -1,5 +1,5 @@
 import { createStore } from 'zustand/vanilla';
-import { deleteCookie, setCookie } from 'cookies-next';
+import { deleteCookie, getCookie, setCookie } from 'cookies-next';
 
 interface UserState {
   user: any;
@@ -10,7 +10,7 @@ interface UserState {
 export const useAuthStore = createStore<UserState>
 
 export const userStore = useAuthStore((set) => ({
-  user: null,
+  user: getCookie('user') || null,
   setUser: (user: any) => {
     set({ user });
     setCookie('plan', user?.plan_id);
@@ -29,6 +29,11 @@ export const createUserStore = (initialState: any) => useAuthStore((set) => ({
   logout: () => set({ user: null }),
 }))
 
-export const useUser = () => userStore.getState().user
+export const useUser = () =>({
+  user: userStore.getState().user,
+  isProUser: userStore.getState().user?.plan_id === 1,
+  setUser: userStore.getState().setUser,
+  logout: userStore.getState().logout,
+})
 export const useSetUser = () => userStore.getState().setUser
 export const useLogout = () => userStore.getState().logout

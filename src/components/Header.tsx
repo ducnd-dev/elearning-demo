@@ -2,14 +2,12 @@ import { Avatar } from 'antd';
 
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
-import { getCookie } from 'cookies-next';
 import { useSetting } from '@/stores/common-store';
 import DrawerHeader from './DrawerHeader';
+import { useUser } from '@/stores/auth-store';
 export const Header = () => {
   const { setting } = useSetting();
-  const userCookie = getCookie('user');
-  const user = userCookie ? JSON.parse(userCookie as string) : null;
-
+  const {user} = useUser();
   const menus = [
     { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
     { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
