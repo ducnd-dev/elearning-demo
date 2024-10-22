@@ -1,24 +1,10 @@
 import '@/styles/home.css';
 import '@/styles/root.css';
 
-import { getTranslations } from 'next-intl/server';
 import IframeHome from './components/home/IframeHome';
 import { FormLogin } from './components/login/FormLogin';
 
-export async function generateMetadata(props: { params: { locale: string } }) {
-  const t = await getTranslations({
-    locale: props.params.locale,
-    namespace: 'Index',
-  });
-
-  return {
-    title: t('meta_title'),
-    description: t('meta_description'),
-  };
-}
-
-export default function Index(props: { params: { locale: string } }) {
-  // unstable_setRequestLocale(props.params.locale);
+export default function Index() {
   return (
     <>
       {/* <div className="banner-receive txt-white layer-digital overflow-hidden">
