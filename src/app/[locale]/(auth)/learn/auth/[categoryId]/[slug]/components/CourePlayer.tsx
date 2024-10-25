@@ -2,8 +2,8 @@
 import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
+import '@/styles/learn.css';
 
-import Link from 'next/link';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
@@ -36,40 +36,56 @@ const CourePlayer = (props: Props) => {
   };
 
   const { isProUser } = useAuthStore();
-  
+
   return (
     <div className="mx-auto flex max-w-[1600px] py-8">
       <div className="relative mr-8 aspect-video h-[60vh] w-3/5 rounded-xl">
         {/* <PlyrPlayer url="http://localhost:8000/api/v1/file/11/stream" /> */}
         {!detail?.is_free && !isProUser
           ? (
-              <div className="flex size-full items-center justify-center rounded-xl bg-slate-400 bg-opacity-10 ">
-                <Link href="/learn/upgrade" className="text-white">
-                  <div className="header-bot-item" data-attribute="register">
-                    {' '}
-                    <div className="btn-header btn-header-js bg-lms">
-                      <span className="txt fw-600">
-                        Nâng cấp ngay
-                      </span>
+            <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
+              <div className="pro-wars-wrapper --t-center">
+                <div className="pro-wars-top">
+                  <p className="t-ylss" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
+                    <span className="txt"> VIDEO NÀY CHỈ DÀNH CHO<br />CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ</span></p>
+                  <p className="des">Hùng có nhiều video Free khác rất chất lượng, <br />bạn hãy xem các video FREE khác nhé!</p>
+                </div>
+                <div className="pro-wars-bot">
+                  <a className="button-upp undefined" href="/learn/upgrade/">
+                    <span className="br"></span><span className="br"></span>
+                    <span className="star-dc" style={{ backgroundImage: 'url("https://khanhhung.academy/learn/assets/images/button-upp-star.png")' }}></span>
+                    <div className="button-upp-inner">
+                      <span className="ic ic-thunder">
+                        <img src="/learn/assets/images/premium-1.svg" alt="" /></span>
+                      <span className="txt">Nâng cấp ngay</span>
                     </div>
-                  </div>
-                </Link>
+                    <span className="mirrors"></span>
+                  </a>
+                  {/* <div className="pro-wars-next">
+                    <span className="txt">Video <span className="re-tag">
+                      <span className="re-tag-item --free"><span className="mirrors"></span>
+                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                        <span className="txt">Free</span></span></span> tiếp theo</span>
+                    <i className="far fa-angle-right"></i>
+                  </div> */}
+                </div>
               </div>
-            )
+            </div>
+          )
           : (
-              <iframe
-                src={`/video/${detail?.id}`}
-                title={detail?.title}
-                className="size-full rounded-lg"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                sandbox="allow-scripts allow-same-origin allow-popups"
-                onContextMenu={(e: any) => e.preventDefault()}
-                style={{ width: '100%', height: '100%' }}
-              >
-              </iframe>
-            )}
+            <iframe
+              src={`/video/${detail?.id}`}
+              title={detail?.title}
+              className="size-full rounded-lg"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              sandbox="allow-scripts allow-same-origin allow-popups"
+              onContextMenu={(e: any) => e.preventDefault()}
+              style={{ width: '100%', height: '100%' }}
+            >
+            </iframe>
+          )}
         <div>
           <div className="t-title-second c-second mt-8 !text-black">{detail?.title}</div>
           <div className="flex">
@@ -80,47 +96,47 @@ const CourePlayer = (props: Props) => {
             <div className="pro-tag ml-8">
               {detail?.is_featured
                 ? (
-                    <div className="pro-tag-item --featured w-max">
-                      <span className="mirrors"></span>
-                      <div>
-                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                      </div>
-                      <div className="txt w-max"> Nổi bật</div>
+                  <div className="pro-tag-item --featured w-max">
+                    <span className="mirrors"></span>
+                    <div>
+                      <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
                     </div>
-                  )
+                    <div className="txt w-max"> Nổi bật</div>
+                  </div>
+                )
                 : ''}
               {detail?.is_important
                 ? (
-                    <div className="pro-tag-item --featured w-max">
-                      <span className="mirrors"></span>
-                      <div>
-                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                      </div>
-                      <div className="txt w-max"> Quan trọng</div>
+                  <div className="pro-tag-item --featured w-max">
+                    <span className="mirrors"></span>
+                    <div>
+                      <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
                     </div>
-                  )
+                    <div className="txt w-max"> Quan trọng</div>
+                  </div>
+                )
                 : ''}
               {detail?.is_free
                 ? (
-                    <div className="pro-tag-item --free w-max">
+                  <div className="pro-tag-item --free w-max">
+                    <span className="mirrors"></span>
+                    <div>
+                      <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                    </div>
+                    <span className="txt w-max">FREE</span>
+                  </div>
+                )
+                : (
+                  <div className="pro-tag">
+                    <div className="pro-tag-item --pro">
                       <span className="mirrors"></span>
                       <div>
-                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
                       </div>
-                      <span className="txt w-max">FREE</span>
+                      <span className="txt">PRO</span>
                     </div>
-                  )
-                : (
-                    <div className="pro-tag">
-                      <div className="pro-tag-item --pro">
-                        <span className="mirrors"></span>
-                        <div>
-                          <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
-                        </div>
-                        <span className="txt">PRO</span>
-                      </div>
-                    </div>
-                  )}
+                  </div>
+                )}
             </div>
           </div>
         </div>
@@ -189,47 +205,47 @@ const CourePlayer = (props: Props) => {
                                 <div className="pro-tag">
                                   {video.is_featured
                                     ? (
-                                        <div className="pro-tag-item --featured w-max">
-                                          <span className="mirrors"></span>
-                                          <div>
-                                            <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                          </div>
-                                          <div className="txt w-max"> Nổi bật</div>
+                                      <div className="pro-tag-item --featured w-max">
+                                        <span className="mirrors"></span>
+                                        <div>
+                                          <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
                                         </div>
-                                      )
+                                        <div className="txt w-max"> Nổi bật</div>
+                                      </div>
+                                    )
                                     : ''}
                                   {video.is_important
                                     ? (
-                                        <div className="pro-tag-item --featured w-max">
-                                          <span className="mirrors"></span>
-                                          <div>
-                                            <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
-                                          </div>
-                                          <div className="txt w-max"> Quan trọng</div>
+                                      <div className="pro-tag-item --featured w-max">
+                                        <span className="mirrors"></span>
+                                        <div>
+                                          <img src="https://khanhhung.academy/learn/assets/images/ic-tag-important.svg" alt="" />
                                         </div>
-                                      )
+                                        <div className="txt w-max"> Quan trọng</div>
+                                      </div>
+                                    )
                                     : ''}
                                   {video.is_free
                                     ? (
-                                        <div className="pro-tag-item --free w-max">
+                                      <div className="pro-tag-item --free w-max">
+                                        <span className="mirrors"></span>
+                                        <div>
+                                          <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                                        </div>
+                                        <span className="txt w-max">FREE</span>
+                                      </div>
+                                    )
+                                    : (
+                                      <div className="pro-tag">
+                                        <div className="pro-tag-item --pro">
                                           <span className="mirrors"></span>
                                           <div>
-                                            <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
+                                            <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
                                           </div>
-                                          <span className="txt w-max">FREE</span>
+                                          <span className="txt">PRO</span>
                                         </div>
-                                      )
-                                    : (
-                                        <div className="pro-tag">
-                                          <div className="pro-tag-item --pro">
-                                            <span className="mirrors"></span>
-                                            <div>
-                                              <img src="https://khanhhung.academy/learn/assets/images/ic-tag-pro.svg" alt="" />
-                                            </div>
-                                            <span className="txt">PRO</span>
-                                          </div>
-                                        </div>
-                                      )}
+                                      </div>
+                                    )}
                                 </div>
                                 <div className="pro-time">
                                   <img src="https://khanhhung.academy/learn/assets/images/ic-clock.svg" alt="" />

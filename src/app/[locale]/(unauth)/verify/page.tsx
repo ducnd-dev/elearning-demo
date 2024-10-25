@@ -21,12 +21,14 @@ const verify = async (token: string) => {
 
 
 }
-const VerifyPage = async (props: { searchParams: { token: string } }) => {
+
+const VerifyPage = async (props: { searchParams: { token: string, action: string } }) => {
   const token = props.searchParams.token;
+  const action = props.searchParams.action;
   const { setUser } = useUser();
   const res =  await verify(token);
   setUser(res?.data);
-  redirect('/dashboard');
+  redirect(action === 'register' ? '/dashboard' : '/learn/auth/1/1');
 }
 
 export default VerifyPage

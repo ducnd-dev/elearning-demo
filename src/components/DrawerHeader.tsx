@@ -11,10 +11,10 @@ const DrawerHeader = () => {
 
   return (
     <>
-      <Drawer className="lg:hidden" open={open} onClose={() => setOpen(false)} placement="left">
+      <Drawer open={open} onClose={() => setOpen(false)} placement="left">
         <Sidebar />
       </Drawer>
-      {showMenuOutlined && <MenuOutlined className="!lg:hidden cursor-pointer px-5" onClick={() => setOpen(true)} />}
+      {showMenuOutlined && <MenuOutlined className="md:!hidden cursor-pointer px-5" onClick={() => setOpen(true)} />}
 
     </>
   )

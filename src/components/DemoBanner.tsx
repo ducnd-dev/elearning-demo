@@ -52,16 +52,7 @@ export const DemoBanner = () => {
                   </div>
                 </div>
               </div>
-
               <div className="hotline-render hotline-render-js header-loading-ani"></div>
-              <div className="header-top-item">
-                <div className="btn-app btn-app-js">
-                  <span className="icon">
-                    <img src="https://khanhhung.academy/template/assets/images/header/icon-down.png" alt="" />
-                  </span>
-                  <span className="txt fw-600">Tải App mobile</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

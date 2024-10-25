@@ -1,21 +1,13 @@
-import { Avatar } from 'antd';
-
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
 import { useSetting } from '@/stores/common-store';
 import DrawerHeader from './DrawerHeader';
-import { useUser } from '@/stores/auth-store';
+import Menu from './Menu';
+import UserProfile from './UserProfile';
+import Logo from './Logo';
 export const Header = () => {
   const { setting } = useSetting();
-  const {user} = useUser();
-  const menus = [
-    { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
-    { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
-    { label: 'Khánh Hùng là ai ?', href: '/#about-kh', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
-    { label: 'Colleague Club', href: setting?.link_group_facebook || '#', icon: 'https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg' },
-    { label: 'Blog', href: '/blogs', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
-    // { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
-  ];
+
   
   return (
     <div className="header">
@@ -25,109 +17,19 @@ export const Header = () => {
           <div className="header-bot">
             <div className="container-second">
               <div className="header-bot-wrap">
-                <div className="header-bot-left append-burger-js">
-                  <div className="logo  flex items-center gap-2">
+                <div className="flex items-center">
+                  <div className="logo flex items-center gap-2">
                     <DrawerHeader />
-                  <a className="logo-link" href="/">
-                      {' '}
-                      <img src={setting?.logo_header} alt="" />
-                    </a>
+                    <Logo logoSrc={setting?.logo_header} />
                   </div>
                 </div>
                 <div className="header-bot-center header-menu append-menu-js">
-                  <ul className="menu-list">
-                    {menus.map((menu, index) => (
-                      <li key={index} className="menu-item">
-                        <Link className="menu-link btn-scroll" href={menu.href}>
-                          <span className="menu-icon">
-                            <img src={menu.icon} alt="" />
-                          </span>
-                          <span className="menu-txt">{menu.label}</span>
-                        </Link>
-                      </li>
-                    ))}
-                    <li className="menu-item dropdown">
-                      <p className="menu-link">
-                        <span className="menu-icon">
-                          <img src="https://khanhhung.academy/template/assets/images/header/icon-fb.svg" alt="" />
-                        </span>
-                        <span className="menu-txt">Kết nối </span>
-                      </p>
-                      <ul className="sub-menu">
-                        <li className="sub-menu-item">
-                          <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_facebook}>
-                            <span className="sub-menu-icon">
-                              <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
-                            </span>
-                            <span className="sub-menu-txt">Kết bạn</span>
-                          </a>
-                        </li>
-                        <li className="sub-menu-item">
-                          <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_fanpage}>
-                            <span className="sub-menu-icon">
-                              <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
-                            </span>
-                            <span className="sub-menu-txt">Fanpage</span>
-                          </a>
-                        </li>
-                        <li className="sub-menu-item">
-                          <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_youtube}>
-                            <span className="sub-menu-icon"><img src="https://khanhhung.academy/template/assets/images/header/icon-ytb.svg" alt="" /></span>
-                            <span className="sub-menu-txt">Youtube</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
+                  <Menu setting={setting} />
                 </div>
-                <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
-                  <div className="header-bot-inner">
-                    {user ? (
-                      <Link href="/dashboard/profile" as={`/dashboard/profile`}>
-                        <span className="txt fw-600" style={{ fontSize: 14 }}>
-                          <Avatar src="https://imgs.search.brave.com/u8TbnSbeBGhCk0eBdOWDB_fEj7jfB_IZfT9s9zY-320/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dzNzY2hvb2xzLmNv/bS93M2ltYWdlcy9h/dmF0YXI1LnBuZw"
-                            style={{ marginRight: 8, width: 32 }}
-                          />
-                          {user?.first_name} {user?.last_name}
-                        </span>
-                      </Link>
-                    ) : (
-                      <>
-                        <div className="header-bot-item" data-attribute="login">
-                          <a className="btn-header btn-header-js" href="/#sec-form">
-                            <span className="txt fw-600">Đăng nhập</span>
-                          </a>
-                        </div>
-                        <div className="header-bot-item" data-attribute="register">
-                          <a className="btn-header btn-header-js bg-lms" href="/#sec-form">
-                            <span className="txt fw-600">Đăng ký và học thử ngay</span>
-                          </a>
-                        </div>
-                      </>
-                    )}
-                  </div>
-                  <div className="header-bot-item-pri header-bot-item" data-attribute="register">
-                    <a className="btn-header btn-header-js style-pri" href="/#sec-form">
-                      {' '}
-                      <span className="txt fw-600">
-                        Học ngay
-                      </span>
-                      <span className="txt txt-upper">hoàn toàn miễn phí</span>
-                    </a>
-                  </div>
-                  <div className="header-top-item download-app">
-                    <a className="btn-app btn-app-device" href="https://play.google.com/store/apps/details?id=com.academy.khanhhung" target="_blank" rel="noreferrer">
-                      <span className="icon">
-                        <img src="https://khanhhung.academy/template/assets/images/header/icon-down-app.svg" alt="" />
-                      </span>
-                      <span className="txt fw-600">Tải App</span>
-                    </a>
-                  </div>
-                </div>
+                <UserProfile />
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <div className="header-mb menu-mb-js">

@@ -3,6 +3,7 @@
 import request from "@/libs/request";
 import { useLogout, useSetUser } from "@/stores/auth-store";
 import { getCookie } from "cookies-next";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
 interface UserStoreContextType {
@@ -22,10 +23,15 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const [user, setUser] = useState<Model.User | null>(null);
   const setUserStore = useSetUser();
   const [isProUser, setIsProUser] = useState<boolean>(false);
+  const pathname = usePathname()
   useEffect(() => {
+    console.log('pathname', pathname);
+    
     const getUser = async () => {
       try {
         const token = getCookie('token');
+        console.log('token', token);
+        
         if (!token) {
           return;
         }
@@ -37,7 +43,8 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
       }
     };
     getUser();
-  }, []);
+  }, [pathname]);
+
   useEffect(() => {
     setUserStore(user);
     setIsProUser(user?.plan_id === 1);

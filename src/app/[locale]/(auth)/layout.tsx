@@ -4,6 +4,7 @@ import { getCookie } from 'cookies-next';
 
 // import request from '@/libs/request';
 import { AppConfig } from '@/utils/AppConfig';
+// import { useRouter } from 'next/navigation';
 
 // const getUser = async () => {
 //   const user = await request('/api/users/profile');
@@ -16,6 +17,7 @@ export default async function AuthLayout(props: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  // const router = useRouter();
   let clerkLocale = enUS;
   let signInUrl = '/sign-in';
   let signUpUrl = '/sign-up';

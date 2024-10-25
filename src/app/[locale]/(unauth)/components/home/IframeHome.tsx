@@ -11,7 +11,7 @@ const html = async () => {
 
 };
 const IframeHome = async () => {
-  revalidatePath('https://builderjs.cuongdesign.net/templates/default/ColleagueCourses');
+  // revalidatePath('https://builderjs.cuongdesign.net/templates/default/ColleagueCourses');
   const data = await html();
   return (
     <div

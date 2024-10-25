@@ -1,0 +1,245 @@
+.pro-wars {
+  --f-sz-cs: 1.85376vh;
+  --w-tick: 2.47168vh;
+  --pd-btn: 1.23584vh 2.47168vh;
+  --gap: 0.82389vh;
+  align-items: center;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  font-size: var(--f-sz-cs);
+  font-weight: 500;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 5
+}
+
+.pro-wars:after {
+  -webkit-backdrop-filter: blur(60px);
+  backdrop-filter: blur(60px);
+  background: rgba(0, 0, 0, .4);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1
+}
+
+@media(min-width:1199px)and (max-width:1430px) {
+  .pro-wars {
+    --f-sz-cs: 1.04167vw;
+    --w-tick: 1.38889vw;
+    --pd-btn: 0.69444vw 1.38889vw;
+    --gap: 0.46296vw
+  }
+}
+
+@media screen and (max-width:1199px) {
+  .pro-wars {
+    --f-sz-cs: 2.08333vw;
+    --w-tick: 2.77778vw;
+    --pd-btn: 1.38889vw 2.77778vw;
+    --gap: 0.92593vw
+  }
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars {
+    --f-sz-cs: 2.77778vw;
+    --pd-btn: 1.85185vw 2.77778vw
+  }
+}
+
+.pro-wars .t-ylss {
+  --f-sz: 3.29557vh
+}
+
+@media screen and (max-width:1199px) {
+  .pro-wars .t-ylss {
+    --f-sz: 4.05093vw
+  }
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars .t-ylss {
+    --f-sz: 5.20833vw
+  }
+}
+
+.pro-wars .re-tag {
+  --gap-tag: 0.41195vh;
+  --f-sz-tag: 1.44181vh;
+  --pd-tag: 0.20597vh 0.41195vh;
+  --gap-inner-tag: 0.41195vh;
+  --sz-ic-tag: 1.44181vh;
+  display: inline-flex
+}
+
+.pro-wars .button-upp {
+  --pd: 1.23584vh 2.05973vh;
+  --fz: 1.44181vh;
+  --gap: 0.41195vh;
+  --sz-ic: 2.05973vh
+}
+
+@media screen and (min-width:1200px) {
+  .pro-wars .button-upp {
+    min-width: 25vh
+  }
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars .button-upp {
+    --pd: 1.85185vw 2.77778vw;
+    --fz: 3.24074vw;
+    --gap: 1.15741vw;
+    --sz-ic: 4.39815vw;
+    min-width: 45vw
+  }
+}
+
+.pro-wars-img {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1
+}
+
+.pro-wars-img img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%
+}
+
+.pro-wars-wrapper {
+  align-items: center;
+  -webkit-backdrop-filter: blur(60px);
+  backdrop-filter: blur(60px);
+  background: rgba(0, 0, 0, .4);
+  gap: calc(var(--gap)*2);
+  height: 100%;
+  justify-content: center;
+  width: 100%
+}
+
+.pro-wars-top,
+.pro-wars-wrapper {
+  display: flex;
+  flex-direction: column
+}
+
+.pro-wars-bot,
+.pro-wars-top {
+  gap: var(--gap)
+}
+
+.pro-wars-bot {
+  align-items: center;
+  display: flex
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars-bot {
+    flex-direction: column
+  }
+}
+
+.pro-wars-content {
+  margin: 0 auto
+}
+
+.pro-wars-content ul li {
+  display: flex;
+  gap: .6rem
+}
+
+.pro-wars-content ul li img {
+  flex-shrink: 0;
+  width: var(--w-tick)
+}
+
+.pro-wars-btn {
+  background-color: #ff75e5;
+  border-radius: var(--rs);
+  cursor: pointer;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: var(--pd-btn);
+  position: relative;
+  text-transform: uppercase;
+  width: -moz-fit-content;
+  width: fit-content
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars-btn {
+    border-radius: .4rem
+  }
+}
+
+.pro-wars-btn>* {
+  position: relative;
+  z-index: 2
+}
+
+.pro-wars-btn:after {
+  background: #292929;
+  content: "";
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all .4s ease;
+  width: 0;
+  z-index: 1
+}
+
+@media screen and (min-width:1025px) {
+  .pro-wars-btn:hover:after {
+    left: 0;
+    width: 100%
+  }
+}
+
+.pro-wars-next {
+  --pd-tag: .2rem .6rem;
+  --gap-inner-tag: .4rem;
+  --sz-ic-tag: 1.6rem;
+  align-items: center;
+  border-bottom: .1rem solid #fff;
+  cursor: pointer;
+  display: flex;
+  gap: .6rem;
+  margin: 0 auto;
+  padding-bottom: .5rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: .3s ease-in-out;
+  width: -moz-fit-content;
+  width: fit-content
+}
+
+@media screen and (max-width:600px) {
+  .pro-wars-next {
+    --sz-ic-tag: 1.2rem
+  }
+}
+
+@media screen and (min-width:1025px) {
+  .pro-wars-next:hover {
+    border-bottom-color: #f0c81f;
+    color: #f0c81f
+  }
+}
+
+.pro-wars-next .txt {
+  align-items: center;
+  display: flex;
+  gap: var(--gap-inner-tag)
+}

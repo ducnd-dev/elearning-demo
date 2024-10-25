@@ -1,4 +1,5 @@
 'use client';
+import BtnLearnNow from '@/components/BtnLearnNow';
 import { useAuthStore } from '@/providers/auth-store-provider';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -26,16 +27,7 @@ export const Sidebar = () => {
   return (
     <div className="fixed mr-8 w-[300px] px-8">
       <div className="mb-main-top">
-        <Link className="mb-btn-pri" href="/learn/auth/1/1">
-          <div className="inner">
-            <div className="ic ic-thunder">
-              <img src="https://khanhhung.academy/learn/assets/images/ic-thunder.svg" alt="" />
-              <img src="https://khanhhung.academy/learn/assets/images/thunder.gif" alt="" className="gif" />
-              <img src="https://khanhhung.academy/learn/assets/images/thunder.gif" alt="" className="gif --second" />
-            </div>
-            <span className="txt">Học ngay</span>
-          </div>
-        </Link>
+       <BtnLearnNow />
       </div>
       <div className="mb-block mt-8">
         <p className="mb-title">
