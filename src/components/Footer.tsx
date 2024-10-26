@@ -166,7 +166,7 @@ export const Footer = () => {
   
               </div>
   
-              <div className="col col-3">
+              <div className="col col-3 ml-5">
                 <div className="hd-menu-info">
                   <div className="ft-label">Liên hệ</div>
                   <div className="hd-menu-info-f d-flex f-start f-nowrap">
@@ -174,9 +174,10 @@ export const Footer = () => {
                       <img src="https://mona.media/template/assets/images/footer-icon-mail.svg" alt="" />
                     </div>
                     <div className="d-flex a-start">
-                      <span className="label">Email</span>
-                      <span className="fw-600 hl-purple">
-                        <a href={`mailto:${setting?.email}`} className="link-h">{setting?.email}</a>
+                      <span className="label">
+                        Email: <span className="fw-600 hl-purple">
+                          <a href={`mailto:${setting?.email}`} className="link-h">{setting?.email}</a>
+                        </span>
                       </span>
                     </div>
                   </div>
@@ -185,10 +186,15 @@ export const Footer = () => {
                       <img src="https://mona.media/template/assets/images/footer-icon-marker.svg" alt="" />
                     </div>
                     <div className="d-flex a-start">
-                      <span className="label">Địa chỉ</span>
-                      <span className="fw-600 hl-purple">
-                       {setting?.address}
-                      </span>
+                      <span className="label">Địa chỉ: <span className="fw-600 hl-purple"> {setting?.address} </span> </span>
+                    </div>
+                  </div>
+                  <div className="hd-menu-info-f d-flex f-start f-nowrap">
+                    <div className="icon">
+                      <img src="https://mona.media/template/assets/images/footer-icon-mail.svg" alt="" />
+                    </div>
+                    <div className="d-flex a-start">
+                      <span className="label">Phone: <span className="fw-600 hl-purple"> {setting?.phone} </span> </span>
                     </div>
                   </div>
                 </div>
@@ -204,86 +210,47 @@ export const Footer = () => {
                   </span>
                 </div>
                 <div className="ft-if-box">
-                  <div className="ft-if-logo">
-                    <img src="https://khanhhung.academy/template/assets/images/logo/media-less-logo.svg" alt="" />
-                  </div>
                   <div className="ft-if-text">
                     <p className="text">Công ty TNHH MONA MEDIA</p>
-                    <span className="tphone">{setting?.phone}</span>
                   </div>
                 </div>
-              </div>
-              <div className="col col-2">
                 <div className="ft-if-gr ft-label">
                   <span className="icon">
                     <img src="https://khanhhung.academy/template/assets/images/ft-icon-card.svg" alt="" />
                   </span>
                   <span className="text">
-                    Số tài khoản
+                    Số tài khoản: <span className="ft-if-tbank">{setting?.bank_account}</span>
                   </span>
                 </div>
                 <div className="ft-if-box">
                   <div className="ft-if-bank">
-                    <span className="text">Ngân hàng</span>
-                    <span className="icon">
-                      {/* <img src="https://khanhhung.academy/template/assets/images/ft-if-bank.svg" alt="" /> */}
-                      {
-                        setting?.bank_name
-                      }
-                    </span>
-                  </div>
-                  <div className="ft-if-tbank">
-                    <span className="text">
-                      {setting?.bank_account}
-                    </span>
+                    <span className="text">Ngân hàng: {setting?.bank_name}</span>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-  
-        <div className="ft-license">
-          <div className="container">
-            <div className="ft-license-row d-flex f-ctn">
-              <div className="ft-license-col col col-5">
-                <div className="f-signature">
-                  <p className="reserved">
-                    © All rights reserved
-                  </p>
-                  <div className="f-signature-wrap d-flex f-start">
-                    <a href="https://mona.media" className="mona-logo" data-wpel-link="internal" target="_blank" rel="nofollow external noopener noreferrer">
-                      <img loading="lazy" src={setting?.logo_footer} alt="" />
-                    </a>
+              <div className="col col-3">
+                <div className="ft-license-col col d-flex f-end">
+                  <div className="ft-license-wrap">
+                    <div className="label">
+                      <a href="https://khanhhung.academy/chinh-sach-bao-mat/">Chính sách bảo mật</a>
+                    </div>
+                    <ul className="social-list d-flex">
+                      <li className="social-item ">
+                        <a href={setting?.link_facebook} rel="nofollow external noopener noreferrer" target="1" data-wpel-link="external">
+                          <img src="http://mona.media/wp-content/uploads/2023/02/ic-fb.svg" alt="" />
+                        </a>
+                      </li>
+                      <li className="social-item ">
+                        <a href={setting?.link_youtube} rel="nofollow external noopener noreferrer" target="1" data-wpel-link="external">
+                          <img src="http://mona.media/wp-content/uploads/2023/02/ic-youtube.svg" alt="" />
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-                </div>
-              </div>
-              <div className="ft-license-col col col-7 d-flex f-end">
-                <div className="ft-license-wrap">
-                  <div className="label">
-                    <a href="https://khanhhung.academy/chinh-sach-bao-mat/">Chính sách bảo mật</a>
-                  </div>
-                  <ul className="social-list d-flex">
-                    <li className="social-item ">
-                      <a href={setting?.link_facebook} rel="nofollow external noopener noreferrer" target="1" data-wpel-link="external">
-                        <img src="http://mona.media/wp-content/uploads/2023/02/ic-fb.svg" alt="" />
-                      </a>
-                    </li>
-                    {/* <li className="social-item ">
-                      <a href="https://www.linkedin.com/company/mona-media/" rel="nofollow external noopener noreferrer" target="1" data-wpel-link="external">
-                        <img src="http://mona.media/wp-content/uploads/2023/02/ic-linked.svg" alt="" />
-                      </a>
-                    </li> */}
-                    <li className="social-item ">
-                      <a href={setting?.link_youtube} rel="nofollow external noopener noreferrer" target="1" data-wpel-link="external">
-                        <img src="http://mona.media/wp-content/uploads/2023/02/ic-youtube.svg" alt="" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="ft-license-wrap">
-                  <div className="label">
-                    <a href="https://khanhhung.academy/huong-dan-dat-hang-tren-website-khanh-hung-academy/">Hướng dẫn đặt hàng</a>
+                  <div className="ft-license-wrap">
+                    <div className="label">
+                      <a href="https://khanhhung.academy/huong-dan-dat-hang-tren-website-khanh-hung-academy/">Hướng dẫn đặt hàng</a>
+                    </div>
                   </div>
                 </div>
               </div>

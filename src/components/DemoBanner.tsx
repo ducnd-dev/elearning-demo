@@ -1,5 +1,6 @@
 'use server';
 import request from '@/libs/request';
+import { useSetting } from '@/stores/common-store';
 import '@/styles/swiper.css';
 
 const fetchEvents = async () => {
@@ -14,6 +15,7 @@ const fetchEvents = async () => {
 
 export const DemoBanner = async () => {
   const datas = await fetchEvents();
+  const { setting } = useSetting();
   
   return (
     <div className="header-top">
@@ -37,7 +39,9 @@ export const DemoBanner = async () => {
                   <img src="https://khanhhung.academy/template/assets/images/header/icon-hostline.png" alt="" />
                 </span>
                 <span className="fw-600 text-wrap">
-                  <span className="txt">Hotline kỹ thuật</span>
+                  <span className="txt">
+                    <a href={`tel:${setting?.phone}`} target="_blank" rel="noreferrer"> Zalo hỗ trợ </a>
+                  </span>
                   <span className="info">
                     <img src="https://khanhhung.academy/template/assets/images/header/icon-info.png" alt="" />
                   </span>
