@@ -6,6 +6,7 @@ import { Avatar, Dropdown, Space, type MenuProps } from 'antd';
 import Link from 'next/link';
 import React from 'react'
 import BtnLearnNow from './BtnLearnNow';
+import BtnUpgrade from './BtnUpgrade';
 
 // type Props = {
 //   user: Model.User | null,
@@ -43,9 +44,9 @@ const UserProfile = () => {
     <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
       <div className="header-bot-inner">
         {user ? (
-          <>
+          <div className='flex items-center gap-2'>
             <BtnLearnNow />
-
+            <BtnUpgrade />
             <Dropdown menu={{ items }}>
               <Space>
                 <span className="txt fw-600" style={{ fontSize: 14 }}>
@@ -56,7 +57,7 @@ const UserProfile = () => {
                 </span>
               </Space>
             </Dropdown>
-          </>
+          </div>
         ) : (
           <>
             <div className="header-bot-item" data-attribute="login">

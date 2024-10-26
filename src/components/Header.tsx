@@ -7,8 +7,6 @@ import UserProfile from './UserProfile';
 import Logo from './Logo';
 export const Header = () => {
   const { setting } = useSetting();
-
-  
   return (
     <div className="header">
       <div className="header-desk">

@@ -3,11 +3,11 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 import '@/styles/learn.css';
-import '@/styles/study.css';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
 import { useAuthStore } from '@/providers/auth-store-provider';
+import BtnUpgrade from '@/components/BtnUpgrade';
 
 type Props = {
   data: API.CourseMaterial;
@@ -38,8 +38,8 @@ const CourePlayer = (props: Props) => {
   const { isProUser } = useAuthStore();
 
   return (
-    <div className="mx-auto grid grid-cols-12 gap-10 max-w-[1600px] py-8">
-      <div className="relative mr-8 aspect-video h-[60vh] col-span-full lg:col-span-8 rounded-xl w-full">
+    <div className="mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] py-8">
+      <div className="relative mr-8 aspect-video lg:h-[60vh] col-span-full lg:col-span-8 rounded-xl w-full">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
@@ -49,17 +49,7 @@ const CourePlayer = (props: Props) => {
                     <span className="txt"> VIDEO NÀY CHỈ DÀNH CHO<br />CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ</span></p>
                   <p className="des">Hùng có nhiều video Free khác rất chất lượng, <br />bạn hãy xem các video FREE khác nhé!</p>
                 </div>
-                <div className="pro-wars-bot relative">
-                  <a className="button-upp undefined" href="/learn/upgrade">
-                    <span className="br"></span><span className="br"></span>
-                    <span className="star-dc" style={{ backgroundImage: 'url("https://khanhhung.academy/learn/assets/images/button-upp-star.png")' }}></span>
-                    <div className="button-upp-inner">
-                      <span className="ic ic-thunder">
-                        <img src="https://khanhhung.academy/learn/assets/images/premium-1.svg" alt="" /></span>
-                      <span className="txt">Nâng cấp ngay</span>
-                    </div>
-                  </a>
-                </div>
+                <BtnUpgrade />
               </div>
             </div>
           )
