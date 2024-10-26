@@ -1,0 +1,17 @@
+.swiper-slide-events {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.swiper-slide-events p {
+  display: flex;
+  color: #FFF;
+  animation: move 30s linear infinite;
+  margin-right: -100%;
+  margin-left: 100%;
+}
+@keyframes move {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-100%, 0); }
+}
