@@ -16,7 +16,7 @@ const UserProfile = () => {
     {
       key: '1',
       label: (
-        <Link target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+        <Link target="_blank" rel="noopener noreferrer" href="/dashboard/profile">
           Profile
         </Link>
       ),
@@ -24,7 +24,7 @@ const UserProfile = () => {
     {
       key: '2',
       label: (
-        <Link target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+        <Link target="_blank" rel="noopener noreferrer" href="/dashboard/forgot-password">
           Đổi mật khẩu
         </Link>
       ),

@@ -3,7 +3,7 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 import '@/styles/learn.css';
-
+import '@/styles/study.css';
 import React from 'react';
 
 import getUrlImage from '@/libs/common';
@@ -38,36 +38,27 @@ const CourePlayer = (props: Props) => {
   const { isProUser } = useAuthStore();
 
   return (
-    <div className="mx-auto flex max-w-[1600px] py-8">
-      <div className="relative mr-8 aspect-video h-[60vh] w-3/5 rounded-xl">
-        {/* <PlyrPlayer url="http://localhost:8000/api/v1/file/11/stream" /> */}
+    <div className="mx-auto grid grid-cols-12 gap-10 max-w-[1600px] py-8">
+      <div className="relative mr-8 aspect-video h-[60vh] col-span-full lg:col-span-8 rounded-xl w-full">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
               <div className="pro-wars-wrapper --t-center">
-                <div className="pro-wars-top">
-                  <p className="t-ylss" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
+                <div className="pro-wars-top  text-center">
+                  <p className="t-ylss text-5xl" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
                     <span className="txt"> VIDEO NÀY CHỈ DÀNH CHO<br />CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ</span></p>
                   <p className="des">Hùng có nhiều video Free khác rất chất lượng, <br />bạn hãy xem các video FREE khác nhé!</p>
                 </div>
-                <div className="pro-wars-bot">
-                  <a className="button-upp undefined" href="/learn/upgrade/">
+                <div className="pro-wars-bot relative">
+                  <a className="button-upp undefined" href="/learn/upgrade">
                     <span className="br"></span><span className="br"></span>
                     <span className="star-dc" style={{ backgroundImage: 'url("https://khanhhung.academy/learn/assets/images/button-upp-star.png")' }}></span>
                     <div className="button-upp-inner">
                       <span className="ic ic-thunder">
-                        <img src="/learn/assets/images/premium-1.svg" alt="" /></span>
+                        <img src="https://khanhhung.academy/learn/assets/images/premium-1.svg" alt="" /></span>
                       <span className="txt">Nâng cấp ngay</span>
                     </div>
-                    <span className="mirrors"></span>
                   </a>
-                  {/* <div className="pro-wars-next">
-                    <span className="txt">Video <span className="re-tag">
-                      <span className="re-tag-item --free"><span className="mirrors"></span>
-                        <img src="https://khanhhung.academy/learn/assets/images/ic-tag-free.svg" alt="" />
-                        <span className="txt">Free</span></span></span> tiếp theo</span>
-                    <i className="far fa-angle-right"></i>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -141,7 +132,7 @@ const CourePlayer = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="w-2/5">
+      <div className="col-span-full lg:col-span-4">
         <div className="regi-left-inner pro-toggle">
           <ul className="pro-box-list max-h-[70vh] overflow-y-auto">
             {datas?.data?.courses?.map((data: Model.Course) => (
