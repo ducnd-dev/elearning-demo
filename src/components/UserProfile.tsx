@@ -12,7 +12,7 @@ import BtnUpgrade from './BtnUpgrade';
 //   user: Model.User | null,
 // }
 const UserProfile = () => {
-  const { user } = useAuthStore();
+  const { user, isProUser } = useAuthStore();
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -46,7 +46,7 @@ const UserProfile = () => {
         {user ? (
           <div className='flex items-center gap-2'>
             <BtnLearnNow />
-            <BtnUpgrade />
+            {!isProUser && <BtnUpgrade />}
             <Dropdown menu={{ items }}>
               <Space>
                 <span className="txt fw-600" style={{ fontSize: 14 }}>
