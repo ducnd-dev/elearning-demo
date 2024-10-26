@@ -1128,22 +1128,6 @@
   }
 }
 
-.receive-content {
-  width: calc(5 * 100% / 12);
-}
-
-@media screen and (max-width: 1200px) {
-  .receive-content {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .receive-content {
-    width: 100%;
-  }
-}
-
 .receive-decor {
   position: absolute;
 }
