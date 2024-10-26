@@ -64,7 +64,7 @@ const BtnCheckOrder = (props: { order_code: string }) => {
       <Modal
         title="Thông báo"
         open={openModalPaid}
-        onOk={() => router.push('/learn/auth/1/1')}
+        onOk={() => router.push('/thankyou')}
         okText="Bắt đầu học ngay"
         onCancel={() => setOpenModalPaid(false)}
         centered
