@@ -71,6 +71,12 @@ declare namespace Model {
     created_at: string;
     updated_at: string;
   }
+
+  declare type Event = {
+    id: number;
+    title: string;
+    link: string;
+  };
 }
 
 declare namespace API {
@@ -130,5 +136,9 @@ declare namespace API {
 
   declare type GetSettingsResponse = {
     data: Model.Setting;
+  };
+
+  declare type Events = {
+    data: Model.Event[];
   };
 }
