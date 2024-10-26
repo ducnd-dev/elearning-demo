@@ -15,7 +15,7 @@ const html = async () => {
     return '';
   }
 };
-export default async function LearnPaymentPage(props: { params: { locale: string } }) {
+export default async function LearnUpgradePage() {
   revalidatePath('https://builderjs.cuongdesign.net/templates/default/ColleagueCourses-upgrade');
   const data = await html();
   return (
