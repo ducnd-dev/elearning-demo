@@ -8,6 +8,8 @@
   display: flex;
   color: #FFF;
   animation: move 30s linear infinite;
+  margin-right: -100%;
+  margin-left: 100%;
 }
 @keyframes move {
   0%   { transform: translate(0, 0); }
