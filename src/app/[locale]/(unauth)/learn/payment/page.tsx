@@ -23,6 +23,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
   unstable_setRequestLocale(props.params.locale);
   const data = await fetchData();
   const order_code = props.searchParams.order_code;
+  const price =  data?.sale_price || data?.price || 0;
   return (
     <section className='sec-prmk mt-0'>
       <div className='prmk'>
@@ -122,7 +123,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                       </tr>
                       <tr>
                         <td>Số tiền:</td>
-                        <td><div className="tooltip-ctn undefined">{data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : '0'} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
+                        <td><div className="tooltip-ctn undefined">{price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(price)) : '0'} <img src="https://khanhhung.academy/learn/assets/images/ic-copy-pri.svg" alt="" /></div></td>
                       </tr>
                       <tr>
                         <td>Nội dung giao dịch:</td>
@@ -161,7 +162,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                   </div>
                   <div className="pay-system-qr-code">
                     <img
-                      src={`https://qr.sepay.vn/img?bank=${data?.bank_name}&acc=${data?.bank_account}&template=compact&amount=${data?.price}&des=${order_code}`}
+                      src={`https://qr.sepay.vn/img?bank=${data?.bank_name}&acc=${data?.bank_account}&template=compact&amount=${price}&des=${order_code}`}
                       className="img-fluid" />
                   </div>
                 </div>
