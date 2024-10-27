@@ -59,6 +59,7 @@ declare namespace Model {
     bank_account: string;
     bank_account_name: string;
     price: number;
+    sale_price?: number;
     logo_header: string;
     logo_footer: string;
     email: string;
