@@ -38,9 +38,7 @@ img {
 }
 
 .regi-left-inner .pro-box-body-inner:not(.second) {
-  background-color: #f4f5f8;
-  border-radius: 0.8rem;
-  padding: 1.2rem;
+  padding: 0 0.2rem;
 }
 
 .row:not(.swiper) {
@@ -1855,7 +1853,7 @@ img {
 
 .pro-box-head .line:before {
   height: 100%;
-  opacity: 0;
+  opacity: 1;
   width: 2px;
 }
 
@@ -1864,8 +1862,8 @@ img {
   width: 100%;
 }
 
-.pro-box-head.hide .line:before {
-  opacity: 1;
+.ant-collapse-item-active .pro-box-head .line:before {
+  opacity: 0;
 }
 
 .pro-box .study-nav {
