@@ -39,7 +39,7 @@ const CourePlayer = (props: Props) => {
 
   return (
     <div className="mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] py-8">
-      <div className="relative mr-8 aspect-video lg:h-[60vh] col-span-full lg:col-span-8 rounded-xl w-full">
+      <div className="relative mr-8 aspect-video lg:h-[60vh] col-span-full lg:col-span-8 rounded-xl w-full py-5">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>

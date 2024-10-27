@@ -158,15 +158,13 @@ export const Footer = () => {
       <div className="ft-bottom">
         <div className="ft-if">
           <div className="container">
-            <div className="ft-bottom-flex d-flex f-ctn">
-              <div className="col col-4">
+            <div className="grid grid-cols-12 gap-4">
+              <div className="col-span-full sm:col-span-6 md:col-span-4 lg:col-span-3">
                 <a href="https://mona.media" className="mona-logo" data-wpel-link="internal">
                   <img src="http://mona.media/wp-content/uploads/2023/03/media-logo.png" alt="" />
                 </a>
-  
               </div>
-  
-              <div className="col col-3 ml-5">
+              <div className="col-span-full sm:col-span-6 md:col-span-4 lg:col-span-3">
                 <div className="hd-menu-info">
                   <div className="ft-label">Liên hệ</div>
                   <div className="hd-menu-info-f d-flex f-start f-nowrap">
@@ -199,8 +197,7 @@ export const Footer = () => {
                   </div>
                 </div>
               </div>
-  
-              <div className="col col-3">
+              <div className="col-span-full sm:col-span-6 md:col-span-4 lg:col-span-3">
                 <div className="ft-if-gr ft-label">
                   <span className="icon">
                     <img src="https://khanhhung.academy/template/assets/images/ft-if-icon.svg" alt="" />
@@ -228,7 +225,7 @@ export const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="col col-3">
+              <div className="col-span-full sm:col-span-6 md:col-span-4 lg:col-span-3">
                 <div className="ft-license-col col d-flex f-end">
                   <div className="ft-license-wrap">
                     <div className="label">

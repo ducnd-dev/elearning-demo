@@ -75,7 +75,7 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
       <div className="regi">
         <div className="container">
           <div className="flex">
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="regi-left-inner pro-toggle">
                 <h1 className="t-title-second c-second">KHÓA HỌC KINH DOANH KHÓA HỌC</h1>
                 <div className="toggle-xtb study-xtb">
@@ -211,7 +211,7 @@ export default async function LearnAuthPage(props: { params: { locale: string } 
 
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="hidden lg:block w-1/2">
               <FormLogin />
             </div>
           </div>

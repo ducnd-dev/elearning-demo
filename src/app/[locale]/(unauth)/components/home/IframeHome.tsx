@@ -15,6 +15,7 @@ const IframeHome = async () => {
   const data = await html();
   return (
     <div
+      className="max-w-full overflow-hidden"
       dangerouslySetInnerHTML={{
         __html: data,
       }}

@@ -15,8 +15,8 @@ const Dashboard = () => (
   <div className="container [&_p]:my-6">
     <h1 className="t-title-seven mx-auto my-5 text-center uppercase">Dashboard</h1>
     <div className="dab-course">
-      <ul className="dab-course-list row">
-        <li className="dab-course-item col">
+      <ul className="dab-course-list grid grid-cols-2">
+        <li className="dab-course-item col-span-full lg:col-span-1">
           <div className="dab-course-block">
             <div className="sta-icon">
               <img src="https://khanhhung.academy/learn/assets/images/icon-study.svg" alt="" />
@@ -31,7 +31,7 @@ const Dashboard = () => (
             </div>
           </div>
         </li>
-        <li className="dab-course-item col">
+        <li className="dab-course-item col-span-full lg:col-span-1">
           <div className="dab-course-block">
             <div className="sta-icon"><img src="https://khanhhung.academy/learn/assets/images/icon-time-study.svg" alt="" /></div>
             <div className="dab-course-tt">

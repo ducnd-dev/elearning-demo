@@ -21,7 +21,7 @@ export default async function AuthLayout(props: {
   let clerkLocale = enUS;
   let signInUrl = '/sign-in';
   let signUpUrl = '/sign-up';
-  let dashboardUrl = '/dashboard';
+  let dashboardUrl = '/learn/auth/1/1';
 
   if (props.params.locale === 'fr') {
     clerkLocale = frFR;
