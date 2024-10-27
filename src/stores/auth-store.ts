@@ -20,6 +20,9 @@ export const userStore = useAuthStore((set) => ({
     deleteCookie('token');
     deleteCookie('plan');
     deleteCookie('user');
+    localStorage.removeItem('user');
+    localStorage.removeItem('@user');
+    localStorage.removeItem('@token');
   },
 }))
 
