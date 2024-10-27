@@ -2,7 +2,7 @@
 import request from '@/libs/request'
 import { useUser } from '@/stores/auth-store';
 import { Spin } from 'antd';
-import { getCookie, setCookie } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 import { redirect, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
