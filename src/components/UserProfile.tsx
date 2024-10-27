@@ -44,12 +44,11 @@ const UserProfile = () => {
     <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
       <div className="header-bot-inner">
         {user ? (
-          <div className='flex items-center gap-2'>
-            <BtnLearnNow />
-            {!isProUser && <BtnUpgrade />}
+          <div className='flex items-center gap-3'>
+            {!isProUser ? <BtnUpgrade /> : <BtnLearnNow />}
             <Dropdown menu={{ items }}>
               <Space>
-                <span className="txt fw-600" style={{ fontSize: 14 }}>
+                <span className="txt fw-600 text-black" style={{ fontSize: 14 }}>
                   <Avatar src="https://imgs.search.brave.com/u8TbnSbeBGhCk0eBdOWDB_fEj7jfB_IZfT9s9zY-320/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dzNzY2hvb2xzLmNv/bS93M2ltYWdlcy9h/dmF0YXI1LnBuZw"
                     style={{ marginRight: 8, width: 32 }}
                   />

@@ -5,6 +5,7 @@ import DrawerHeader from './DrawerHeader';
 import Menu from './Menu';
 import UserProfile from './UserProfile';
 import Logo from './Logo';
+
 export const Header = () => {
   const { setting } = useSetting();
   return (
@@ -17,7 +18,7 @@ export const Header = () => {
               <div className="header-bot-wrap">
                 <div className="flex items-center">
                   <div className="logo flex items-center gap-2">
-                    <DrawerHeader />
+                    <DrawerHeader setting={setting}/>
                     <Logo logoSrc={setting?.logo_header} />
                   </div>
                 </div>

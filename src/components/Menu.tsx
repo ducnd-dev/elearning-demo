@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React from 'react'
+
 type Props = {
   setting: Model.Setting | null,
 }
@@ -14,10 +15,10 @@ const Menu = ({ setting }: Props) => {
     // { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
   ];
   return (
-    <ul className="menu-list">
+    <ul className="menu-list flex flex-col gap-5">
       {menus.map((menu, index) => (
         <li key={index} className="menu-item">
-          <Link className="menu-link btn-scroll" href={menu.href}>
+          <Link className="menu-link btn-scroll flex items-center" href={menu.href}>
             <span className="menu-icon">
               <img src={menu.icon} alt="" />
             </span>
@@ -25,8 +26,8 @@ const Menu = ({ setting }: Props) => {
           </Link>
         </li>
       ))}
-      <li className="menu-item dropdown">
-        <p className="menu-link">
+      <li className="menu-item dropdown hidden md:block">
+        <p className="menu-link flex items-center">
           <span className="menu-icon">
             <img src="https://khanhhung.academy/template/assets/images/header/icon-fb.svg" alt="" />
           </span>
@@ -34,7 +35,7 @@ const Menu = ({ setting }: Props) => {
         </p>
         <ul className="sub-menu">
           <li className="sub-menu-item">
-            <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_facebook}>
+            <a className="sub-menu-link flex items-center" target="_blank" rel="noreferrer" href={setting?.link_facebook}>
               <span className="sub-menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
               </span>
@@ -42,7 +43,7 @@ const Menu = ({ setting }: Props) => {
             </a>
           </li>
           <li className="sub-menu-item">
-            <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_fanpage}>
+            <a className="sub-menu-link flex items-center" target="_blank" rel="noreferrer" href={setting?.link_fanpage}>
               <span className="sub-menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
               </span>
@@ -50,8 +51,8 @@ const Menu = ({ setting }: Props) => {
             </a>
           </li>
           <li className="sub-menu-item">
-            <a className="sub-menu-link" target="_blank" rel="noreferrer" href={setting?.link_youtube}>
-              <span className="sub-menu-icon"><img src="https://khanhhung.academy/template/assets/images/header/icon-ytb.svg" alt="" /></span>
+            <a className="sub-menu-link flex items-center" target="_blank" rel="noreferrer" href={setting?.link_youtube}>
+              <span className="sub-menu-icon"><img src="https://khanhhung.academy/template/assets/images/header/icon-ytb.svg" className='size-6' alt="" /></span>
               <span className="sub-menu-txt">Youtube</span>
             </a>
           </li>
