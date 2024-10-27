@@ -243,3 +243,7 @@
   display: flex;
   gap: var(--gap-inner-tag)
 }
+
+.pro-box-list .ant-collapse-content-box {
+  padding: 0 !important;
+}
