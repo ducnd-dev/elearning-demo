@@ -8,6 +8,7 @@ import React from 'react';
 import getUrlImage from '@/libs/common';
 import { useAuthStore } from '@/providers/auth-store-provider';
 import BtnUpgrade from '@/components/BtnUpgrade';
+import { Switch } from 'antd';
 
 type Props = {
   data: API.CourseMaterial;
@@ -16,11 +17,8 @@ type Props = {
 
 const CourePlayer = (props: Props) => {
   const datas = props.listData;
-  console.log('CourePlayer', props);
-
-  // const detail = props.data;
-
   const [detail, setDetail] = React.useState<API.CourseMaterial | null>(props.listData.data.courses[0]?.course_materials[0] || null);
+  const [displayPro, setDisplayPro] = React.useState(false);
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
     course.course_materials.forEach((material) => {
@@ -123,7 +121,16 @@ const CourePlayer = (props: Props) => {
         </div>
       </div>
       <div className="col-span-full lg:col-span-4">
-        <div className="regi-left-inner pro-toggle">
+        <div className="regi-left-inner pro-toggle !pt-0">
+          <div className="toggle-xtb study-xtb">
+            <Switch
+              checked={displayPro}
+              onChange={() => setDisplayPro((prev) => !prev)}
+              className="mr-4"
+            />
+            <span className="txt">Trải nghiệm toàn bộ 200 videos - Hơn 35 giờ</span>
+          </div>
+          <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
           <ul className="pro-box-list max-h-[70vh] overflow-y-auto">
             {datas?.data?.courses?.map((data: Model.Course) => (
               <li className="pro-box-item" key={data.id}>
@@ -158,7 +165,7 @@ const CourePlayer = (props: Props) => {
                     <div className="pro-list row">
                       {data?.course_materials?.map((video, index) => (
                         <div
-                          className="w-full cursor-pointer"
+                          className={`w-full cursor-pointer ${!displayPro && !video.is_free ? 'hidden' : ''}`}
                           key={video.id}
                           role="button"
                           tabIndex={0}
