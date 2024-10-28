@@ -57,12 +57,12 @@ const UserProfile = () => {
         ) : (
           <>
             <div className="header-bot-item" data-attribute="login">
-              <Link className="btn-header btn-header-js" href="/#sec-form">
+              <Link className="btn-header btn-header-js" href="/?id=sec-form">
                 <span className="txt fw-600">Đăng nhập</span>
               </Link>
             </div>
             <div className="header-bot-item" data-attribute="register">
-              <Link className="btn-header btn-header-js bg-lms" href="/#sec-form">
+              <Link className="btn-header btn-header-js bg-lms" href="/?id=sec-form">
                 <span className="txt fw-600">Đăng ký và học thử ngay</span>
               </Link>
             </div>
