@@ -43,7 +43,7 @@ const CourePlayer = (props: Props) => {
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
               <div className="pro-wars-wrapper --t-center">
                 <div className="pro-wars-top  text-center">
-                  <p className="t-ylss text-5xl" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
+                  <p className="t-ylss text-[22px] lg:text-5xl" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
                     <span className="txt"> VIDEO NÀY CHỈ DÀNH CHO<br />CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ</span></p>
                   <p className="des">Hùng có nhiều video Free khác rất chất lượng, <br />bạn hãy xem các video FREE khác nhé!</p>
                 </div>
@@ -120,7 +120,7 @@ const CourePlayer = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="col-span-full lg:col-span-4">
+      <div className="col-span-full lg:col-span-4 px-4">
         <div className="regi-left-inner pro-toggle !pt-0">
           <div className="toggle-xtb study-xtb">
             <Switch

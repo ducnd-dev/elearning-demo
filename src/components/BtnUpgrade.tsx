@@ -3,7 +3,7 @@ import '@/styles/study.css';
 
 const BtnUpgrade = () => {
   return (
-    <div className="pro-wars-bot relative flex items-center !py-4 !max-h-10">
+    <div className="pro-wars-bot relative flex items-center">
       <a className="button-upp px-4 text-white rounded-md relative" href="/learn/upgrade">
         <span className="br"></span><span className="br"></span>
         <span className="star-dc bg-cover " style={{ backgroundImage: 'url("https://khanhhung.academy/learn/assets/images/button-upp-star.png")' }}></span>
