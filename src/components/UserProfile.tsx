@@ -1,6 +1,6 @@
 'use client';
 import { useUser } from '@/stores/auth-store';
-import { Avatar, Dropdown, Space, type MenuProps } from 'antd';
+import { Avatar, Dropdown, type MenuProps } from 'antd';
 import Link from 'next/link';
 import React from 'react'
 import BtnLearnNow from './BtnLearnNow';
