@@ -1,7 +1,5 @@
 'use client';
-import { useAuthStore } from '@/providers/auth-store-provider';
 import { useUser } from '@/stores/auth-store';
-import { SmileOutlined } from '@ant-design/icons';
 import { Avatar, Dropdown, Space, type MenuProps } from 'antd';
 import Link from 'next/link';
 import React from 'react'
