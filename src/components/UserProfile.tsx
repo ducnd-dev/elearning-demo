@@ -1,6 +1,6 @@
 'use client';
 import { useAuthStore } from '@/providers/auth-store-provider';
-import { useLogout } from '@/stores/auth-store';
+import { useUser } from '@/stores/auth-store';
 import { SmileOutlined } from '@ant-design/icons';
 import { Avatar, Dropdown, Space, type MenuProps } from 'antd';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ import BtnUpgrade from './BtnUpgrade';
 //   user: Model.User | null,
 // }
 const UserProfile = () => {
-  const { user, isProUser } = useAuthStore();
+  const { user, isProUser, logout } = useUser();
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -29,12 +29,13 @@ const UserProfile = () => {
           Đổi mật khẩu
         </Link>
       ),
-      icon: <SmileOutlined />,
     },
     {
       key: '3',
       label: (
-        <span onClick={useLogout}>
+        <span onClick={() => {
+          logout(); 
+        }}>
           Đăng xuất
         </span>
       ),

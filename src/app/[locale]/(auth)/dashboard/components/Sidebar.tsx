@@ -1,13 +1,11 @@
 'use client';
 import BtnLearnNow from '@/components/BtnLearnNow';
-import { useAuthStore } from '@/providers/auth-store-provider';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useClerk } from '@clerk/nextjs'
+import { useUser } from '@/stores/auth-store';
 export const Sidebar = () => {
   const path = usePathname();
-  const { signOut } = useClerk()
-  const { useLogout } = useAuthStore();
+  const { logout } = useUser()
   const menus = [
     {
       title: 'Dashboard',
@@ -53,9 +51,7 @@ export const Sidebar = () => {
         </div>
       </div>
       <div className="mb-dx active:scale-101" onClick={() => {
-        useLogout();
-        // window.location.href = '/';
-        signOut({ redirectUrl: '/' })
+        logout();
       }}>
         <img src="https://khanhhung.academy/learn/assets/images/hd-logged-5.svg" alt="" />
         <span className="txt">Đăng Xuất</span>

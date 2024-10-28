@@ -1,3 +1,4 @@
+'use client';
 import { createStore } from 'zustand/vanilla';
 import { deleteCookie, getCookie, setCookie } from 'cookies-next';
 
@@ -17,12 +18,16 @@ export const userStore = useAuthStore((set) => ({
   },
   logout: () => {
     set({ user: null })
-    deleteCookie('token');
+    deleteCookie('token', {
+      path: '/',
+      domain: window.location.hostname,
+    });
     deleteCookie('plan');
     deleteCookie('user');
     localStorage.removeItem('user');
     localStorage.removeItem('@user');
     localStorage.removeItem('@token');
+    window.location.href = '/';
   },
 }))
 
