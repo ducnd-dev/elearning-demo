@@ -16,7 +16,7 @@ export const Header = () => {
           <div className="header-bot">
             <div className="container-second">
               <div className="header-bot-wrap">
-                <div className="flex items-center">
+                <div className="flex items-center header-bot-left">
                   <div className="logo flex items-center gap-2">
                     <DrawerHeader setting={setting}/>
                     <Logo logoSrc={setting?.logo_header} />
