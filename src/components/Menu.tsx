@@ -15,7 +15,7 @@ const Menu = ({ setting }: Props) => {
     // { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
   ];
   return (
-    <ul className="menu-list md:flex md:flex-col md:gap-5">
+    <ul className="menu-list flex flex-col gap-5 md:flex-row">
       {menus.map((menu, index) => (
         <li key={index} className="menu-item">
           <Link className="menu-link btn-scroll flex items-center" href={menu.href}>
