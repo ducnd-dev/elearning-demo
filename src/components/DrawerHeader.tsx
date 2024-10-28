@@ -17,7 +17,7 @@ const DrawerHeader = (props: Props) => {
       <Drawer open={open} onClose={() => setOpen(false)} placement="left">
         {showMenuOutlined ? <Sidebar /> : <Menu setting={props.setting} />}
       </Drawer>
-      <MenuOutlined className="lg:!hidden cursor-pointer px-5 !text-gray-400" onClick={() => setOpen(true)} />
+      <MenuOutlined className="md:!hidden cursor-pointer px-5 !text-gray-400" onClick={() => setOpen(true)} />
 
     </>
   )
