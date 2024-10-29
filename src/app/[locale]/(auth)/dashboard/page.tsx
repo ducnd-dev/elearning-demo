@@ -15,8 +15,8 @@ const Dashboard = () => (
   <div className="container [&_p]:my-6">
     <h1 className="t-title-seven mx-auto my-5 text-center uppercase">Dashboard</h1>
     <div className="dab-course">
-      <ul className="dab-course-list grid grid-cols-2 gap-4">
-        <li className="dab-course-item col-span-full lg:col-span-1 !w-full">
+      <ul className="dab-course-list row">
+        <li className="dab-course-item col">
           <div className="dab-course-block">
             <div className="sta-icon">
               <img src="https://khanhhung.academy/learn/assets/images/icon-study.svg" alt="" />
@@ -31,7 +31,7 @@ const Dashboard = () => (
             </div>
           </div>
         </li>
-        <li className="dab-course-item col-span-full lg:col-span-1 !w-full">
+        <li className="dab-course-item col">
           <div className="dab-course-block">
             <div className="sta-icon"><img src="https://khanhhung.academy/learn/assets/images/icon-time-study.svg" alt="" /></div>
             <div className="dab-course-tt">
@@ -42,7 +42,7 @@ const Dashboard = () => (
         </li>
       </ul>
     </div>
-    <div className="prf-group mt-5 p-5">
+    <div className="prf-group p-5">
       <div className="prf-group-hd">
         <h2 className="t-third">Đừng quên tham gia nhóm để nhận được quyền lợi</h2>
         <a className="cnc-item --face" href="https://www.facebook.com/groups/337354765813432" target="_blank" rel="noreferrer">
@@ -58,7 +58,7 @@ const Dashboard = () => (
           </span>
         </a>
       </div>
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <div className="grid gap-5 grid-cols-2">
         <div className="prf-benefit-block flex flex-col items-center rounded-lg bg-purple-600 text-white">
           <div className="mt-6 text-center">
             <span className="font-semibold uppercase">Quyền lợi từ</span>
@@ -94,7 +94,7 @@ const Dashboard = () => (
             bạn để sử dụng:
           </div>
           <div className="flex items-center gap-3">
-            <img src="https://khanhhung.academy/learn/assets/images/ticker-kh.svg" alt="sticker-1" className="img-logo h-auto w-72 object-contain" />
+            <img src="https://khanhhung.academy/learn/assets/images/ticker-kh.svg" alt="sticker-1" className="img-logo h-auto w-36 md:w-72 object-contain" />
             <div className="cp-code">
               <p className="code">
                 &lt;a&nbsp;
@@ -120,7 +120,7 @@ const Dashboard = () => (
             </div>
           </div>
         </div>
-        <div className="prf-instr-right col">
+        <div className="prf-instr-right col-span-full lg:col-span-1">
           <div className="prf-instr-video">
             <span className="prf-instr-thumbn">
               <img src="https://khanhhung.academy/learn/assets/images/img-instr.jpg" className="plc-logo" alt="" />
@@ -134,7 +134,7 @@ const Dashboard = () => (
     </div>
     <div className="prf-group mb-5 p-5">
       <div className="t-third">Trung tâm Ticket</div>
-      <table className="mx-12 mt-4 w-full">
+      <table className="md:mx-12 mt-4 w-full">
         <thead>
           <tr>
             <th className="text-left text-2xl font-semibold">Mã phiếu</th>

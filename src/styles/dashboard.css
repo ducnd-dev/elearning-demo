@@ -382,3 +382,88 @@
   width: 1.6rem;
   height: auto;
 }
+
+.col {
+  margin-bottom: var(--rg);
+  padding: 0 calc(var(--cg) / 2);
+  width: 100%;
+}
+
+.dab-course-list {
+  --cg: 2.4rem;
+  --rg: 2.4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .prf-group-hd .cnc-item {
+    --fz: 1rem;
+    --sz-ic: 3.6rem;
+    --pd-right: .8rem;
+    max-width: unset;
+    min-width: 15rem;
+  }
+
+  .prf-group-hd .t-third {
+    font-size: 1.6rem;
+    line-height: 130%;
+  }
+
+  .prf-group-hd {
+    --h-input: 4rem;
+    --h-input-2: 4rem;
+  }
+
+  .dab-course-block {
+    border-radius: .8rem;
+    gap: .8rem;
+    padding: .8rem;
+  }
+
+  .dab-course-block .sta-icon {
+    height: 3.6rem;
+    width: 3.6rem;
+  }
+
+  .dab-course-tt .t-four {
+    font-size: 1.2rem;
+  }
+
+  .dab-course-tt .data-num {
+    --f-sz: 1.7rem;
+  }
+
+  .dab-course-tt .data-curr {
+    font-size: 3.2rem;
+  }
+
+  .dab-course-list {
+    --cg: 1.6rem;
+    --rg: 1.6rem;
+  }
+  .ticker-kh {
+    width: 12rem;
+  }
+  .t-third {
+    --f-sz: 1.7rem;
+  }
+  .cp-code {
+    font-size: 1rem;
+  }
+  .cp-code .copy-sp {
+    font-size: 1.2rem;
+    gap: .4rem;
+    padding: .4rem .8rem;
+  }
+  .prf-instr-right {
+    width: 100%;
+  }
+  .copy-sp img {
+    width: 1.8rem;
+  }
+  .t-title-seven {
+    --f-sz: 6.48148vw;
+  }
+  .t-four {
+    --f-sz: 1.5rem;
+  }
+}

@@ -19,7 +19,7 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
         <div className="col-span-2 hidden lg:block">
           <Sidebar />
         </div>
-        <div className="col-span-full lg:col-span-9">
+        <div className="col-span-full lg:col-span-9 mb-2">
           {props.children}
         </div>
       </div>

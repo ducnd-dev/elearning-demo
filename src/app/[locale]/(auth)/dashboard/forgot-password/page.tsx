@@ -35,13 +35,13 @@ const ForgetPasswordPage = () => {
         {contextHolder}
         <h1 className="t-title-seven mx-auto my-5 text-center uppercase">Bổ sung mật khẩu</h1>
         <div className="prf-group grid grid-cols-12 gap-10">
-          <div className="col-span-4 text-4xl font-semibold md:block">Bổ sung mật khẩu</div>
+          <div className="col-span-full md:col-span-4 text-4xl font-semibold md:block">Bổ sung mật khẩu</div>
           <Form
             layout="vertical"
             onFinish={onFinish}
-            className='col-span-8'
+            className='col-span-full md:col-span-8'
           >
-            <div className="mt-3 grid gap-4 text-[14px]">
+            <div className="md:mt-3 grid md:gap-4 text-[14px]">
               <Form.Item
                 label="Mật khẩu mới"
                 name="password"
@@ -55,7 +55,7 @@ const ForgetPasswordPage = () => {
                 <Input type="password" placeholder="Xác nhận mật khẩu" className="w-full rounded-md border border-solid border-gray-300 p-5" size="large" />
               </Form.Item>
             </div>
-            <div className="mt-4 text-right">
+            <div className="md:mt-4 text-right">
               <button className="rounded-lg bg-purple-800 px-12 py-6 text-2xl uppercase text-white">Đổi mật khẩu</button>
             </div>
           </Form>

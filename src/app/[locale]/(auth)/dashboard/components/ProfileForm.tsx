@@ -43,18 +43,18 @@ const ProfileForm = () => {
       {contextHolder}
       <div className="prf-group">
         <div className="grid grid-cols-12">
-          <div className="col-span-full pt-6 lg:col-span-3">
+          <div className="col-span-full md:pt-6 lg:col-span-3">
             <span className="text-3xl font-semibold">Thông tin cơ bản</span>
           </div>
           <div className="col-span-full lg:col-span-9">
-            <div className="mt-5 py-4">
+            <div className="md:mt-5 py-4">
               <Form
                 layout="vertical"
                 onFinish={onFinish}
                 initialValues={user}
                 form={form}
               >
-                <div className="mt-3 grid grid-cols-2 gap-4 text-[14px]">
+                <div className="mt-3 grid md:grid-cols-2 md:gap-4 text-[14px]">
                   <Form.Item
                     label="Họ"
                     name="first_name"
@@ -76,7 +76,7 @@ const ProfileForm = () => {
                     />
                   </Form.Item>
                 </div>
-                <div className="mt-3 grid grid-cols-3 gap-4">
+                <div className="mt-3 grid md:grid-cols-3 md:gap-4">
                   <Form.Item
                     label="Giới tính"
                     name="gender"
@@ -112,7 +112,7 @@ const ProfileForm = () => {
                     />
                   </Form.Item>
                 </div>
-                <div className="mt-3 grid grid-cols-2 gap-4">
+                <div className="mt-3 grid md:grid-cols-2 md:gap-4">
                   <Form.Item
                     label="Email"
                     name="email"
@@ -138,7 +138,7 @@ const ProfileForm = () => {
                     />
                   </Form.Item>
                 </div>
-                <div className="mt-3 grid grid-cols-2 gap-4">
+                <div className="mt-3 grid md:grid-cols-2 md:gap-4">
                   <Form.Item
                     label="Lĩnh vực chuyên môn"
                     name="specialization"
@@ -171,7 +171,7 @@ const ProfileForm = () => {
                   />
                 </Form.Item>
                 <div className="mb-2 mt-6 text-3xl font-bold">Thông tin ngân hàng</div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid md:grid-cols-3 md:gap-4">
                   <Form.Item
                     label="Chủ tài khoản"
                     name="account_holder"
