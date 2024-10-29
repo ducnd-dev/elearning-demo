@@ -25,7 +25,7 @@ const verify = async (token: string) => {
 const VerifyComponent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { setUser } = useUser();
+  const { setUser, user } = useUser();
 
   useEffect(() => {
     verify(searchParams.get('token') || '').then((res) => {
