@@ -12750,6 +12750,12 @@ iframe {
   z-index:5
 }
 
+.mb-dx img {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: auto;
+}
+
 .button-upp .br{border-radius:inherit}
 .button-upp .br:after,.button-upp .br:before{border-radius:inherit;bottom:0;content:"";left:0;position:absolute;right:0;top:0}
 .button-upp .br:first-child:before{background:linear-gradient(77deg,#7c0fd1 17.91%,#d61ef4 90.76%);border:1px solid #fff}
