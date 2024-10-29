@@ -57,9 +57,9 @@ const UserProfile = () => {
         ) : (
           <>
             <div className="header-bot-item" data-attribute="login">
-              <Link className="btn-header btn-header-js" href="/?id=sec-form">
+              <a className="btn-header btn-header-js" href="/?id=sec-form">
                 <span className="txt fw-600">Đăng nhập</span>
-              </Link>
+              </a>
             </div>
             <div className="header-bot-item" data-attribute="register">
               <Link className="btn-header btn-header-js bg-lms" href="/?id=sec-form">
