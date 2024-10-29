@@ -5,11 +5,11 @@ import '@/styles/root.css';
 import '@/styles/payment.css';
 
 import { unstable_setRequestLocale } from 'next-intl/server';
-import { unstable_cache } from 'next/cache';
 import request from '@/libs/request';
 import BtnCheckOrder from './components/BtnCheckOrder';
+import CountDown from './components/CountDown';
 
-const fetchData = unstable_cache(async () => {
+const fetchData = async () => {
   try {
     const data = await request<API.GetSettingResponse>('/v1/setting/1');
     return data.data;
@@ -17,7 +17,7 @@ const fetchData = unstable_cache(async () => {
     console.error('Error fetching data:', error.message);
     return null; // Ensure a value is always returned
   }
-});
+};
 
 export default async function LearnPaymentPage(props: { params: { locale: string }, searchParams: { order_code: string } }) {
   unstable_setRequestLocale(props.params.locale);
@@ -149,16 +149,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
                     <p className="txt --t-center">Trong 5 phút, bạn sẽ là<br />
                       <span className="fw-6">học viên thứ 364</span>
                     </p>
-                    <div className="pay-cw">
-                      <div className="pay-cw-item">
-                        <p className="number">04</p>
-                        <p className="des">Phút</p>
-                      </div>
-                      <div className="pay-cw-item">
-                        <p className="number">37</p>
-                        <p className="des">Giây</p>
-                      </div>
-                    </div>
+                    <CountDown />
                   </div>
                   <div className="pay-system-qr-code">
                     <img
