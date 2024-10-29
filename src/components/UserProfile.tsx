@@ -45,12 +45,12 @@ const UserProfile = () => {
         {user ? (
           <div className='flex items-center gap-3'>
             {!isProUser ? <BtnUpgrade /> : <BtnLearnNow />}
-            <Dropdown menu={{ items }}>
-              <span className="txt fw-600 text-black" style={{ fontSize: 14 }}>
+            <Dropdown menu={{ items }} className='hidden md:!flex'>
+              <span className="txt fw-600 text-black cursor-pointer" style={{ fontSize: 14 }}>
                 <Avatar src="https://imgs.search.brave.com/u8TbnSbeBGhCk0eBdOWDB_fEj7jfB_IZfT9s9zY-320/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dzNzY2hvb2xzLmNv/bS93M2ltYWdlcy9h/dmF0YXI1LnBuZw"
                   style={{ marginRight: 8, width: 32 }}
                 />
-                {user?.first_name} {user?.last_name}
+                <span>{user?.first_name} {user?.last_name}</span>
               </span>
             </Dropdown>
           </div>

@@ -2,7 +2,7 @@ import { useSetting } from "@/stores/common-store";
 
 export const Footer = () => {
   const { setting } = useSetting();
-  return (
+  return (<>
     <footer className="footer" style={{ backgroundImage: 'url(https://khanhhung.academy/template/assets/images/footer/footer-bg.jpg)' }}>
       <div className="container">
         <div className="footer-ctn footer-row">
@@ -256,7 +256,81 @@ export const Footer = () => {
         </div>
       </div>
     </footer>
-  )
+    <div className="menu-bar-fixed max-w-full overflow-x-auto">
+      <div className="header-bot-center append-menu-js">
+
+        <ul className="menu-list">
+          <li className="menu-item">
+            <a className="menu-link" href="/#quyen_loi">
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg" alt="" />
+              </span>
+              <span className="menu-txt">Quyền lợi</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" href="/#chuong_trinh_hoc">
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg" alt="" />
+              </span>
+              <span className="menu-txt">Chương trình học</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" href="/#la_ai">
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg" alt="" />
+              </span>
+              <span className="menu-txt">Khánh Hùng là ai ?</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" target="_blank" rel="noreferrer" href={setting?.link_group_facebook || '#'}>
+              <span className="menu-icon"><img src="https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg" alt="" /></span>
+              <span className="menu-txt">Hùng's Colleague Club</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" href="/blogs">
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/header/icon-blog.svg" alt="" />
+              </span>
+              <span className="menu-txt">Blog</span>
+            </a>
+          </li>
+          {/* <li className="menu-item">
+            <a className="menu-link" href="https://khanhhung.academy/ban-tin/">
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg" alt="" />
+              </span>
+              <span className="menu-txt">Hoạt động</span>
+            </a>
+          </li> */}
+          <li className="menu-item">
+            <a className="menu-link" target="_blank" rel="noreferrer" href={setting?.link_facebook}>
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
+              </span>
+              <span className="menu-txt">Kết bạn với Hùng</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" target="_blank" rel="noreferrer" href={setting?.link_fanpage}>
+              <span className="menu-icon">
+                <img src="https://khanhhung.academy/template/assets/images/footer/card-follow-icon-fb.svg" alt="" />
+              </span>
+              <span className="menu-txt">Fanpage</span>
+            </a>
+          </li>
+          <li className="menu-item">
+            <a className="menu-link" target="_blank" rel="noreferrer" href={setting?.link_youtube}>
+              <span className="menu-icon"><img src="https://khanhhung.academy/template/assets/images/header/icon-ytb.svg" alt="" /></span>
+              <span className="menu-txt">Youtube</span>
+            </a>
+          </li>
+        </ul></div>
+    </div>
+  </>)
 };
 
 export default Footer;

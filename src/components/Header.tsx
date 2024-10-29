@@ -5,9 +5,11 @@ import DrawerHeader from './DrawerHeader';
 import Menu from './Menu';
 import UserProfile from './UserProfile';
 import Logo from './Logo';
+import getUrlImage from '@/libs/common';
 
 export const Header = () => {
   const { setting } = useSetting();
+
   return (
     <div className="header">
       <div className="header-desk">
@@ -18,8 +20,8 @@ export const Header = () => {
               <div className="header-bot-wrap">
                 <div className="flex items-center header-bot-left">
                   <div className="logo flex items-center gap-2">
-                    <DrawerHeader setting={setting}/>
-                    <Logo logoSrc={setting?.logo_header} />
+                    <DrawerHeader />
+                    <Logo logoSrc={getUrlImage(setting?.logo_header)} />
                   </div>
                 </div>
                 <div className="header-bot-center header-menu append-menu-js">

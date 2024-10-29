@@ -12743,8 +12743,13 @@ iframe {
 .button-upp-inner{
   align-items:center;
   display:flex;
-  gap:var(--gap);
-  justify-content:center;padding:4px;position:relative;z-index:5}
+  gap: 0.4rem;
+  justify-content:center;
+  padding:1rem;
+  position:relative;
+  z-index:5
+}
+
 .button-upp .br{border-radius:inherit}
 .button-upp .br:after,.button-upp .br:before{border-radius:inherit;bottom:0;content:"";left:0;position:absolute;right:0;top:0}
 .button-upp .br:first-child:before{background:linear-gradient(77deg,#7c0fd1 17.91%,#d61ef4 90.76%);border:1px solid #fff}
@@ -12759,3 +12764,9 @@ iframe {
 .button-upp .mirrors:before{left:0;width:30%}
 .button-upp .mirrors:after{right:0;width:50%}
 @keyframes buttonUpAni{0%{background-size:100% auto}to{background-size:200% auto}}
+
+@media screen and (max-width: 600px) {
+  .button-upp-inner {
+    font-size: 1rem;
+  }
+}
