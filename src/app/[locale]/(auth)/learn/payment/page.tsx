@@ -23,7 +23,7 @@ export default async function LearnPaymentPage(props: { params: { locale: string
   unstable_setRequestLocale(props.params.locale);
   const data = await fetchData();
   const order_code = props.searchParams.order_code;
-  const price =  data?.sale_price || data?.price || 0;
+  const price =  data?.sale_price ? data?.sale_price : data?.price;
   return (
     <section className='sec-prmk mt-0'>
       <div className='prmk'>
@@ -44,14 +44,14 @@ export default async function LearnPaymentPage(props: { params: { locale: string
             <div className="prmk-ud">
               <div className="prmk-ud-cgr">
                 <img src="https://khanhhung.academy/learn/assets/images/logo-seven.png" alt="" />
-                <p className="txt">CHÚC MỪNG BẠN <br />phamhyta</p>
+                <p className="txt">CHÚC MỪNG BẠN</p>
               </div>
               <div className="upp-ud-box">
                 <p className="title">Giao dịch của bạn đã được khoá lại&nbsp;<br />để mua với mức giá ưu đãi chỉ</p>
                 <p className="t-yls --none-shadown mb-80" data-txt="21.000.000đ">
                   <span className="t-yls-top">
                     <span className="word">
-                      {data?.price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(data.price)) : '0'}
+                      {price ? new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }).format(Math.round(price)) : '0'}
                     </span>
                     <span className="white-space">
                     </span>
