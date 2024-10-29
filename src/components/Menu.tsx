@@ -4,8 +4,9 @@ import React from 'react'
 
 type Props = {
   setting: Model.Setting | null,
+  setOpen?: (open: boolean) => void
 }
-const Menu = ({ setting }: Props) => {
+const Menu = ({ setting, setOpen }: Props) => {
   const menus = [
     { label: 'Quyền lợi', href: '/#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
     { label: 'Chương trình học', href: '/#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
@@ -18,7 +19,7 @@ const Menu = ({ setting }: Props) => {
     <ul className="menu-list flex flex-col gap-5 md:!flex-row">
       {menus.map((menu, index) => (
         <li key={index} className="menu-item">
-          <Link className="menu-link btn-scroll flex items-center" href={menu.href}>
+          <Link className="menu-link btn-scroll flex items-center" href={menu.href} onClick={() => setOpen && setOpen(false)}>
             <span className="menu-icon">
               <img src={menu.icon} alt="" />
             </span>

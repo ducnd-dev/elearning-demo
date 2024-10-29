@@ -3,7 +3,7 @@ import BtnLearnNow from '@/components/BtnLearnNow';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useUser } from '@/stores/auth-store';
-export const Sidebar = () => {
+export const Sidebar = ({ setOpen }: { setOpen?: (open: boolean) => void }) => {
   const path = usePathname();
   const { logout } = useUser()
   const menus = [
@@ -22,9 +22,14 @@ export const Sidebar = () => {
       icon: 'https://khanhhung.academy/learn/assets/images/mb-ic-3.svg',
       link: '/dashboard/profile',
     },
+    {
+      title: 'Trang chủ',
+      icon: 'https://khanhhung.academy/learn/assets/images/mb-ic-9.svg',
+      link: '/',
+    }
   ];
   return (
-    <div className="fixed mr-8 w-[300px] px-8">
+    <div className="fixed mr-8 w-[250px] px-2">
       <div className="mb-main-top">
        <BtnLearnNow />
       </div>
@@ -37,7 +42,7 @@ export const Sidebar = () => {
           <ul className="menu-list">
             {menus.map((menu, index) => (
               <li key={index} className={`menu-item ${path === menu.link ? 'active' : ''}`}>
-                <Link className="menu-link" href={menu.link}>
+                <Link className="menu-link" href={menu.link} onClick={() => setOpen && setOpen(false)}>
                   <span className="icon relative">
                     <img src={menu.icon} alt="" />
                   </span>

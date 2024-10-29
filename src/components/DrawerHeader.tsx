@@ -14,11 +14,10 @@ const DrawerHeader = (props: Props) => {
 
   return (
     <>
-      <Drawer open={open} onClose={() => setOpen(false)} placement="left">
-        {showMenuOutlined ? <Sidebar /> : <Menu setting={props.setting} />}
+      <Drawer open={open} onClose={() => setOpen(false)} placement="left" className='!w-[300px]'>
+        {showMenuOutlined ? <Sidebar setOpen={setOpen} /> : <Menu setting={props.setting} setOpen={setOpen}/>}
       </Drawer>
       <MenuOutlined className="md:!hidden cursor-pointer px-5 !text-gray-400" onClick={() => setOpen(true)} />
-
     </>
   )
 }
