@@ -34,6 +34,10 @@ export const metadata: Metadata = {
       rel: 'icon',
       url: '/favicon.ico',
     },
+    {
+      rel: 'icon-menu',
+      url: '/assets/images/icons/icon-menu.png',
+    }
   ],
 };
 
