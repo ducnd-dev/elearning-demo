@@ -18,20 +18,21 @@ export const userStore = useAuthStore((set) => ({
     setCookie('plan', user?.plan_id);
   },
   logout: () => {
-    set({ user: null })
-    deleteCookie('token', {
-      path: '/',
-      domain: window.location.hostname,
-    });
-    deleteCookie('plan');
-    deleteCookie('user');
-    localStorage.removeItem('user');
-    localStorage.removeItem('@user');
-    localStorage.removeItem('@token');
+
     request<any>('/v1/users/logout', {
       method: 'POST',
     }).then(() => {
-    window.location.href = '/';
+        set({ user: null })
+        deleteCookie('token', {
+          path: '/',
+          domain: window.location.hostname,
+        });
+        deleteCookie('plan');
+        deleteCookie('user');
+        localStorage.removeItem('user');
+        localStorage.removeItem('@user');
+    localStorage.removeItem('@token');
+      window.location.href = '/';
     });
   },
 }))
