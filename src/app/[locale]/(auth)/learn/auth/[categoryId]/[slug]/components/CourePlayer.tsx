@@ -18,6 +18,7 @@ type Props = {
 const CourePlayer = (props: Props) => {
   const datas = props.listData;
   const [detail, setDetail] = React.useState<API.CourseMaterial | null>(props.listData.data.courses[0]?.course_materials[0] || null);
+  const [openSeemore, setOpenSeemore] = React.useState<number[]>([]);
   const [displayPro, setDisplayPro] = React.useState(false);
   const getTotalTime = (course: Model.Course) => {
     let total = 0;
@@ -34,10 +35,9 @@ const CourePlayer = (props: Props) => {
   };
 
   const { isProUser } = useAuthStore();
-
   return (
-    <div className="mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] py-8">
-      <div className="relative mr-8 aspect-video lg:h-[66vh] col-span-full lg:col-span-8 rounded-xl w-full py-5">
+    <div className="mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] pb-8 md:pt-2">
+      <div className="relative mr-8 aspect-video lg:h-[66vh] col-span-full lg:col-span-8 w-full py-5">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
@@ -55,7 +55,7 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full rounded-lg"
+              className="size-full"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
@@ -131,7 +131,7 @@ const CourePlayer = (props: Props) => {
             <span className="txt">Trải nghiệm toàn bộ 200 videos - Hơn 35 giờ</span>
           </div>
           <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
-          <ul className="pro-box-list max-h-[70vh] overflow-y-auto">
+          <ul className="pro-box-list max-h-[30vh] md:max-h-[70vh] overflow-y-auto">
             <Collapse
               style={{ backgroundColor: 'white' }}
               defaultActiveKey={['1', '2']}
@@ -164,12 +164,12 @@ const CourePlayer = (props: Props) => {
                         </div>
                         <div className="line"></div>
                       </div>,
-                children: <div className="pro-box-body">
+                children: <div className="pro-box-body ">
                           <div className="pro-box-body-inner">
                             <div className="pro-list row">
                               {data?.course_materials?.map((video, index) => (
                                 <div
-                                  className={`w-full cursor-pointer ${!displayPro && !video.is_free ? 'hidden' : ''}`}
+                                  className={`w-full cursor-pointer ${!displayPro && !video.is_free && !openSeemore.includes(data.id) ? 'hidden' : ''}`}
                                   key={video.id}
                                   role="button"
                                   tabIndex={0}
@@ -248,6 +248,15 @@ const CourePlayer = (props: Props) => {
                                   </div>
                                 </div>
                               ))}
+                             {!displayPro&& data.course_materials.some((i => !i.is_free)) &&(<div className="text-center w-full cursor-pointer" >
+                                {!openSeemore.includes(data.id) ? (<span className='text-orange-300 underline text-2xl' onClick={() =>setOpenSeemore([ ...openSeemore, data.id])}>
+                                  Xem toàn bộ
+                                </span>) :
+                                (<span className='text-purple-300 underline text-2xl' onClick={() =>setOpenSeemore(openSeemore.filter((id) => id !== data.id))}>
+                                  Thu gọn
+                                </span>)
+                                }
+                              </div>)}
                             </div>
                           </div>
                         </div>

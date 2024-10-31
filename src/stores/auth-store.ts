@@ -1,6 +1,7 @@
 'use client';
 import { createStore } from 'zustand/vanilla';
 import { deleteCookie, getCookie, setCookie } from 'cookies-next';
+import request from '@/libs/request';
 
 interface UserState {
   user: any;
@@ -27,7 +28,11 @@ export const userStore = useAuthStore((set) => ({
     localStorage.removeItem('user');
     localStorage.removeItem('@user');
     localStorage.removeItem('@token');
+    request<any>('/v1/users/logout', {
+      method: 'POST',
+    }).then(() => {
     window.location.href = '/';
+    });
   },
 }))
 
