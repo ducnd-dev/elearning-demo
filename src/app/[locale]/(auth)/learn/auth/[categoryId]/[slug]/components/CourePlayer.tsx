@@ -36,14 +36,14 @@ const CourePlayer = (props: Props) => {
 
   const { isProUser } = useAuthStore();
   return (
-    <div className="mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] pb-8 md:pt-2">
-      <div className="relative mr-8 aspect-video lg:h-[66vh] col-span-full lg:col-span-8 w-full py-5">
+    <div className="container mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] pb-8 md:pt-2">
+      <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full py-5">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
               <div className="pro-wars-wrapper --t-center">
                 <div className="pro-wars-top  text-center">
-                  <p className="t-ylss text-[22px] lg:text-5xl" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
+                  <p className="t-ylss text-[20px] lg:text-5xl !leading-tight" data-txt="VIDEO NÀY CHỈ DÀNH CHO CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ">
                     <span className="txt"> VIDEO NÀY CHỈ DÀNH CHO<br />CÁC ĐỒNG NGHIỆP ĐÃ TRẢ PHÍ</span></p>
                   <p className="des">Hùng có nhiều video Free khác rất chất lượng, <br />bạn hãy xem các video FREE khác nhé!</p>
                 </div>
@@ -55,18 +55,18 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full"
+              className="size-full mb-2"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               sandbox="allow-scripts allow-same-origin allow-popups"
               onContextMenu={(e: any) => e.preventDefault()}
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: '100%', height: '105%' }}
             >
             </iframe>
           )}
         <div>
-          <div className="t-title-second c-second mt-8 !text-black">{detail?.title}</div>
+          <div className="t-title-second c-second !text-black">{detail?.title}</div>
           <div className="flex">
             <div className="pro-time">
               <img src="https://khanhhung.academy/learn/assets/images/ic-clock.svg" alt="" />
