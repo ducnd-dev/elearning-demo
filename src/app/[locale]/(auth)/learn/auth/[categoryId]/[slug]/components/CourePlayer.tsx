@@ -121,7 +121,7 @@ const CourePlayer = (props: Props) => {
         </div>
       </div>
       <div className="col-span-full lg:col-span-4 md:px-4">
-        <div className="regi-left-inner pro-toggle !pt-0">
+        <div className="regi-left-inner pro-toggle !pt-4">
           <div className="toggle-xtb study-xtb">
             <Switch
               checked={displayPro}
