@@ -15,6 +15,7 @@ const verify = async (token: string) => {
         Authorization: `Bearer ${token}`,
       },
     });
+
     return res;
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -30,6 +31,7 @@ const VerifyComponent = () => {
   useEffect(() => {
     verify(searchParams.get('token') || '').then((res) => {
       setUser(res.data);
+      setCookie('user', JSON.stringify(res.data));
       const action = searchParams.get('action');
       router.push(action === 'login' ? '/learn/auth/1/1' : '/dashboard');
     });

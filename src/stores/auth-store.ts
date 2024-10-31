@@ -12,7 +12,7 @@ interface UserState {
 export const useAuthStore = createStore<UserState>
 
 export const userStore = useAuthStore((set) => ({
-  user: getCookie('user') || null,
+  user: getCookie('user') ? JSON.parse(getCookie('user') || '') :null,
   setUser: (user: any) => {
     set({ user });
     setCookie('plan', user?.plan_id);
@@ -23,16 +23,13 @@ export const userStore = useAuthStore((set) => ({
       method: 'POST',
     }).then(() => {
         set({ user: null })
-        deleteCookie('token', {
-          path: '/',
-          domain: window.location.hostname,
-        });
+        deleteCookie('token');
         deleteCookie('plan');
         deleteCookie('user');
         localStorage.removeItem('user');
         localStorage.removeItem('@user');
-    localStorage.removeItem('@token');
-      window.location.href = '/';
+        localStorage.removeItem('@token');
+        window.location.href = '/';
     });
   },
 }))

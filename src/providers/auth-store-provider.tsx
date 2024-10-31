@@ -1,7 +1,7 @@
 'use client';
 
 import request from "@/libs/request";
-import { useLogout, useSetUser } from "@/stores/auth-store";
+import { useLogout, useSetUser, useUser } from "@/stores/auth-store";
 import { getCookie } from "cookies-next";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
@@ -20,18 +20,18 @@ interface AuthStoreProviderProps {
 }
 
 export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
-  const [user, setUser] = useState<Model.User | null>(null);
+  const { setUser, user } = useUser();
   const setUserStore = useSetUser();
   const [isProUser, setIsProUser] = useState<boolean>(false);
   const pathname = usePathname()
   useEffect(() => {
     console.log('pathname', pathname);
-    
+
     const getUser = async () => {
       try {
         const token = getCookie('token');
         console.log('token1111', token);
-        
+
         if (!token) {
           return;
         }
