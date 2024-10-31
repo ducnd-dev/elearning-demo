@@ -339,6 +339,9 @@ img {
   .pro-dt-main .t-title-second {
     --f-sz: 1.8rem;
   }
+  .pay-system-heading .t-title-second {
+    --f-sz: 2rem !important;
+  }
 }
 
 .pro-dt-note {

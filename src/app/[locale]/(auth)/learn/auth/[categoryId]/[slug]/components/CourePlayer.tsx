@@ -36,7 +36,7 @@ const CourePlayer = (props: Props) => {
 
   const { isProUser } = useAuthStore();
   return (
-    <div className="container mx-auto grid grid-cols-12 items-start gap-10 max-w-[1600px] pb-8 md:pt-2">
+    <div className="container mx-auto grid grid-cols-12 items-start md:gap-10 max-w-[1600px] pb-8 md:pt-2">
       <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full py-5">
         {!detail?.is_free && !isProUser
           ? (
@@ -120,7 +120,7 @@ const CourePlayer = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="col-span-full lg:col-span-4 px-4">
+      <div className="col-span-full lg:col-span-4 md:px-4">
         <div className="regi-left-inner pro-toggle !pt-0">
           <div className="toggle-xtb study-xtb">
             <Switch

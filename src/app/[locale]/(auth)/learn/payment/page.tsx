@@ -8,6 +8,7 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import request from '@/libs/request';
 import BtnCheckOrder from './components/BtnCheckOrder';
 import CountDown from './components/CountDown';
+import { revalidatePath } from 'next/cache';
 
 const fetchData = async () => {
   try {
@@ -21,6 +22,7 @@ const fetchData = async () => {
 
 export default async function LearnPaymentPage(props: { params: { locale: string }, searchParams: { order_code: string } }) {
   unstable_setRequestLocale(props.params.locale);
+  revalidatePath('/[locale]/(auth)/learn/payment');
   const data = await fetchData();
   const order_code = props.searchParams.order_code;
   const price =  data?.sale_price ? data?.sale_price : data?.price;
