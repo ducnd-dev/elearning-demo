@@ -37,7 +37,7 @@ export default async function Page(props: { params: { slug: string; categoryId: 
   return (
     <>
       <Header />
-      <div className="border-t border-dashed border-gray-200">
+      <div className="border-t border-dashed border-gray-200 mt-[96px] md:mt-[112px]">
         {listData && <CourePlayer data={data || {} as  Model.CourseMaterial} listData={listData} />}
       </div>
     </>

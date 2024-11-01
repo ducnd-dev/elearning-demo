@@ -14,7 +14,7 @@ export default function DashboardLayout(props: { children: React.ReactNode }) {
   return (
     <>
       <Header />
-      <div className="mb-6 border-b border-dashed border-b-gray-300"></div>
+      <div className="mb-6 border-b border-dashed border-b-gray-300 mt-[96px] md:mt-[112px]"></div>
       <div className="grid min-h-screen grid-cols-12 ">
         <div className="col-span-2 hidden lg:block">
           <Sidebar />

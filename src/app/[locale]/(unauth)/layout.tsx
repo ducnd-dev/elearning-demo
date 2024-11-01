@@ -27,7 +27,7 @@ export default async function Layout(props: {
   return (
     <>
       <Header />
-      <div className="min-h-screen w-full px-1">
+      <div className="min-h-screen w-full px-1 mt-[96px] md:mt-[112px]">
         <div>
           {props.children}
         </div>
