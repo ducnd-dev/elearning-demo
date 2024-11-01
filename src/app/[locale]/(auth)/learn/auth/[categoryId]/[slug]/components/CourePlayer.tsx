@@ -131,7 +131,7 @@ const CourePlayer = (props: Props) => {
             <span className="txt">Trải nghiệm toàn bộ 200 videos - Hơn 35 giờ</span>
           </div>
           <div className="study-note-txt">*Khóa học sẽ luôn luôn cập nhật thêm video mới kể cả sau khi ra mắt (tại vì nội dung nhiều quá Hùng quay không kịp)</div>
-          <ul className="pro-box-list max-h-[30vh] md:max-h-[70vh] overflow-y-auto">
+          <ul className="pro-box-list md:max-h-[70vh] overflow-y-auto">
             <Collapse
               style={{ backgroundColor: 'white' }}
               defaultActiveKey={['1', '2']}

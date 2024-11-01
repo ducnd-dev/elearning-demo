@@ -7166,7 +7166,7 @@ iframe {
     display: block;
     width: 100%;
     background-color: #fff;
-    position: sticky;
+    position: fixed;
     bottom: 0;
     left: 0;
     z-index: 99;
