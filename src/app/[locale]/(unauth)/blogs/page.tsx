@@ -25,8 +25,8 @@ const page = async (props: { searchParams: { page: string } } ) => {
           <div className="container">
             <div className="feature-article-tt sec-com-tt">Bài viết nổi bật </div>
             <div className="feature-article-content">
-              <div className="feature-article-list d-flex f-ctn gap-10 mt-10">
-                {res.data.data.map((blog: Model.Blog) => (<div className=" hover:shadow-lg col-3 feature-article-item rounded-2xl overflow-hidden">
+              <div className="feature-article-list grid md:grid-cols-3 f-ctn gap-3 md:gap-10 mt-10">
+                {res.data.data.map((blog: Model.Blog) => (<div className=" hover:shadow-lg feature-article-item rounded-2xl overflow-hidden">
                   <div className="feature-article-inner">
                     <div className="img">
                       <div className="inner"> 
