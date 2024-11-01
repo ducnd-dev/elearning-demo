@@ -7,13 +7,15 @@ import UserProfile from './UserProfile';
 import Logo from './Logo';
 import getUrlImage from '@/libs/common';
 
-export const Header = () => {
+export const Header = ({
+  showBanner = true,
+}) => {
   const { setting } = useSetting();
 
   return (
     <div className="header">
       <div className="header-desk">
-        <DemoBanner />
+        {showBanner ? <DemoBanner /> : ''}
         <div className="header-bot-flex">
           <div className="header-bot">
             <div className="container-second">

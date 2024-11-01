@@ -36,8 +36,8 @@ export default async function Page(props: { params: { slug: string; categoryId: 
   const listData = await fetchData(props.params.categoryId);
   return (
     <>
-      <Header />
-      <div className="border-t border-dashed border-gray-200 mt-[96px] md:mt-[112px]">
+      <Header showBanner={false}/>
+      <div className="border-t border-dashed border-gray-200 mt-[66px] md:mt-[72px]">
         {listData && <CourePlayer data={data || {} as  Model.CourseMaterial} listData={listData} />}
       </div>
     </>
