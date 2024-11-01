@@ -982,7 +982,7 @@ img {
 
 .regi-gg:after,
 .regi-gg:before {
-  border-radius: inherit;
+  border-radius: 12px;
   content: '';
   position: absolute;
 }
