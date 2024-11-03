@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const VideoWrapper = styled.main`
-  width: 640px;
-  max-height: 360px;
-
+  width: 100wh;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
@@ -12,7 +12,7 @@ export const VideoWrapper = styled.main`
   box-shadow: 0px 30px 20px -10px rgb(0 0 0 / 47%);
 
   video#player {
-    min-width: 640px;
+    min-width: 100%;
     min-height: 360px;
 
     /* RESPONSIVE */
@@ -46,7 +46,8 @@ export const VideoWrapper = styled.main`
   /* PLYR CSS */
 
   .plyr {
-   
+    width: 100%;
+    height: 100%;
     --plyr-control-icon-size: 18px;
 
     .plyr__video-wrapper .plyr__poster {
@@ -326,8 +327,8 @@ export const VideoWrapper = styled.main`
 
 
   @media (max-height: 568px) and (orientation: landscape)  {
-    width: 542px;
-    margin-top: 1rem;
+    // width: 100%;
+    // margin-top: 1rem;
   }
 
 `;
