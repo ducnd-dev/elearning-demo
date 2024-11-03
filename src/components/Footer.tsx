@@ -112,28 +112,28 @@ export const Footer = () => {
 
         <ul className="menu-list">
           <li className="menu-item">
-            <a className="menu-link scroll-quyen_loi" href="#">
+            <div className="menu-link scroll-quyen_loi">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg" alt="" />
               </span>
               <span className="menu-txt">Quyền lợi</span>
-            </a>
+            </div>
           </li>
           <li className="menu-item">
-            <a className="menu-link scroll-chuong_trinh_hoc" href="#">
+            <div className="menu-link scroll-chuong_trinh_hoc">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg" alt="" />
               </span>
               <span className="menu-txt">Chương trình học</span>
-            </a>
+            </div>
           </li>
           <li className="menu-item">
-            <a className="menu-link scroll-la_ai" href="#">
+            <div className="menu-link scroll-la_ai">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg" alt="" />
               </span>
               <span className="menu-txt">Khánh Hùng là ai ?</span>
-            </a>
+            </div>
           </li>
           <li className="menu-item">
             <a className="menu-link" target="_blank" rel="noreferrer" href={setting?.link_group_facebook || '#'}>
