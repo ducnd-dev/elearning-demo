@@ -6149,6 +6149,7 @@ iframe {
   gap: 1.2rem;
   transition: 0.3s;
   border-radius: 0.8rem;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 1201px) {

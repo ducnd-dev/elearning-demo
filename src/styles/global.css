@@ -123,6 +123,7 @@
   font-size: 1.3rem;
   font-weight: 600;
   padding-right: 1rem;
+  cursor: pointer;
 }
 
 .mb-menu .menu-link .icon {
