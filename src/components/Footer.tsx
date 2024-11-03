@@ -112,7 +112,7 @@ export const Footer = () => {
 
         <ul className="menu-list">
           <li className="menu-item">
-            <a className="menu-link" href="/#quyen_loi">
+            <a className="menu-link scroll-quyen_loi" href="#">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg" alt="" />
               </span>
@@ -120,7 +120,7 @@ export const Footer = () => {
             </a>
           </li>
           <li className="menu-item">
-            <a className="menu-link" href="/#chuong_trinh_hoc">
+            <a className="menu-link scroll-chuong_trinh_hoc" href="#">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg" alt="" />
               </span>
@@ -128,7 +128,7 @@ export const Footer = () => {
             </a>
           </li>
           <li className="menu-item">
-            <a className="menu-link" href="/#la_ai">
+            <a className="menu-link scroll-la_ai" href="#">
               <span className="menu-icon">
                 <img src="https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg" alt="" />
               </span>
