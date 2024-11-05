@@ -8,7 +8,7 @@ import '@/styles/root.css';
 import request from '@/libs/request';
 
 import CourePlayer from './components/CourePlayer';
-import Header from '@/components/Header';
+// import Header from '@/components/Header';
 
 const getData = async (slug: string) => {
   try {
