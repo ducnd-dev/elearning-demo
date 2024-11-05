@@ -24,7 +24,7 @@ const Menu = ({ setting, setOpen }: Props) => {
             <span className="menu-icon">
               <img src={menu.icon} alt="" />
             </span>
-            <span className="menu-txt ml-4 md:ml-0">{menu.label}</span>
+            <span className="menu-txt ml-4 md:ml-0 ">{menu.label}</span>
           </Link> : <div className={`menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400 ${menu.id}`} onClick={() => setOpen && setOpen(false)}>
             <span className="menu-icon">
               <img src={menu.icon} alt="" />

@@ -46,7 +46,7 @@ export const Header = ({
           </div>
           <div className="header-mb-btn">
             {' '}
-            <Link className="btn-second style-pri" href="https://khanhhung.academy/learn/auth">
+            <Link className="btn-second style-pri" href="/learn/auth/1/1">
               {' '}
               <span className="txt-wrap">
                 {' '}

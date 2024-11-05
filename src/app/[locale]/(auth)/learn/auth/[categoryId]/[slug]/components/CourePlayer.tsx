@@ -36,7 +36,7 @@ const CourePlayer = (props: Props) => {
 
   const { isProUser } = useAuthStore();
   return (
-    <div className="mx-auto grid grid-cols-12 items-start md:gap-10 max-w-[1700px]" style={{ padding: '0 calc(15 / 950 * 100vh)' }}>
+    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2">
       <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full py-5">
         {!detail?.is_free && !isProUser
           ? (
