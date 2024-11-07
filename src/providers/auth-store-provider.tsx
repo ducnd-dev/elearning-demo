@@ -30,7 +30,6 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
     const getUser = async () => {
       try {
         const token = getCookie('token');
-        console.log('token1111', token);
 
         if (!token) {
           return;

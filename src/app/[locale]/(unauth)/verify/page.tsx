@@ -33,7 +33,8 @@ const VerifyComponent = () => {
       setUser(res.data);
       setCookie('user', JSON.stringify(res.data));
       const action = searchParams.get('action');
-      router.push(action === 'login' ? '/learn/auth/1/1' : '/dashboard');
+      // router.push(action === 'login' ? '/learn/auth/1/1' : '/dashboard');
+      window.location.href = action === 'login' ? '/learn/auth/1/1' : '/dashboard';
     });
     return () => {};
   }, [searchParams, router, setUser]);
