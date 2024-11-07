@@ -25,7 +25,7 @@ export const DemoBanner = async () => {
             <div className="swiper-slide-events swiper-wrapper">
               <p>
                 {datas?.map((data, index) => (
-                  <a href={data.link} key={index} target="_blank" rel="noreferrer" className="header-top-text w-full swiper-slide text-sm font-medium">
+                  <a href={data.link} key={index} target="_blank" rel="noreferrer" className="header-top-text w-full swiper-slide text-xl font-medium">
                     {data.title}
                   </a>
                 ))}
