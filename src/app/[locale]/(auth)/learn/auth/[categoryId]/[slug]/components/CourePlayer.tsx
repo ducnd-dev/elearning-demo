@@ -55,7 +55,7 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full mb-2"
+              className="size-full mb-2 min-h-[36vh]:"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen

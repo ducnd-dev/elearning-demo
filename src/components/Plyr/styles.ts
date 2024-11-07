@@ -312,18 +312,18 @@ export const VideoWrapper = styled.main`
 
   /* RESPONSIVE */
 
-  @media (max-width: 540px) {
-    width: 495px;
-  }
-  @media (max-width: 415px) {
-    width: 339px;
-  }
-  @media (max-width: 320px) {
-    width: 297px;
-  }
-  @media (max-width: 280px) {
-    width: 261px;
-  }
+  // @media (max-width: 540px) {
+  //   width: 495px;
+  // }
+  // @media (max-width: 415px) {
+  //   width: 339px;
+  // }
+  // @media (max-width: 320px) {
+  //   width: 297px;
+  // }
+  // @media (max-width: 280px) {
+  //   width: 261px;
+  // }
 
 
   @media (max-height: 568px) and (orientation: landscape)  {
