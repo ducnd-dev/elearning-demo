@@ -3,7 +3,7 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 import '@/styles/learn.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import getUrlImage from '@/libs/common';
 // import { useAuthStore } from '@/providers/auth-store-provider';
