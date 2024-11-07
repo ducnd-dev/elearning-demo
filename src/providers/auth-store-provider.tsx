@@ -23,7 +23,7 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const { setUser, user } = useUser();
   const setUserStore = useSetUser();
   const plan = getCookie('plan') ? JSON.parse(getCookie('plan') || '') : null;
-  const [isProUser, setIsProUser] = useState<boolean>(!!plan);
+  const [isProUser, setIsProUser] = useState<boolean>(plan === 1 || plan === '1');
   const pathname = usePathname()
   useEffect(() => {
     console.log('pathname', pathname);
