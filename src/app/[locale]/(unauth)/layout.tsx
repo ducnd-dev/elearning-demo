@@ -2,6 +2,7 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import request from '@/libs/request';
 import { useSetting } from '@/stores/common-store';
+import { setCookie } from 'cookies-next';
 
 const getSettings = async (): Promise<Model.Setting> => {
   try {
@@ -21,7 +22,7 @@ export default async function Layout(props: {
   // unstable_setRequestLocale(props.params.locale);
   const { setSetting, setting } = useSetting();
   // const t = useTranslations('RootLayout');
-  await getSettings().then((res) => setSetting(res));
+  await getSettings().then((res) => {setSetting(res), setCookie('setting', JSON.stringify(res))});
   console.log(setting);
   
   return (

@@ -18,14 +18,14 @@ export const DemoBanner = async () => {
   const { setting } = useSetting();
   
   return (
-    <div className="header-top">
+    <div className="header-top h-11">
       <div className="container-second">
         <div className="header-top-inner">
           <div className="haeder-top-news">
             <div className="swiper-slide-events swiper-wrapper">
               <p>
                 {datas?.map((data, index) => (
-                  <a href={data.link} key={index} target="_blank" rel="noreferrer" className="header-top-text w-full swiper-slide">
+                  <a href={data.link} key={index} target="_blank" rel="noreferrer" className="header-top-text w-full swiper-slide text-sm font-medium">
                     {data.title}
                   </a>
                 ))}

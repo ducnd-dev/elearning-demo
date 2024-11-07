@@ -1,4 +1,4 @@
-import { getCookie } from 'cookies-next';
+import { deleteCookie, getCookie } from 'cookies-next';
 
 const defaultHeader = {
   'Content-Type': 'application/json',
@@ -38,6 +38,11 @@ export default async function request<T>(url: string, options: RequestInit = {})
     if (error instanceof Error && error.message.includes('401')) {
       console.error('Error fetching data:', error.message);
       // redirect to sign-in
+      deleteCookie('token');
+      deleteCookie('user');
+      deleteCookie('@user');
+      deleteCookie('@token');
+      window.location.href = '/sign-in';
     }
     if (error instanceof Error) {
       console.error('Error fetching data:', error.message);

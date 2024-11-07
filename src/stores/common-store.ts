@@ -1,3 +1,4 @@
+import { getCookie } from "cookies-next"
 import { createStore } from "zustand/vanilla"
 
 interface CommonState {
@@ -8,7 +9,7 @@ interface CommonState {
 export const useCommonStore = createStore<CommonState>()
 
 export const commonStore = useCommonStore((set) => ({
-  setting: null,
+  setting: typeof getCookie('setting') === 'string' ? JSON.parse(getCookie('setting') as string) : null,
   setSetting: (setting) => set({ setting }),
 }))
 
