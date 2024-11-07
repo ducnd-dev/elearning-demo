@@ -22,7 +22,7 @@ interface AuthStoreProviderProps {
 export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const { setUser, user } = useUser();
   const setUserStore = useSetUser();
-  const cuser = JSON.parse(getCookie('user') || '');
+  const cuser = getCookie('user') ? JSON.parse(getCookie('user') || '') : null;
   const [isProUser, setIsProUser] = useState<boolean>(cuser?.plan_id === 1);
   const pathname = usePathname()
   useEffect(() => {
@@ -46,7 +46,7 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
       }
     };
     getUser();
-  }, [pathname]);
+  }, [pathname, user]);
 
   useEffect(() => {
     setUserStore(user);
