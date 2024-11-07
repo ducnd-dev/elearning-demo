@@ -2,7 +2,7 @@
 
 import request from "@/libs/request";
 import { useLogout, useSetUser, useUser } from "@/stores/auth-store";
-import { getCookie } from "cookies-next";
+import { getCookie, setCookie } from "cookies-next";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState, createContext, ReactNode } from "react";
 
@@ -38,6 +38,8 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
         const user = await request<API.GetUser>('/v1/users/profile');
         setUser(user?.data);
         localStorage.setItem('user', JSON.stringify(user?.data));
+        setCookie('user', JSON.stringify(user?.data));
+        setCookie('token', token);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
