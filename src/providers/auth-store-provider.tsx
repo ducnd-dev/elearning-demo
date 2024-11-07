@@ -22,7 +22,8 @@ interface AuthStoreProviderProps {
 export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const { setUser, user } = useUser();
   const setUserStore = useSetUser();
-  const [isProUser, setIsProUser] = useState<boolean>(false);
+  const cuser = JSON.parse(getCookie('user') || '');
+  const [isProUser, setIsProUser] = useState<boolean>(cuser?.plan_id === 1);
   const pathname = usePathname()
   useEffect(() => {
     console.log('pathname', pathname);
