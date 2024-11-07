@@ -5,12 +5,13 @@ import Link from 'next/link';
 import React from 'react'
 import BtnLearnNow from './BtnLearnNow';
 import BtnUpgrade from './BtnUpgrade';
+import { getCookie } from 'cookies-next';
 
 // type Props = {
 //   user: Model.User | null,
 // }
 const UserProfile = () => {
-  const { user, isProUser, logout } = useUser();
+  const { user, logout } = useUser();
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -32,13 +33,14 @@ const UserProfile = () => {
       key: '3',
       label: (
         <span onClick={() => {
-          logout(); 
+          logout();
         }}>
           Đăng xuất
         </span>
       ),
     },
   ];
+  const isProUser = getCookie('plan');
   return (
     <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
       <div className="header-bot-inner">

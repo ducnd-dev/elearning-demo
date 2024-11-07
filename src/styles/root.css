@@ -5374,8 +5374,8 @@ iframe {
 
 .header-top-text {
   width: max-content;
-  font-size: 22px;
-  line-height: 22px;
+  font-size: 1.4rem !important;
+  line-height: 1.4rem !important;
   cursor: pointer;
   white-space: nowrap;
   color: #fff;

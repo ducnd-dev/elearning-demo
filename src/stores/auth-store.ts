@@ -36,7 +36,10 @@ export const userStore = useAuthStore((set) => ({
 
 export const createUserStore = (initialState: any) => useAuthStore((set) => ({
   user: initialState,
-  setUser: (user: any) => set({ user }),
+  setUser: (user: any) => {
+    set({ user })
+    setCookie('plan', user?.plan_id);
+  },
   logout: () => set({ user: null }),
 }))
 

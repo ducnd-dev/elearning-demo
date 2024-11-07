@@ -3,12 +3,14 @@ import '@/styles/course.css';
 import '@/styles/home.css';
 import '@/styles/root.css';
 import '@/styles/learn.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import getUrlImage from '@/libs/common';
-import { useAuthStore } from '@/providers/auth-store-provider';
+// import { useAuthStore } from '@/providers/auth-store-provider';
 import BtnUpgrade from '@/components/BtnUpgrade';
 import { Collapse, Switch } from 'antd';
+// import { useUser } from '@/stores/auth-store';
+import { getCookie } from 'cookies-next';
 
 type Props = {
   data: API.CourseMaterial;
@@ -33,8 +35,8 @@ const CourePlayer = (props: Props) => {
 
     return `${hours}:${minutes}:${seconds}`;
   };
+  const isProUser = getCookie('plan');
 
-  const { isProUser } = useAuthStore();
   return (
     <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2">
       <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full py-5">
