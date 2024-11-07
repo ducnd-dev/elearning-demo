@@ -5862,13 +5862,13 @@ iframe {
   object-fit: contain;
 }
 
-/* .header-bot-center .menu-txt {
+.header-bot-center .menu-txt {
   display: block;
   text-wrap: nowrap;
   color: #3a3a3a;
   font-size: 1.4rem;
   white-space: nowrap;
-} */
+}
 
 @media screen and (max-width: 576px) {
   .header-bot-center .menu-txt {
