@@ -4,7 +4,7 @@ import request from "@/libs/request";
 import { useLogout, useSetUser, useUser } from "@/stores/auth-store";
 import { getCookie, setCookie } from "cookies-next";
 import { usePathname } from "next/navigation";
-import React, { useEffect, useState, createContext, ReactNode, use } from "react";
+import React, { useEffect, useState, createContext, ReactNode } from "react";
 
 interface UserStoreContextType {
   user: any;
