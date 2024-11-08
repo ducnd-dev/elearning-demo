@@ -196,6 +196,8 @@ const PlyrPlayer = ({ url }: PlyrPlayerTypes) => {
       } else {
         videoElement.src = url;
       }
+      // videoElement.src = url;
+
 
       Plyr.setup(videoElement);
       win.player = player;

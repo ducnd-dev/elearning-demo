@@ -57,13 +57,13 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full mb-2 min-h-[36vh]:"
+              className="size-full mb-2 aspect-video min-h-[28vh] overflow-hidden"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               sandbox="allow-scripts allow-same-origin allow-popups"
               onContextMenu={(e: any) => e.preventDefault()}
-              style={{ width: '100%', height: '105%' }}
+              style={{ width: '100%', height: '106%' }}
             >
             </iframe>
           )}

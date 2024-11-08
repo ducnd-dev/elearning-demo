@@ -27,7 +27,7 @@ const SignInPage = (props: { params: { locale: string } }) => {
         });
         setCookie('token', response.data.access_token);
         setCookie('user', JSON.stringify(response.data.user));
-        window.location.href = '/learn/auth/1/1';
+        router.push('/learn/auth/1/1');
       };
 
       try {
