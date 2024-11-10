@@ -18,7 +18,15 @@ export const UserStoreContext = createContext<UserStoreContextType | null>(null)
 interface AuthStoreProviderProps {
   children: ReactNode;
 }
-
+const getSettings = async (): Promise<Model.Setting> => {
+  try {
+    const res = await request<API.GetSettingsResponse>('/v1/setting/1');
+    setCookie('setting', JSON.stringify(res.data))
+    return res.data;
+  } catch (e) {
+    return {} as Model.Setting;
+  }
+}
 export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const { setUser, user } = useUser();
   const setUserStore = useSetUser();
@@ -26,7 +34,7 @@ export const AuthStoreProvider = ({ children }: AuthStoreProviderProps) => {
   const pathname = usePathname()
   useEffect(() => {
     console.log('pathname', pathname);
-
+    getSettings();
     const getUser = async () => {
       try {
         const token = getCookie('token');
