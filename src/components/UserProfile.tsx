@@ -40,7 +40,7 @@ const UserProfile = () => {
       ),
     },
   ];
-  const isProUser = getCookie('plan');
+  const isProUser = getCookie('plan') === '1';
   return (
     <div className="header-bot-right loading-ani append-btn-learning-js show-loading-js">
       <div className="header-bot-inner">
