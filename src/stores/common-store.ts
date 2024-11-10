@@ -9,7 +9,7 @@ interface CommonState {
 export const useCommonStore = createStore<CommonState>()
 
 export const commonStore = useCommonStore((set) => ({
-  setting: typeof getCookie('setting') === 'string' ? JSON.parse(getCookie('setting') as string) : null,
+  setting: getCookie('setting') ? JSON.parse(getCookie('setting') || '') : null,
   setSetting: (setting) => set({ setting }),
 }))
 
