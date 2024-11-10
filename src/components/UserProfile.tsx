@@ -68,6 +68,14 @@ const UserProfile = () => {
                 <span className="txt fw-600">Đăng ký và học thử ngay</span>
               </a>
             </div>
+            <div className="header-bot-item-pri header-bot-item" data-attribute="register">
+              <a className="btn-header btn-highlight-login style-pri" href="#">
+                <span className="txt fw-600">
+                  Học ngay
+                </span>
+                <span className="txt txt-upper">hoàn toàn miễn phí</span>
+              </a>     
+            </div>
           </>
         )}
       </div>
