@@ -1,17 +1,17 @@
 import { DemoBanner } from './DemoBanner';
 import Link from 'next/link';
+import { useSetting } from '@/stores/common-store';
 import DrawerHeader from './DrawerHeader';
 import Menu from './Menu';
 import UserProfile from './UserProfile';
 import Logo from './Logo';
 import getUrlImage from '@/libs/common';
-import { cookies } from 'next/headers'
-export const Header = async ({
+
+export const Header = ({
   showBanner = true,
 }) => {
-  const cookieStore = await cookies();
-  const setting = JSON.parse(cookieStore.get('setting')?.value || '');
-  
+  const { setting } = useSetting();
+
   return (
     <div className="header">
       <div className="header-desk">
@@ -23,7 +23,7 @@ export const Header = async ({
                 <div className="flex items-center header-bot-left">
                   <div className="logo flex items-center gap-2">
                     <DrawerHeader />
-                    <Logo logoSrc={getUrlImage(setting?.logo_header) || setting?.logo_header} />
+                    <Logo logoSrc={getUrlImage(setting?.logo_header)} />
                   </div>
                 </div>
                 <div className="header-bot-center header-menu append-menu-js">
