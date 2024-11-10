@@ -35,7 +35,7 @@ const CourePlayer = (props: Props) => {
 
     return `${hours}:${minutes}:${seconds}`;
   };
-  const isProUser = getCookie('plan');
+  const isProUser = getCookie('plan') === '1';
 
   return (
     <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2">
