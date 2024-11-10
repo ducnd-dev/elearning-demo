@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import 'plyr-react/plyr.css';
 
-import Hls from 'hls.js';
+// import Hls from 'hls.js';
 import Plyr from 'plyr';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { VideoWrapper } from './styles';
 
@@ -13,6 +13,7 @@ type PlyrPlayerTypes = {
 };
 
 const PlyrPlayer = ({ url }: PlyrPlayerTypes) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     (function plyrPluginCapture(document) {
       function saveScreenShot(data: string, filename: string) {
@@ -183,22 +184,22 @@ const PlyrPlayer = ({ url }: PlyrPlayerTypes) => {
         ],
       });
 
-      if (Hls.isSupported()) {
-        console.log('HLS supported');
-        const hls = new Hls();
-        if (url !== '') {
-          hls.loadSource(url);
-        }
-        hls.attachMedia(videoElement);
-        // hls.once(Hls.Events.BUFFER_CREATED, (event, data) => {
-        //   console.log(data.tracks.audio);
-        // });
-      } else {
-        videoElement.src = url;
-      }
+      // if (Hls.isSupported()) {
+      //   console.log('HLS supported');
+      //   const hls = new Hls();
+      //   if (url !== '') {
+      //     hls.loadSource(url);
+      //   }
+      //   hls.attachMedia(videoElement);
+      //   // hls.once(Hls.Events.BUFFER_CREATED, (event, data) => {
+      //   //   console.log(data.tracks.audio);
+      //   // });
+      // } else {
+      //   videoElement.src = url;
+      // }
       // videoElement.src = url;
 
-
+      videoRef.current!.src = url;
       Plyr.setup(videoElement);
       win.player = player;
     }
@@ -211,6 +212,7 @@ const PlyrPlayer = ({ url }: PlyrPlayerTypes) => {
         // autoPlay
         crossOrigin="anonymous"
         // poster="/assets/poster.svg"
+        ref={videoRef}
       />
     </VideoWrapper>
   );

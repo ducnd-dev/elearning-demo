@@ -23,12 +23,13 @@ export const userStore = useAuthStore((set) => ({
       method: 'POST',
     }).then(() => {
         set({ user: null })
-        deleteCookie('token');
-        deleteCookie('plan');
-        deleteCookie('user');
-        localStorage.removeItem('user');
-        localStorage.removeItem('@user');
-        localStorage.removeItem('@token');
+        const cookies = document.cookie.split("; ");
+        for (const cookie of cookies) {
+          const eqPos = cookie.indexOf("=");
+          const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+          deleteCookie(name);
+        }
+        localStorage.clear();
         window.location.href = '/';
     });
   },
