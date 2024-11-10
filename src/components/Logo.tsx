@@ -9,10 +9,15 @@ type Props = {
 const Logo = ({ logoSrc }: Props) => {
   const { setting } = useSetting()
   const cSetting = getCookie('setting') ? JSON.parse(getCookie('setting') || '') : null
+  console.log('logoSrc', logoSrc ? logoSrc : getUrlImage(setting?.logo_header || cSetting?.logo_header));
+  
   return (
     <a className="logo-link" href="/">
       {' '}
-      <img src={logoSrc || getUrlImage(setting?.logo_header || cSetting?.logo_header)} alt="" />
+      <img
+        src={logoSrc ? logoSrc : getUrlImage(setting?.logo_header || cSetting?.logo_header)}
+        alt=""
+      />
     </a>
   )
 }
