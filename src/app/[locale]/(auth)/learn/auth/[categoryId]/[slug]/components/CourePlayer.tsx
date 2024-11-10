@@ -38,8 +38,8 @@ const CourePlayer = (props: Props) => {
   const isProUser = getCookie('plan') === '1';
 
   return (
-    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2">
-      <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full py-5">
+    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2 overflow-hidden max-h-[80vh]">
+      <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full">
         {!detail?.is_free && !isProUser
           ? (
             <div className='pro-wars' style={{ backgroundImage: 'url("https://api.khanhhung.academy/media/catalog/product/M/_/M_t_s_Automation_Funnel_kh_c.png")' }}>
@@ -57,7 +57,7 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full mb-2 aspect-video min-h-[28vh] overflow-hidden"
+              className="size-full mb-2 aspect-video min-h-[24vh] overflow-hidden"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
@@ -67,7 +67,7 @@ const CourePlayer = (props: Props) => {
             >
             </iframe>
           )}
-        <div>
+        <div className='px-4'>
           <div className="t-title-second c-second !text-black">{detail?.title}</div>
           <div className="flex">
             <div className="pro-time">
@@ -122,7 +122,7 @@ const CourePlayer = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="col-span-full lg:col-span-4 md:px-4">
+      <div className="col-span-full lg:col-span-4 px-4">
         <div className="regi-left-inner pro-toggle !pt-4">
           <div className="toggle-xtb study-xtb">
             <Switch

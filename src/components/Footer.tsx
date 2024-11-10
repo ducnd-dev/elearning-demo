@@ -1,11 +1,11 @@
 import { useSetting } from "@/stores/common-store";
+import Script from "next/script";
 
 export const Footer = () => {
   const { setting } = useSetting();
   return (<>
+    <Script src="/assets/scripts/menu.js" />
     <footer className="footer" style={{ backgroundImage: 'url(https://khanhhung.academy/template/assets/images/footer/footer-bg.jpg)' }}>
-
-
       <div className="ft-bottom">
         <div className="ft-if">
           <div className="container">
