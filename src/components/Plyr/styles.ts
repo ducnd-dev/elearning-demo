@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const VideoWrapper = styled.main`
   width: 100wh;
-  max-height: 100%;
+  max-height: 100vh;
   aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: row;

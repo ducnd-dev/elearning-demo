@@ -26,8 +26,10 @@ export const userStore = useAuthStore((set) => ({
         const cookies = document.cookie.split("; ");
         for (const cookie of cookies) {
           const eqPos = cookie.indexOf("=");
-          const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-          deleteCookie(name);
+          const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+          if (name !== 'setting') {
+            deleteCookie(name);
+          }
         }
         localStorage.clear();
         window.location.href = '/';

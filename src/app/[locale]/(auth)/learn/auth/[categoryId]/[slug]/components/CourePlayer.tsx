@@ -38,7 +38,7 @@ const CourePlayer = (props: Props) => {
   const isProUser = getCookie('plan') === '1';
 
   return (
-    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2 lg:overflow-hidden max-h-[79vh]">
+    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2 lg:overflow-hidden lg:max-h-[83vh]">
       <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full">
         {!detail?.is_free && !isProUser
           ? (
@@ -57,7 +57,7 @@ const CourePlayer = (props: Props) => {
             <iframe
               src={`/video/${detail?.id}`}
               title={detail?.title}
-              className="size-full mb-2 aspect-video min-h-[24vh] overflow-hidden"
+              className="size-full mb-2 aspect-video lg:min-h-[24vh] overflow-hidden"
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
