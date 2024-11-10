@@ -9,7 +9,7 @@ export const VideoWrapper = styled.main`
   align-items: flex-end;
   justify-content: space-between;
 
-  box-shadow: 0px 30px 20px -10px rgb(0 0 0 / 47%);
+  // box-shadow: 0px 30px 20px -10px rgb(0 0 0 / 47%);
 
   video#player {
     min-width: 100%;

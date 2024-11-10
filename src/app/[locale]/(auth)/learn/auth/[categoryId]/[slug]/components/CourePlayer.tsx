@@ -38,7 +38,7 @@ const CourePlayer = (props: Props) => {
   const isProUser = getCookie('plan') === '1';
 
   return (
-    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2 overflow-hidden max-h-[80vh]">
+    <div className=" lg:px-[50px] mx-auto grid grid-cols-12 items-start md:gap-10 pb-8 md:pt-2 lg:overflow-hidden max-h-[79vh]">
       <div className="relative mr-8 aspect-video col-span-full lg:col-span-8 w-full">
         {!detail?.is_free && !isProUser
           ? (
@@ -63,7 +63,7 @@ const CourePlayer = (props: Props) => {
               allowFullScreen
               sandbox="allow-scripts allow-same-origin allow-popups"
               onContextMenu={(e: any) => e.preventDefault()}
-              style={{ width: '100%', height: '106%' }}
+              style={{ width: '100%', height: '100%' }}
             >
             </iframe>
           )}
