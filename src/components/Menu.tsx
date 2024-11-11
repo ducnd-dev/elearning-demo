@@ -1,6 +1,5 @@
 'use client';
 import { useSetting } from '@/stores/common-store';
-import Link from 'next/link';
 import React from 'react'
 
 type Props = {
@@ -21,12 +20,12 @@ const Menu = ({ setOpen }: Props) => {
     <ul className="menu-list flex flex-col gap-5 md:!flex-row">
       {menus.map((menu, index) => (
         <li key={index} className="menu-item">
-          <Link className={`menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400 ${menu.id}`} href={menu.href} onClick={() => setOpen && setOpen(false)}>
+          <a className={`menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400 ${menu.id}`} href={menu.href} onClick={() => setOpen && setOpen(false)}>
             <span className="menu-icon">
               <img src={menu.icon} alt="" />
             </span>
             <span className="menu-txt ml-4 md:ml-0 ">{menu.label}</span>
-          </Link>
+          </a>
         </li>
       ))}
       <li className="menu-item dropdown">
