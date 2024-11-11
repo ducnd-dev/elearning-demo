@@ -31,7 +31,7 @@ export const Sidebar = ({ setOpen }: { setOpen?: (open: boolean) => void }) => {
   return (
     <div className="fixed mr-8 w-[250px] px-2">
       <div className="mb-main-top">
-       <BtnLearnNow />
+        <BtnLearnNow />
       </div>
       <div className="mb-block mt-8">
         <p className="mb-title">
@@ -42,7 +42,14 @@ export const Sidebar = ({ setOpen }: { setOpen?: (open: boolean) => void }) => {
           <ul className="menu-list">
             {menus.map((menu, index) => (
               <li key={index} className={`menu-item ${path === menu.link ? 'active' : ''}`}>
-                <Link className="menu-link" href={menu.link} onClick={() => setOpen && setOpen(false)}>
+                {menu.link == '/' ? <a className="menu-link" href={menu.link} onClick={() => setOpen && setOpen(false)}>
+                  <span className="icon relative">
+                    <img src={menu.icon} alt="" />
+                  </span>
+                  <span className="txt">
+                    <span className="txt-inner">{menu.title}</span>
+                  </span>
+                </a> : <Link className="menu-link" href={menu.link} onClick={() => setOpen && setOpen(false)}>
                   <span className="icon relative">
                     <img src={menu.icon} alt="" />
                   </span>
@@ -50,6 +57,7 @@ export const Sidebar = ({ setOpen }: { setOpen?: (open: boolean) => void }) => {
                     <span className="txt-inner">{menu.title}</span>
                   </span>
                 </Link>
+                }
               </li>
             ))}
           </ul>
