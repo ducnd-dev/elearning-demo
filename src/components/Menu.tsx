@@ -1,17 +1,18 @@
 'use client';
+import { useSetting } from '@/stores/common-store';
 import Link from 'next/link';
 import React from 'react'
 
 type Props = {
-  setting: Model.Setting | null,
   setOpen?: (open: boolean) => void
 }
-const Menu = ({ setting, setOpen }: Props) => {
+const Menu = ({ setOpen }: Props) => {
+  const { setting } = useSetting();
   const menus = [
-    { label: 'Quyền lợi', id:'scroll-quyen_loi', href: null, icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
-    { label: 'Chương trình học', id:'scroll-chuong_trinh_hoc', href: null, icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
-    { label: 'Khánh Hùng là ai ?', id:'scroll-la_ai', href: null, icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
-    { label: 'Colleague Club', id:'link_group_facebook',href: setting?.link_group_facebook || '#', icon: 'https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg' },
+    { label: 'Quyền lợi', id:'scroll-quyen_loi', href: '#quyen_loi', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-03.svg' },
+    { label: 'Chương trình học', id:'scroll-chuong_trinh_hoc', href: '#chuong_trinh_hoc', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-02.svg' },
+    { label: 'Khánh Hùng là ai ?', id:'scroll-la_ai', href: '#la_ai', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-01.svg' },
+    { label: 'Colleague Club', id:'link_group_facebook', href: setting?.link_group_facebook || '#', icon: 'https://khanhhung.academy/template/assets/images/header/hung-colleague-up.svg' },
     { label: 'Blog', id:'blogs', href: '/blogs', icon: 'https://khanhhung.academy/template/assets/images/header/icon-blog.svg' },
     // { label: 'Hoạt động', href: 'https://khanhhung.academy/ban-tin/', icon: 'https://khanhhung.academy/template/assets/images/header/menu-icon-07.svg' },
   ];
@@ -20,17 +21,12 @@ const Menu = ({ setting, setOpen }: Props) => {
     <ul className="menu-list flex flex-col gap-5 md:!flex-row">
       {menus.map((menu, index) => (
         <li key={index} className="menu-item">
-          {menu.href ? <Link className="menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400" href={menu.href} onClick={() => setOpen && setOpen(false)}>
+          <Link className={`menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400 ${menu.id}`} href={menu.href} onClick={() => setOpen && setOpen(false)}>
             <span className="menu-icon">
               <img src={menu.icon} alt="" />
             </span>
             <span className="menu-txt ml-4 md:ml-0 ">{menu.label}</span>
-          </Link> : <div className={`menu-link btn-scroll flex items-center border-b md:border-none pb-4 md:pb-0 border-solid md:border-0 border-gray-400 ${menu.id}`} onClick={() => setOpen && setOpen(false)}>
-            <span className="menu-icon">
-              <img src={menu.icon} alt="" />
-            </span>
-            <span className="menu-txt ml-4 md:ml-0">{menu.label}</span>
-          </div>}
+          </Link>
         </li>
       ))}
       <li className="menu-item dropdown">

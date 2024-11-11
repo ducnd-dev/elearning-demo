@@ -27,7 +27,7 @@ export const Header = ({
                   </div>
                 </div>
                 <div className="header-bot-center header-menu append-menu-js">
-                  <Menu setting={setting} />
+                  <Menu />
                 </div>
                 <UserProfile />
               </div>
