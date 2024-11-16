@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     console.log(email);
 
     try {
-      await request('/v1/api/auth/forgot-password', {
+      await request('/v1/auth/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
