@@ -1,4 +1,5 @@
 'use client';
+import request from '@/libs/request';
 import { Button, Form, Input, Spin } from 'antd';
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -11,7 +12,7 @@ const ForgotPassword = () => {
     console.log(email);
 
     try {
-      await fetch('/api/auth/forgot-password', {
+      await request('/api/auth/forgot-password', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
