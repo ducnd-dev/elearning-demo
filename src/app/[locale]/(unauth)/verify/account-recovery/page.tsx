@@ -1,18 +1,23 @@
 'use client';
 import request from '@/libs/request';
 import { Button, Form, Input, Spin } from 'antd';
-import { useSearchParams } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react';
+
+const FetchToken = () => {
+  const searchParams = new URLSearchParams(location.search);
+  const token = searchParams.get('token');
+  return token ? token : null;
+};
 
 function Recovery() {
-  const searchParams = useSearchParams();
   const [loading, setLoading] = React.useState(false);
+  const token = React.useMemo(() => <Suspense fallback={<div>Loading...</div>}><FetchToken /></Suspense>, []);
+
   const onFinish = async (values: any) => {
     console.log(values);
     
     setLoading(true);
     const { password } = values;
-    const token = searchParams.get('token');
     if (!token) return;
     try {
       await request('/v1/auth/reset-password-by-token', {
@@ -21,11 +26,12 @@ function Recovery() {
       });
       window.location.href = '/';
     } catch (error) {
-      console.error
+      console.error(error);
     } finally {
       setLoading(false);
     }
-  }
+  };
+
   return (
     <div className='max-w-md mx-auto mt-10 text-center'>
       <h1 className='font-bold'>Khôi phục mật khẩu</h1>
@@ -65,4 +71,4 @@ function Recovery() {
   )
 }
 
-export default Recovery
+export default Recovery;
