@@ -46,7 +46,7 @@ function Recovery() {
             name={'confirmPassword'}
             dependencies={['password']}
             rules={[{ required: true, message: 'Vui lòng nhập lại mật khẩu!' }, ({ getFieldValue }) => ({
-              validator(rule, value) {
+              validator(_, value) {
                 if (!value || getFieldValue('password') === value) {
                   return Promise.resolve();
                 }
