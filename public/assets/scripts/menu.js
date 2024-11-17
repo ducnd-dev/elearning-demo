@@ -4,7 +4,7 @@ document.querySelectorAll('.scroll-quyen_loi').forEach(item => {
     // get current url 
     const currentPath = window.location.pathname;
     if (!['/', '/en'].includes(currentPath)) {
-      window.open(window.location.origin + '/#quyen_loi', '_self');
+      window.location.href = '/#quyen_loi';
       return;
     }
     document.getElementById('quyen_loi').scrollIntoView({
@@ -17,7 +17,7 @@ document.querySelectorAll('.scroll-chuong_trinh_hoc').forEach(item => {
   item.addEventListener('click', event => {
     const currentPath = window.location.pathname;
     if (!['/', '/en'].includes(currentPath)) {
-      window.open(window.location.origin + '/#chuong_trinh_hoc', '_self');
+      window.location.href = '/#chuong_trinh_hoc';
       return;
     }
     document.getElementById('chuong_trinh_hoc').scrollIntoView({
@@ -30,7 +30,7 @@ document.querySelectorAll('.scroll-la_ai').forEach(item => {
   item.addEventListener('click', event => {
     const currentPath = window.location.pathname;
     if (!['/', '/en'].includes(currentPath)) {
-      window.open(window.location.origin + '/#la_ai', '_self');
+      window.location.href = '/#la_ai';
       return;
     }
     document.getElementById('la_ai').scrollIntoView({
