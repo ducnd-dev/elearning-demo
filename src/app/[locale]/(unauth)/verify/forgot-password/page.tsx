@@ -9,7 +9,7 @@ const ForgotPassword = () => {
   const router = useRouter();
   const onFinish = async (values: any) => {
     setLoading(true);
-    const { email } = values;
+    const { contact_info } = values;
 
     try {
       await request('/v1/auth/forgot-password', {
@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ contact_info }),
       });
       router.push('/verify/forgot-password/thank-you');
     } catch (error) {
