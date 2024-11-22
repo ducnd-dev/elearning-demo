@@ -32,9 +32,9 @@ const VerifyComponent = () => {
     verify(searchParams.get('token') || '').then((res) => {
       setUser(res.data);
       setCookie('user', JSON.stringify(res.data));
-      const action = searchParams.get('action');
+      // const action = searchParams.get('action');
       // router.push(action === 'login' ? '/learn/auth/1/1' : '/dashboard');
-      window.location.href = action === 'login' ? '/learn/auth/1/1' : '/dashboard';
+      window.location.href = '/learn/auth/1/1';
     });
     return () => {};
   }, [searchParams, router, setUser]);

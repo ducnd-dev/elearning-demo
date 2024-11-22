@@ -14,7 +14,7 @@ const DrawerHeader = () => {
       <Drawer open={open} onClose={() => setOpen(false)} placement="left" className='!w-[300px]'>
         <Sidebar setOpen={setOpen} />
       </Drawer>
-      <img src="/assets/images/icons/icon-menu.png" alt="logo" className="cursor-pointer w-14 h-14 md:mt-10" onClick={() => setOpen(true)} />
+      <img src="/assets/images/icons/icon-menu.png" alt="logo" className="cursor-pointer w-14 h-14 mt-5 md:mt-10" onClick={() => setOpen(true)} />
     </> : <></>
   )
 }

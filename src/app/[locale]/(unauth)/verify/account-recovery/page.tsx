@@ -14,7 +14,6 @@ function Recovery() {
   const token = React.useMemo(() => <Suspense fallback={<div>Loading...</div>}><FetchToken /></Suspense>, []);
 
   const onFinish = async (values: any) => {
-    console.log(values);
     
     setLoading(true);
     const { password } = values;
@@ -33,7 +32,7 @@ function Recovery() {
   };
 
   return (
-    <div className='max-w-md mx-auto mt-10 text-center'>
+    <div className='max-w-md mx-auto mt-10 text-center  border border-gray-200 border-solid p-10 rounded-2xl'>
       <h1 className='font-bold'>Khôi phục mật khẩu</h1>
       <Spin spinning={loading}>
         <Form
@@ -41,6 +40,7 @@ function Recovery() {
           name='recovery'
           initialValues={{ remember: true }}
           onFinish={onFinish}
+          className='!mt-10'
         >
           <Form.Item label="Mật khẩu mới"
             name={'password'}

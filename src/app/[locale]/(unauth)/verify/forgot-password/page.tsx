@@ -8,8 +8,8 @@ const ForgotPassword = () => {
   const [loading, setLoading] = React.useState(false);
   const router = useRouter();
   const onFinish = async (values: any) => {
+    setLoading(true);
     const { email } = values;
-    console.log(email);
 
     try {
       await request('/v1/auth/forgot-password', {
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className='max-w-md mx-auto mt-10 text-center'>
+    <div className='max-w-md w-full mx-auto mt-20 text-center border border-gray-200 border-solid p-10 rounded-2xl'>
       <h1 className='font-bold'> Quên mật khẩu </h1>
       <Spin spinning={loading}>
         <Form
@@ -35,13 +35,13 @@ const ForgotPassword = () => {
           name='forgot-password'
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          className=''
+          className='!mt-10'
         >
           <Form.Item label="Email"
-            name={'email'}
+            name={'contact_info'}
             rules={[{ required: true, message: 'Vui lòng nhập email!' }, { type: 'email', message: 'Email không hợp lệ!' }]}
           >
-            <Input placeholder='Email' />
+            <Input placeholder='Email' className='w-96' />
           </Form.Item>
           <Form.Item>
             <Button type='primary' htmlType='submit'>Gửi</Button>

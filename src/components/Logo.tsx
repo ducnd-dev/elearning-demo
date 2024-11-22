@@ -11,7 +11,7 @@ const Logo = ({ logoSrc }: Props) => {
   const cSetting = getCookie('setting') ? JSON.parse(getCookie('setting') || '') : null
   const imageUrl = logoSrc ? logoSrc : getUrlImage(setting?.logo_header || cSetting?.logo_header);
   return (
-    <a className="logo-link" href="/">
+    <a className="logo-link mt-5" href="/">
       {' '}
       {imageUrl ? <img
         src={imageUrl}

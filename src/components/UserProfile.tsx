@@ -69,7 +69,7 @@ const UserProfile = () => {
               </a>
             </div>
             <div className="header-bot-item-pri header-bot-item" data-attribute="register">
-              <a className="btn-header btn-highlight-login style-pri" href="#">
+              <a className="btn-header btn-highlight-login style-pri" href="/learn/auth/1/1">
                 <span className="txt fw-600">
                   Học ngay
                 </span>
